@@ -21,9 +21,7 @@ const nextConfig = {
   reactStrictMode: true,
   // Using correct experimental options for Next.js 15.x
   experimental: {
-    typedRoutes: true,
-    // Using the correct option name for Next.js 15.x
-    serverExternalPackages: []
+    typedRoutes: true
   }
 };
 
