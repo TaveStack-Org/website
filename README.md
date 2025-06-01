@@ -1,18 +1,14 @@
-# Tavestack - Real Estate Management Landing Page
+# Tavestack AI
 
 
 
 ## 🔥 Introduction
 
-Tavestack is a modern real estate management landing page that showcases property listings, agent profiles, and real estate services with an elegant and responsive design.
+Tavestack is a......
 
 ## 🔗 Live Preview
 
 Check out the live demo of Tavestack here: [Live Preview](https://tavestack.vercel.app/)
-
-## 🎥 Watch the Preview Video on YouTube
-
-Take a look at YouTube video by watching the demo: [Watch the Video](https://youtu.be/x3Vh1tOs8j0) 
 
 ## 💻 Tech Stack
 
