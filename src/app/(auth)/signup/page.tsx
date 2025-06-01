@@ -1,10 +1,10 @@
 "use client";
 
-import Icons from "@/components/global/icons";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { InputOTP, InputOTPGroup, InputOTPSlot } from "@/components/ui/input-otp";
-import { Label } from "@/components/ui/label";
+import Icons from "../../../components/global/icons";
+import { Button } from "../../../components/ui/button";
+import { Input } from "../../../components/ui/input";
+import { InputOTP, InputOTPGroup, InputOTPSlot } from "../../../components/ui/input-otp";
+import { Label } from "../../../components/ui/label";
 import { useSignUp } from '@clerk/nextjs';
 import { LoaderIcon } from "lucide-react";
 import Link from "next/link";

@@ -1,9 +1,9 @@
 "use client";
 
-import Icons from "@/components/global/icons";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+import Icons from "../../../components/global/icons";
+import { Button } from "../../../components/ui/button";
+import { Input } from "../../../components/ui/input";
+import { Label } from "../../../components/ui/label";
 import { useSignIn } from "@clerk/nextjs";
 import { LoaderIcon } from "lucide-react";
 import Link from "next/link";

@@ -1,19 +1,29 @@
 /** @type {import('next').NextConfig} */
+const path = require('path');
+
 const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true
   },
   // Ensure components are properly resolved
   webpack: (config) => {
-    config.resolve.fallback = { fs: false, path: false };
+    // Enhance module resolution with absolute paths
+    config.resolve.modules.push(path.resolve('./src'));
+    
+    // Make webpack resolve these extensions
+    config.resolve.extensions = ['.js', '.jsx', '.ts', '.tsx', ...config.resolve.extensions];
+    
+    // Add alias for @ to point to src directory
+    config.resolve.alias['@'] = path.resolve(__dirname, 'src');
+    
     return config;
   },
-  transpilePackages: [],
   reactStrictMode: true,
-  // Important for resolving @/ paths in deployment
+  // Using correct experimental options for Next.js 15.x
   experimental: {
     typedRoutes: true,
-    serverComponentsExternalPackages: []
+    // Using the correct option name for Next.js 15.x
+    serverExternalPackages: []
   }
 };
 
