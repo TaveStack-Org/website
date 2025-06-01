@@ -2,9 +2,10 @@
 
 import Link from 'next/link';
 import { ReactNode } from 'react';
+import { UrlObject } from 'url';
 
 interface ScrollLinkProps {
-  href: string;
+  href: string | UrlObject;
   className?: string;
   children: ReactNode;
   onClick?: () => void;
@@ -13,9 +14,10 @@ interface ScrollLinkProps {
 const ScrollLink = ({ href, className, children, onClick }: ScrollLinkProps) => {
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     // Only handle anchor links
-    if (href.startsWith('#')) {
+    const hrefString = typeof href === 'string' ? href : href.pathname?.toString() || '';
+    if (hrefString.startsWith('#')) {
       e.preventDefault();
-      const targetId = href.substring(1);
+      const targetId = hrefString.substring(1);
       const element = document.getElementById(targetId);
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
@@ -28,8 +30,11 @@ const ScrollLink = ({ href, className, children, onClick }: ScrollLinkProps) => 
     }
   };
 
+  // Convert string href to object format for Next.js 15 compatibility
+  const linkHref = typeof href === 'string' ? { pathname: href } : href;
+  
   return (
-    <Link href={href} className={className} onClick={handleClick}>
+    <Link href={linkHref} className={className} onClick={handleClick}>
       {children}
     </Link>
   );

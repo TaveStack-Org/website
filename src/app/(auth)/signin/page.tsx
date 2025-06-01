@@ -113,7 +113,7 @@ const SignInPage = () => {
             <p className="text-center text-sm text-muted-foreground">
                 Don't have an account?{" "}
                 <Link
-                    href="/signup"
+                    href={{ pathname: "/signup" }}
                     className="underline underline-offset-4 hover:text-primary"
                 >
                     Sign up

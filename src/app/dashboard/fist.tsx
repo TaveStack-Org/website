@@ -14,7 +14,7 @@ const DashboardPage = async () => {
                     Welcome to the dashboard, {user?.fullName}
                 </h1>
                 <div className="flex items-center justify-center gap-4">
-                    <Link href="/">
+                    <Link href={{ pathname: "/" }}>
                         <Button variant="outline">
                             Home
                         </Button>

@@ -3,6 +3,7 @@
 import { Facebook, Instagram, Linkedin, Twitter, Youtube } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { UrlObject } from 'url';
 import ScrollLink from './ui/scroll-link';
 import AnimationContainer from './global/animation-container';
 import Wrapper from "./global/wrapper";
@@ -30,11 +31,11 @@ const COMPANY_LINKS = [
 ];
 
 const SOCIAL_LINKS = [
-    { icon: Facebook, href: "#" },
-    { icon: Twitter, href: "#" },
-    { icon: Instagram, href: "#" },
-    { icon: Linkedin, href: "#" },
-    { icon: Youtube, href: "#" },
+    { icon: Facebook, href: { pathname: "#" } },
+    { icon: Twitter, href: { pathname: "#" } },
+    { icon: Instagram, href: { pathname: "#" } },
+    { icon: Linkedin, href: { pathname: "#" } },
+    { icon: Youtube, href: { pathname: "#" } },
 ];
 
 // We now use the ScrollLink component instead of this function

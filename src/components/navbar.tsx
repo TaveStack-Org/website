@@ -8,6 +8,7 @@ import { useClerk } from "@clerk/nextjs";
 import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "framer-motion";
 import { MenuIcon, XIcon } from "lucide-react";
 import Link from "next/link";
+import { UrlObject } from "url";
 import ScrollLink from "./ui/scroll-link";
 import { RefObject, useRef, useState } from "react";
 import AnimationContainer from "./global/animation-container";
@@ -68,7 +69,7 @@ const Navbar = () => {
                         transition={{ duration: 0.2 }}
                         className="max-w-[180px] w-full"
                     >
-                        <Link href="/" className="flex items-center gap-2">
+                        <Link href={{ pathname: "/" }} className="flex items-center gap-2">
                         <Icons.logo className="w-full" />
                         </Link>
                     </motion.div>
@@ -97,13 +98,13 @@ const Navbar = () => {
                     <AnimationContainer animation="fadeLeft" delay={0.1}>
                         <div className="flex items-center gap-x-4">
                             {user ? (
-                                <Link href="/dashboard">
+                                <Link href={{ pathname: "/dashboard" }}>
                                     <Button>
                                         Dashboard
                                     </Button>
                                 </Link>
                             ) : (
-                                <Link href="/signup">
+                                <Link href={{ pathname: "/signup" }}>
                                     <Button size="sm">
                                         Get started
                                     </Button>
@@ -138,7 +139,7 @@ const Navbar = () => {
                 <Wrapper className="flex items-center justify-between lg:px-4">
                     <div className="flex items-center justify-between gap-x-4 w-full">
                         <AnimationContainer animation="fadeRight" delay={0.1} className="max-w-[40px] w-full">
-                            <Link href="/">
+                            <Link href={{ pathname: "/" }}>
                                 <Icons.iconMark className="w-full" />
                             </Link>
                         </AnimationContainer>
@@ -146,7 +147,7 @@ const Navbar = () => {
                         <AnimationContainer animation="fadeLeft" delay={0.1}>
                             <div className="flex items-center justify-center gap-x-4">
                                 <Button size="sm">
-                                    <Link href="/signup" className="flex items-center">
+                                    <Link href={{ pathname: "/signup" }} className="flex items-center">
                                         Get started
                                     </Link>
                                 </Button>
@@ -194,7 +195,7 @@ const Navbar = () => {
                             ))}
                             <AnimationContainer animation="fadeUp" delay={0.5} className="w-full">
                                 {user ? (
-                                    <Link href="/dashboard" className="w-full">
+                                    <Link href={{ pathname: "/dashboard" }} className="w-full">
                                         <Button
                                             onClick={() => setOpen(false)}
                                             variant="default"
@@ -205,7 +206,7 @@ const Navbar = () => {
                                     </Link>
                                 ) : (
                                     <>
-                                        <Link href="/signin" className="w-full">
+                                        <Link href={{ pathname: "/signin" }} className="w-full">
                                             <Button
                                                 onClick={() => setOpen(false)}
                                                 variant="secondary"
@@ -214,7 +215,7 @@ const Navbar = () => {
                                                 Login
                                             </Button>
                                         </Link>
-                                        <Link href="/signup" className="w-full">
+                                        <Link href={{ pathname: "/signup" }} className="w-full">
                                             <Button
                                                 onClick={() => setOpen(false)}
                                                 variant="default"

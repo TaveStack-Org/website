@@ -79,7 +79,7 @@ const Hero = () => {
 
                     <AnimationContainer animation="fadeUp" delay={0.8}>
                         <div className="w-full">
-                            <Link href="/">
+                            <Link href={{ pathname: "/" }}>
                                 <Button size="md" className="w-full md:w-auto">
                                     Start free trial
                                 </Button>

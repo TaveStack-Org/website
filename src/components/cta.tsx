@@ -104,7 +104,7 @@ const CTA = () => {
                     </AnimationContainer>
 
                     <AnimationContainer animation="fadeUp" delay={1}>
-                        <Link href="/signin">
+                        <Link href={{ pathname: "/signin" }}>
                             <Button size="lg" className="mt-6">
                                 Start now
                                 <ArrowRightIcon className="size-4 ml-2" />
