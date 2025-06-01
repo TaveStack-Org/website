@@ -7,13 +7,19 @@ export const generateMetadata = ({
     icons = [
         {
             rel: "apple-touch-icon",
-            sizes: "32x32",
-            url: "/icons/icon.svg"
+            sizes: "180x180",
+            url: "/icons/TaveStack-Icon-Mark-_White-no-BG_.svg"
         },
         {
             rel: "icon",
+            type: "image/svg+xml",
+            url: "/icons/TaveStack-Icon-Mark-_White-no-BG_.svg"
+        },
+        {
+            rel: "icon",
+            type: "image/png",
             sizes: "32x32",
-            url: "/icons/icon.svg"
+            url: "/images/temp/TaveStack Icon Mark (Black no BG).png"
         },
     ],
     noIndex = false
