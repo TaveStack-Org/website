@@ -132,7 +132,7 @@ const Navbar = () => {
                 }}
                 className={cn(
                     "flex relative flex-col lg:hidden w-full justify-between items-center mx-auto py-4 z-50",
-                    visible && "bg-neutral-950 w-11/12 border",
+                    visible && "bg-background/80 backdrop-blur-sm w-11/12 border border-border",
                     open && "border-transparent"
                 )}
             >
@@ -175,7 +175,7 @@ const Navbar = () => {
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             exit={{ opacity: 0 }}
-                            className="flex rounded-b-xl absolute top-16 bg-neutral-950 inset-x-0 z-50 flex-col items-start justify-start gap-2 w-full px-4 py-8 shadow-xl shadow-neutral-950"
+                            className="flex rounded-b-xl absolute top-16 bg-background/95 backdrop-blur-sm inset-x-0 z-50 flex-col items-start justify-start gap-2 w-full px-4 py-8 shadow-xl border-x border-b border-border"
                         >
                             {NAV_LINKS.map((navItem: any, idx: number) => (
                                 <AnimationContainer
@@ -187,7 +187,7 @@ const Navbar = () => {
                                     <ScrollLink
                                         href={navItem.link}
                                         onClick={() => setOpen(false)}
-                                        className="relative text-neutral-300 hover:bg-neutral-800 w-full px-4 py-2 rounded-lg"
+                                        className="relative text-muted-foreground hover:text-foreground hover:bg-accent w-full px-4 py-2 rounded-lg transition-colors duration-200"
                                     >
                                         <motion.span>{navItem.name}</motion.span>
                                     </ScrollLink>

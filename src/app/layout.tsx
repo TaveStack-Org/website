@@ -2,7 +2,7 @@ import { base, heading } from "@/constants/fonts";
 import { cn } from "@/lib";
 import "@/styles/globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
-import { ThemeProvider } from "next-themes";
+import { ThemeProvider } from "@/components/theme-provider";
 
 // Metadata is now directly imported from the metadata.ts file in the app directory
 export { metadata } from './metadata';
