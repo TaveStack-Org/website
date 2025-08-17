@@ -10,6 +10,7 @@ import { FlickeringGrid } from "./ui/flickering-grid";
 import SectionBadge from "./ui/section-badge";
 import { useTheme } from "next-themes";
 import { cn } from "@/lib";
+import { useEffect, useState } from "react";
 
 const HIGHLIGHTS = [
     {
@@ -28,12 +29,18 @@ const HIGHLIGHTS = [
 
 const CTA = () => {
     const { resolvedTheme } = useTheme();
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
+
     return (
         <Wrapper className="py-20 lg:py-32" id="contact">
             <div className="flex flex-col items-center text-center relative gap-4 py-20 lg:py-32 overflow-hidden z-0">
                 <div className={cn(
                     "absolute inset-x-0 bottom-0 bg-gradient-to-t w-full h-1/2 z-10",
-                    resolvedTheme === "dark" ? "from-[#101010]" : "from-purple-100"
+                    mounted && resolvedTheme === "dark" ? "from-[#101010]" : mounted ? "from-purple-100" : "from-purple-100"
                 )}></div>
 
                 <AnimationContainer animation="scaleUp" delay={0.2} className="w-full mx-auto">
@@ -77,7 +84,7 @@ const CTA = () => {
                         <div className="flex items-center mt-4">
                             <div className={cn(
                                 "rounded-full px-4 py-2.5 flex flex-wrap md:flex-row items-center justify-center gap-4",
-                                resolvedTheme === "dark" ? "bg-neutral-900" : "bg-purple-100"
+                                mounted && resolvedTheme === "dark" ? "bg-neutral-900" : mounted ? "bg-purple-100" : "bg-purple-100"
                             )}>
                                 {HIGHLIGHTS.map((item, index) => (
                                     <AnimationContainer
@@ -104,7 +111,7 @@ const CTA = () => {
                     </AnimationContainer>
 
                     <AnimationContainer animation="fadeUp" delay={1}>
-                        <Link href={{ pathname: "/signin" }}>
+                        <Link href={{ pathname: "https://tavestack-dash.vercel.app/" }}>
                             <Button size="lg" className="mt-6">
                                 Start now
                                 <ArrowRightIcon className="size-4 ml-2" />

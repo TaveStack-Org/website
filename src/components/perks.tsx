@@ -4,12 +4,19 @@ import { PERKS } from '@/constants';
 import { cn } from "@/lib";
 import Image from 'next/image';
 import { useTheme } from 'next-themes';
+import { useEffect, useState } from 'react';
 import AnimationContainer from './global/animation-container';
 import Wrapper from "./global/wrapper";
 import SectionBadge from './ui/section-badge';
 
 const Perks = () => {
     const { resolvedTheme } = useTheme();
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
+
     return (
         <Wrapper className="py-20 lg:py-32 relative">
             <div className="flex flex-col items-center text-center gap-4">
@@ -61,7 +68,7 @@ const Perks = () => {
                                 <div className="flex flex-col items-center text-center gap-4">
                                     <div className={cn(
                                         "size-12 lg:size-16 rounded-lg lg:rounded-2xl flex items-center justify-center",
-                                        resolvedTheme === "dark" ? "bg-neutral-900" : "bg-purple-100"
+                                        mounted && resolvedTheme === "dark" ? "bg-neutral-900" : mounted ? "bg-purple-100" : "bg-purple-100"
                                     )}>
                                         <Image
                                             src={perk.icon}
@@ -89,4 +96,4 @@ const Perks = () => {
     );
 };
 
-export default Perks; 
+export default Perks;

@@ -79,7 +79,7 @@ const Hero = () => {
 
                     <AnimationContainer animation="fadeUp" delay={0.8}>
                         <div className="w-full">
-                            <Link href={{ pathname: "/" }}>
+                            <Link href={{ pathname: "https://tavestack-dash.vercel.app/" }}>
                                 <Button size="md" className="w-full md:w-auto">
                                     Start free trial
                                 </Button>
@@ -115,15 +115,6 @@ const Hero = () => {
                     </div>
                 </AnimationContainer>
             </div>
-            <AnimationContainer animation="scaleUp" delay={1.2} className="absolute w-2/3 h-auto -top-[8%] left-1/4 -z-10">
-                <Image
-                    src="/images/hero-gradient.svg"
-                    alt="hero"
-                    width={1024}
-                    height={1024}
-                    className="object-cover w-full h-auto"
-                />
-            </AnimationContainer>
         </Wrapper>
     )
 };

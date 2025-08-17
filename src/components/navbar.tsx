@@ -98,13 +98,13 @@ const Navbar = () => {
                     <AnimationContainer animation="fadeLeft" delay={0.1}>
                         <div className="flex items-center gap-x-4">
                             {user ? (
-                                <Link href={{ pathname: "/dashboard" }}>
+                                <Link href={{ pathname: "https://tavestack-dash.vercel.app/" }}>
                                     <Button>
                                         Dashboard
                                     </Button>
                                 </Link>
                             ) : (
-                                <Link href={{ pathname: "/signup" }}>
+                                <Link href={{ pathname: "https://tavestack-dash.vercel.app/" }}>
                                     <Button size="sm">
                                         Get started
                                     </Button>
@@ -147,7 +147,7 @@ const Navbar = () => {
                         <AnimationContainer animation="fadeLeft" delay={0.1}>
                             <div className="flex items-center justify-center gap-x-4">
                                 <Button size="sm">
-                                    <Link href={{ pathname: "/signup" }} className="flex items-center">
+                                    <Link href={{ pathname: "https://tavestack-dash.vercel.app/" }} className="flex items-center">
                                         Get started
                                     </Link>
                                 </Button>
@@ -195,7 +195,7 @@ const Navbar = () => {
                             ))}
                             <AnimationContainer animation="fadeUp" delay={0.5} className="w-full">
                                 {user ? (
-                                    <Link href={{ pathname: "/dashboard" }} className="w-full">
+                                    <Link href={{ pathname: "https://tavestack-dash.vercel.app/" }} className="w-full">
                                         <Button
                                             onClick={() => setOpen(false)}
                                             variant="default"
@@ -206,7 +206,7 @@ const Navbar = () => {
                                     </Link>
                                 ) : (
                                     <>
-                                        <Link href={{ pathname: "/signin" }} className="w-full">
+                                        <Link href={{ pathname: "https://tavestack-dash.vercel.app/" }} className="w-full">
                                             <Button
                                                 onClick={() => setOpen(false)}
                                                 variant="secondary"
@@ -215,7 +215,7 @@ const Navbar = () => {
                                                 Login
                                             </Button>
                                         </Link>
-                                        <Link href={{ pathname: "/signup" }} className="w-full">
+                                        <Link href={{ pathname: "https://tavestack-dash.vercel.app/" }} className="w-full">
                                             <Button
                                                 onClick={() => setOpen(false)}
                                                 variant="default"

@@ -4,12 +4,19 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger, } from "@
 import { FAQS } from '@/constants';
 import { cn } from '@/lib';
 import { useTheme } from 'next-themes';
+import { useEffect, useState } from 'react';
 import AnimationContainer from './global/animation-container';
 import Wrapper from "./global/wrapper";
 import SectionBadge from './ui/section-badge';
 
 const FAQ = () => {
     const { resolvedTheme } = useTheme();
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
+
     return (
         <Wrapper className="py-20 lg:py-32" id="faq">
             <div className="flex flex-col items-center text-center gap-4">
@@ -42,7 +49,7 @@ const FAQ = () => {
                                 value={`item-${index}`}
                                 className={cn(
                                     "border-none rounded-2xl px-6",
-                                    resolvedTheme === "dark" ? "bg-[#191919]" : "bg-purple-100"
+                                    mounted && resolvedTheme === "dark" ? "bg-[#191919]" : mounted ? "bg-purple-100" : "bg-purple-100"
                                 )}
                             >
                                 <AccordionTrigger className="hover:no-underline py-6 text-base md:text-lg text-left font-normal">
