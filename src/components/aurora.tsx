@@ -123,18 +123,18 @@ interface AuroraProps {
 // Theme configurations
 const THEME_CONFIG = {
   dark: {
-    colorStops: ["#7f19e6", "#000000", "#ff7f08ff"],
+    colorStops: ["#7f19e6", "#000000", "#ff7f08"],
     amplitude: 1.0,
     blend: 0.5,
     intensity: 0.6,
     opacity: 0.8,
   },
   light: {
-    colorStops: ["#a363f7ff", "#ffffffff", "#ff9845ff"],
+    colorStops: ["#a363f7", "#e0e7ff", "#ff9845"],
     amplitude: 0.9,
     blend: 0.6,
-    intensity: 0.45,
-    opacity: 0.55,
+    intensity: 0.5,
+    opacity: 0.7,
   },
 };
 
