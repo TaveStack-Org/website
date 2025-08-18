@@ -59,13 +59,11 @@ const Footer = () => {
                                 <Icons.logo className="w-max h-6" />
                             </div>
                             <p className="text-muted-foreground mt-4 text-sm">
-                                123 Pine Avenue, Suite 500
-                                <br />
-                                New York, NY 10001
+                                A15, Aso Grove Estate, Abuja, Nigeria.
                             </p>
                             <div className="mt-4 text-sm text-muted-foreground">
-                                <p>support@tavestack.com</p>
-                                <p>+1 (123) 456-7890</p>
+                                <p>info@tavestack.com</p>
+                                <p>+234 707 366 6668</p>
                             </div>
                             <div className="flex items-center gap-4 mt-6">
                                 {SOCIAL_LINKS.map((social, index) => (
