@@ -18,8 +18,8 @@ const ThemeAwareDashboardContent = () => {
     
     // Use different dashboard images based on theme
     const dashboardSrc = resolvedTheme === "dark" 
-        ? "/images/dashboarddark.png"
-        : "/images/dashboardlight.png";
+        ? "/images/Meeting Dark.png"
+        : "/images/Meeting Light.png";
     
     return (
         <Image

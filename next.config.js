@@ -5,6 +5,9 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true
   },
+  images: {
+    domains: ['cdni.iconscout.com']
+  },
   // Ensure components are properly resolved
   webpack: (config) => {
     // Enhance module resolution with absolute paths

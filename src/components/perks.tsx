@@ -70,13 +70,7 @@ const Perks = () => {
                                         "size-12 lg:size-16 rounded-lg lg:rounded-2xl flex items-center justify-center",
                                         mounted && resolvedTheme === "dark" ? "bg-neutral-900" : mounted ? "bg-purple-100" : "bg-purple-100"
                                     )}>
-                                        <Image
-                                            src={perk.icon}
-                                            alt={perk.title}
-                                            width={1024}
-                                            height={1024}
-                                            className="size-8 lg:size-10"
-                                        />
+                                        <perk.icon className="size-6 lg:size-8 text-purple-600 dark:text-purple-400" />
                                     </div>
                                     <div className="space-y-2">
                                         <h3 className="text-lg md:text-xl font-medium">
