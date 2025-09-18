@@ -16,11 +16,11 @@ export type Plan = {
 
 export const PRICING_PLANS: Plan[] = [
     {
-        name: "Starter",
+        name: "Free Teir",
         description: "Perfect for students and freelancers",
         price: {
-            monthly: 15,
-            yearly: 150,
+            monthly: 0,
+            yearly: 0,
         },
         features: [
             { text: "5 hours of transcription per month", included: true },
@@ -35,8 +35,8 @@ export const PRICING_PLANS: Plan[] = [
         name: "Professional",
         description: "Ideal for small teams and organizations",
         price: {
-            monthly: 49,
-            yearly: 490,
+            monthly: 0,
+            yearly: 0,
         },
         popular: true,
         features: [
@@ -52,8 +52,8 @@ export const PRICING_PLANS: Plan[] = [
         name: "Enterprise",
         description: "For large organizations and government agencies",
         price: {
-            monthly: 129,
-            yearly: 1290,
+            monthly: 0,
+            yearly: 0,
         },
         features: [
             { text: "Unlimited transcription", included: true },
