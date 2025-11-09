@@ -6,7 +6,7 @@ import { useClickOutside } from "@/hooks";
 import { cn } from "@/lib";
 import { useClerk } from "@clerk/nextjs";
 import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "framer-motion";
-import { MenuIcon, XIcon } from "lucide-react";
+import { MenuIcon, XIcon, BookOpen } from "lucide-react";
 import Link from "next/link";
 import { UrlObject } from "url";
 import ScrollLink from "./ui/scroll-link";
@@ -83,12 +83,22 @@ const Navbar = () => {
                                     delay={0.1 * index}
                                 >
                                     <div className="relative">
-                                        <ScrollLink 
-                                            href={link.link} 
-                                            className="hover:text-foreground transition-all duration-500 hover:bg-accent rounded-md px-4 py-2"
-                                        >
-                                            {link.name}
-                                        </ScrollLink>
+                                        {link.external ? (
+                                            <Link
+                                                href={link.link}
+                                                className="hover:text-foreground transition-all duration-500 hover:bg-accent rounded-md px-4 py-2 flex items-center gap-2"
+                                            >
+                                                {link.name === "Docs" && <BookOpen className="w-4 h-4" />}
+                                                {link.name}
+                                            </Link>
+                                        ) : (
+                                            <ScrollLink
+                                                href={link.link}
+                                                className="hover:text-foreground transition-all duration-500 hover:bg-accent rounded-md px-4 py-2"
+                                            >
+                                                {link.name}
+                                            </ScrollLink>
+                                        )}
                                     </div>
                                 </AnimationContainer>
                             ))}
@@ -184,13 +194,24 @@ const Navbar = () => {
                                     delay={0.1 * (idx + 1)}
                                     className="w-full"
                                 >
-                                    <ScrollLink
-                                        href={navItem.link}
-                                        onClick={() => setOpen(false)}
-                                        className="relative text-muted-foreground hover:text-foreground hover:bg-accent w-full px-4 py-2 rounded-lg transition-colors duration-200"
-                                    >
-                                        <motion.span>{navItem.name}</motion.span>
-                                    </ScrollLink>
+                                    {navItem.external ? (
+                                        <Link
+                                            href={navItem.link}
+                                            onClick={() => setOpen(false)}
+                                            className="relative text-muted-foreground hover:text-foreground hover:bg-accent w-full px-4 py-2 rounded-lg transition-colors duration-200 flex items-center gap-2"
+                                        >
+                                            {navItem.name === "Docs" && <BookOpen className="w-4 h-4" />}
+                                            <motion.span>{navItem.name}</motion.span>
+                                        </Link>
+                                    ) : (
+                                        <ScrollLink
+                                            href={navItem.link}
+                                            onClick={() => setOpen(false)}
+                                            className="relative text-muted-foreground hover:text-foreground hover:bg-accent w-full px-4 py-2 rounded-lg transition-colors duration-200"
+                                        >
+                                            <motion.span>{navItem.name}</motion.span>
+                                        </ScrollLink>
+                                    )}
                                 </AnimationContainer>
                             ))}
                             <AnimationContainer animation="fadeUp" delay={0.5} className="w-full">

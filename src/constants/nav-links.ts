@@ -8,6 +8,11 @@ export const NAV_LINKS = [
         link: "#pricing",
     },
     {
+        name: "Docs",
+        link: "/docs",
+        external: true,
+    },
+    {
         name: "Contact",
         link: "#contact",
     },
