@@ -4,14 +4,21 @@ import { METRICS } from '@/constants';
 import { cn } from "@/lib";
 import NumberFlow from '@number-flow/react';
 import Image from "next/image";
+import { useEffect, useState } from "react";
 import AnimationContainer from './global/animation-container';
 import Wrapper from "./global/wrapper";
 import { Button } from './ui/button';
 import SectionBadge from './ui/section-badge';
+import GradientText from './ui/gradient-text';
 import { useTheme } from "next-themes";
 
 const PlatformMetrics = () => {
     const { resolvedTheme } = useTheme();
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
     return (
         <Wrapper className="py-20 lg:py-32">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -21,10 +28,12 @@ const PlatformMetrics = () => {
                     </AnimationContainer>
 
                     <AnimationContainer animation="fadeUp" delay={0.3}>
-                        <h2 className="text-2xl md:text-4xl lg:text-5xl font-medium !leading-tight text-transparent bg-clip-text bg-gradient-to-b from-foreground to-neutral-400">
-                            Driving Africa's digital
-                            <br />
-                            transformation
+                        <h2 className="text-2xl md:text-4xl lg:text-5xl font-medium !leading-tight">
+                            <GradientText colors={['#9c40ff', '#ffaa40', '#9c40ff']} animationSpeed={6}>
+                                Driving Africa's digital
+                                <br />
+                                transformation
+                            </GradientText>
                         </h2>
                     </AnimationContainer>
 
@@ -50,7 +59,7 @@ const PlatformMetrics = () => {
                         >
                             <div className={cn(
                                 "relative rounded-3xl p-4 lg:p-6 overflow-hidden z-0",
-                                resolvedTheme === "dark" ? "bg-[#191919]" : "bg-purple-50"
+                                !mounted ? "bg-[#191919]" : resolvedTheme === "dark" ? "bg-[#191919]" : "bg-purple-50"
                             )}>
                                 <AnimationContainer animation="scaleUp" delay={0.7 + (index * 0.2)}>
                                     <div className={cn(

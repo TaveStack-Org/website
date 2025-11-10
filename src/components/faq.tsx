@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react';
 import AnimationContainer from './global/animation-container';
 import Wrapper from "./global/wrapper";
 import SectionBadge from './ui/section-badge';
+import GradientText from './ui/gradient-text';
 
 const FAQ = () => {
     const { resolvedTheme } = useTheme();
@@ -25,8 +26,10 @@ const FAQ = () => {
                 </AnimationContainer>
 
                 <AnimationContainer animation="fadeUp" delay={0.3}>
-                    <h2 className="text-2xl md:text-4xl lg:text-5xl font-medium !leading-tight text-transparent bg-clip-text bg-gradient-to-b from-foreground to-neutral-400">
-                        Still have questions?
+                    <h2 className="text-2xl md:text-4xl lg:text-5xl font-medium !leading-tight">
+                        <GradientText colors={['#9c40ff', '#ffaa40', '#9c40ff']} animationSpeed={6}>
+                            Still have questions?
+                        </GradientText>
                     </h2>
                 </AnimationContainer>
 

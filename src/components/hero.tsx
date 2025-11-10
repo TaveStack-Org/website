@@ -8,6 +8,7 @@ import Wrapper from "./global/wrapper";
 import { Button } from "./ui/button";
 import Marquee from "./ui/marquee";
 import SectionBadge from "./ui/section-badge";
+import GradientText from "./ui/gradient-text";
 import { useTheme } from "next-themes";
 import dynamic from "next/dynamic";
 import { FC } from "react";
@@ -65,8 +66,14 @@ const Hero = () => {
                         </AnimationContainer>
 
                         <AnimationContainer animation="fadeUp" delay={0.4}>
-                            <h1 className="text-5xl lg:text-6xl font-medium !leading-tight text-transparent bg-clip-text bg-gradient-to-r from-foreground to-neutral-500">
-                            AI-Powered Productivity for Africa
+                            <h1 className="text-5xl lg:text-6xl font-medium !leading-tight">
+                                <GradientText
+                                    colors={['#9c40ff', '#ffaa40', '#9c40ff']}
+                                    animationSpeed={6}
+                                    className="mx-0"
+                                >
+                                    AI-Powered Productivity for Africa
+                                </GradientText>
                             </h1>
                         </AnimationContainer>
 

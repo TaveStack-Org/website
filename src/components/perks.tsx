@@ -8,6 +8,8 @@ import { useEffect, useState } from 'react';
 import AnimationContainer from './global/animation-container';
 import Wrapper from "./global/wrapper";
 import SectionBadge from './ui/section-badge';
+import GradientText from './ui/gradient-text';
+import StarBorder from './ui/star-border';
 
 const Perks = () => {
     const { resolvedTheme } = useTheme();
@@ -25,10 +27,12 @@ const Perks = () => {
                 </AnimationContainer>
 
                 <AnimationContainer animation="fadeUp" delay={0.3}>
-                    <h2 className="text-2xl md:text-4xl lg:text-5xl font-medium !leading-tight text-transparent bg-clip-text bg-gradient-to-b from-foreground to-neutral-400">
-                        African-focused
-                        <br />
-                        AI advantages
+                    <h2 className="text-2xl md:text-4xl lg:text-5xl font-medium !leading-tight">
+                        <GradientText colors={['#9c40ff', '#ffaa40', '#9c40ff']} animationSpeed={6}>
+                            African-focused
+                            <br />
+                            AI advantages
+                        </GradientText>
                     </h2>
                 </AnimationContainer>
 
@@ -66,12 +70,17 @@ const Perks = () => {
                                 delay={0.2 * (index + 1)}
                             >
                                 <div className="flex flex-col items-center text-center gap-4">
-                                    <div className={cn(
-                                        "size-12 lg:size-16 rounded-lg lg:rounded-2xl flex items-center justify-center",
-                                        mounted && resolvedTheme === "dark" ? "bg-neutral-900" : mounted ? "bg-purple-100" : "bg-purple-100"
-                                    )}>
-                                        <perk.icon className="size-6 lg:size-8 text-purple-600 dark:text-purple-400" />
-                                    </div>
+                                    <StarBorder
+                                        as="div"
+                                        color="#9c40ff"
+                                        speed="4s"
+                                        thickness={2}
+                                        className="cursor-default"
+                                    >
+                                        <div className="size-16 lg:size-20 rounded-lg lg:rounded-2xl flex items-center justify-center bg-transparent">
+                                            <perk.icon className="size-8 lg:size-10 text-purple-500" />
+                                        </div>
+                                    </StarBorder>
                                     <div className="space-y-2">
                                         <h3 className="text-lg md:text-xl font-medium">
                                             {perk.title}

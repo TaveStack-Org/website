@@ -4,14 +4,21 @@ import { TESTIMONIALS } from '@/constants';
 import { cn } from '@/lib';
 import { Star } from 'lucide-react';
 import Image from 'next/image';
+import { useEffect, useState } from 'react';
 import { useTheme } from 'next-themes';
 import AnimationContainer from './global/animation-container';
 import Wrapper from "./global/wrapper";
 import Marquee from './ui/marquee';
 import SectionBadge from './ui/section-badge';
+import GradientText from './ui/gradient-text';
 
 const Testimonials = () => {
     const { resolvedTheme } = useTheme();
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
     return (
         <Wrapper className="py-20 lg:py-32">
             <div className="flex flex-col items-center text-center gap-4 mb-16">
@@ -20,10 +27,12 @@ const Testimonials = () => {
                 </AnimationContainer>
 
                 <AnimationContainer animation="fadeUp" delay={0.3}>
-                    <h2 className="text-2xl md:text-4xl lg:text-5xl font-medium !leading-tight text-transparent bg-clip-text bg-gradient-to-b from-foreground to-neutral-400">
-                        Trusted across Africa
-                        <br />
-                        and beyond
+                    <h2 className="text-2xl md:text-4xl lg:text-5xl font-medium !leading-tight">
+                        <GradientText colors={['#9c40ff', '#ffaa40', '#9c40ff']} animationSpeed={6}>
+                            Trusted across Africa
+                            <br />
+                            and beyond
+                        </GradientText>
                     </h2>
                 </AnimationContainer>
 
@@ -38,11 +47,11 @@ const Testimonials = () => {
                 <div className="relative">
                     <div className={cn(
                         "absolute -left-1 top-0 w-20 h-full bg-gradient-to-r to-transparent z-10",
-                        resolvedTheme === "dark" ? "from-[#101010]" : "from-purple-50"
+                        !mounted ? "from-[#101010]" : resolvedTheme === "dark" ? "from-[#101010]" : "from-purple-50"
                     )} />
                     <div className={cn(
                         "absolute -right-1 top-0 w-20 h-full bg-gradient-to-l to-transparent z-10",
-                        resolvedTheme === "dark" ? "from-[#101010]" : "from-purple-50"
+                        !mounted ? "from-[#101010]" : resolvedTheme === "dark" ? "from-[#101010]" : "from-purple-50"
                     )} />
 
                     <Marquee className="[--gap:1.5rem]" pauseOnHover>
@@ -55,7 +64,7 @@ const Testimonials = () => {
                                 <div
                                     className={cn(
                                         "flex-shrink-0 w-[400px] rounded-3xl backdrop-blur-3xl p-8",
-                                        resolvedTheme === "dark" ? "bg-[#191919]" : "bg-purple-100"
+                                        !mounted ? "bg-[#191919]" : resolvedTheme === "dark" ? "bg-[#191919]" : "bg-purple-100"
                                     )}
                                 >
                                     <div className="flex flex-col gap-6">

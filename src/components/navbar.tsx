@@ -84,13 +84,13 @@ const Navbar = () => {
                                 >
                                     <div className="relative">
                                         {link.external ? (
-                                            <Link
+                                            <a
                                                 href={link.link}
                                                 className="hover:text-foreground transition-all duration-500 hover:bg-accent rounded-md px-4 py-2 flex items-center gap-2"
                                             >
                                                 {link.name === "Docs" && <BookOpen className="w-4 h-4" />}
                                                 {link.name}
-                                            </Link>
+                                            </a>
                                         ) : (
                                             <ScrollLink
                                                 href={link.link}
@@ -108,13 +108,13 @@ const Navbar = () => {
                     <AnimationContainer animation="fadeLeft" delay={0.1}>
                         <div className="flex items-center gap-x-4">
                             {user ? (
-                                <Link href={{ pathname: "https://tavestack-dash.vercel.app/" }}>
+                                <Link href={{ pathname: "https://app.tavestack.com/" }}>
                                     <Button>
                                         Dashboard
                                     </Button>
                                 </Link>
                             ) : (
-                                <Link href={{ pathname: "https://tavestack-dash.vercel.app/" }}>
+                                <Link href={{ pathname: "https://app.tavestack.com/" }}>
                                     <Button size="sm">
                                         Get started
                                     </Button>

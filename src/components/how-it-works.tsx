@@ -6,6 +6,7 @@ import Image from "next/image";
 import AnimationContainer from './global/animation-container';
 import Wrapper from "./global/wrapper";
 import SectionBadge from "./ui/section-badge";
+import GradientText from "./ui/gradient-text";
 import { useTheme } from "next-themes";
 
 const HowItWorks = () => {
@@ -18,8 +19,10 @@ const HowItWorks = () => {
                 </AnimationContainer>
 
                 <AnimationContainer animation="fadeUp" delay={0.3}>
-                    <h1 className="text-2xl md:text-4xl lg:text-5xl font-medium !leading-tight text-transparent bg-clip-text bg-gradient-to-b from-foreground to-neutral-400">
-                        Streamlined Workflow
+                    <h1 className="text-2xl md:text-4xl lg:text-5xl font-medium !leading-tight">
+                        <GradientText colors={['#9c40ff', '#ffaa40', '#9c40ff']} animationSpeed={6}>
+                            Streamlined Workflow
+                        </GradientText>
                     </h1>
                 </AnimationContainer>
 

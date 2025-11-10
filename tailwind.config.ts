@@ -100,12 +100,28 @@ const config = {
 					from: { transform: "translateY(0)" },
 					to: { transform: "translateY(calc(-100% - var(--gap)))" },
 				},
+				gradient: {
+					'0%': { backgroundPosition: '0% 50%' },
+					'50%': { backgroundPosition: '100% 50%' },
+					'100%': { backgroundPosition: '0% 50%' },
+				},
+				'star-movement-bottom': {
+					'0%': { transform: 'translate(0%, 0%)', opacity: '1' },
+					'100%': { transform: 'translate(-100%, 0%)', opacity: '0' },
+				},
+				'star-movement-top': {
+					'0%': { transform: 'translate(0%, 0%)', opacity: '1' },
+					'100%': { transform: 'translate(100%, 0%)', opacity: '0' },
+				},
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				marquee: "marquee var(--duration) linear infinite",
 				"marquee-vertical": "marquee-vertical var(--duration) linear infinite",
+				gradient: 'gradient 8s linear infinite',
+				'star-movement-bottom': 'star-movement-bottom linear infinite alternate',
+				'star-movement-top': 'star-movement-top linear infinite alternate',
 			},
 			spacing: {
 				"1/8": "12.5%",
