@@ -11,7 +11,6 @@ const Features = () => {
     // Transform FEATURES data to BentoCardProps format
     const bentoCards: BentoCardProps[] = FEATURES.map((feature) => ({
         title: feature.title,
-        description: feature.description,
         image: feature.image,
         size: feature.size,
     }));
