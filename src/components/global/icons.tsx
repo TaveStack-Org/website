@@ -1,30 +1,33 @@
 import { LucideProps } from "lucide-react";
 import Image from "next/image";
 import { useTheme } from "next-themes";
-import dynamic from "next/dynamic";
-import { FC } from "react";
+import { FC, useState, useEffect } from "react";
 
 // Client-side only component for theme-aware logo
 const ThemeAwareLogo: FC<LucideProps> = (props) => {
     const { resolvedTheme } = useTheme();
-    
-    // Use theme-specific logo paths
-    const logoSrc = resolvedTheme === "dark" 
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
+
+    // Use theme-specific logo paths - default to dark theme for SSR
+    const logoSrc = !mounted || resolvedTheme === "dark"
         ? "/images/temp/TaveStack Word Mark (White no BG).png"
         : "/images/temp/TaveStack Word Mark (Black no BG).png";
-        
+
     return (
         <div className={props.className}>
-            <Image 
+            <Image
                 src={logoSrc}
-                alt="TaveStack Logo" 
-                width={100} 
-                height={18}
-                className="w-full h-auto max-h-6" 
+                alt="TaveStack Logo"
+                width={150}
+                height={28}
+                className="w-full h-auto max-h-7"
                 priority
-                // Add fade transition for smoother theme changes
                 style={{
-                    transition: "all 0.2s ease-in-out",
+                    transition: "opacity 0.2s ease-in-out",
                     objectFit: "contain",
                     maxWidth: "100%"
                 }}
@@ -36,24 +39,28 @@ const ThemeAwareLogo: FC<LucideProps> = (props) => {
 // Client-side only component for theme-aware icon mark
 const ThemeAwareIconMark: FC<LucideProps> = (props) => {
     const { resolvedTheme } = useTheme();
-    
-    // Use theme-specific icon mark paths
-    const iconSrc = resolvedTheme === "dark" 
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
+
+    // Use theme-specific icon mark paths - default to dark theme for SSR
+    const iconSrc = !mounted || resolvedTheme === "dark"
         ? "/images/temp/TaveStack Icon Mark (White no BG).png"
         : "/images/temp/TaveStack Icon Mark (Black no BG).png";
-        
+
     return (
         <div className={props.className}>
-            <Image 
+            <Image
                 src={iconSrc}
-                alt="TaveStack Icon" 
-                width={34} 
-                height={34}
-                className="w-full h-auto max-h-8" 
+                alt="TaveStack Icon"
+                width={32}
+                height={32}
+                className="w-full h-auto max-h-8"
                 priority
-                // Add fade transition for smoother theme changes
                 style={{
-                    transition: "all 0.2s ease-in-out",
+                    transition: "opacity 0.2s ease-in-out",
                     objectFit: "contain",
                     maxWidth: "100%"
                 }}
@@ -79,24 +86,8 @@ const Icons = {
             </defs>
         </svg>
     ),
-    // Use a separate component for the logo to prevent hydration mismatch
-    logo: (props: LucideProps) => {
-        // Use dynamic import with ssr: false to prevent hydration issues
-        const ThemeLogo = dynamic(() => Promise.resolve(ThemeAwareLogo), {
-            ssr: false,
-        });
-        
-        return <ThemeLogo {...props} />;
-    },
-    // Theme-aware icon mark for mobile view
-    iconMark: (props: LucideProps) => {
-        // Use dynamic import with ssr: false to prevent hydration issues
-        const ThemeIcon = dynamic(() => Promise.resolve(ThemeAwareIconMark), {
-            ssr: false,
-        });
-        
-        return <ThemeIcon {...props} />;
-    },
+    logo: ThemeAwareLogo,
+    iconMark: ThemeAwareIconMark,
 };
 
 export default Icons;

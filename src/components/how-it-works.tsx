@@ -8,9 +8,16 @@ import Wrapper from "./global/wrapper";
 import SectionBadge from "./ui/section-badge";
 import GradientText from "./ui/gradient-text";
 import { useTheme } from "next-themes";
+import { useState, useEffect } from "react";
 
 const HowItWorks = () => {
     const { resolvedTheme } = useTheme();
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
+
     return (
         <Wrapper className="py-20 lg:py-32 relative">
             <div className="flex flex-col items-center text-center gap-4 py-8 w-full">
@@ -20,7 +27,7 @@ const HowItWorks = () => {
 
                 <AnimationContainer animation="fadeUp" delay={0.3}>
                     <h1 className="text-2xl md:text-4xl lg:text-5xl font-medium !leading-tight">
-                        <GradientText colors={['#9c40ff', '#ffaa40', '#9c40ff']} animationSpeed={6}>
+                        <GradientText colors={['#8a27f3ff', '#db5800ff', '#8a27f3ff']} animationSpeed={6}>
                             Streamlined Workflow
                         </GradientText>
                     </h1>
@@ -43,9 +50,11 @@ const HowItWorks = () => {
                         <div
                             className={cn(
                                 "flex flex-col items-start gap-4 bg-gradient-to-b rounded-lg lg:rounded-2xl p-4 lg:p-8",
-                                resolvedTheme === "dark" 
+                                !mounted
                                     ? (index % 2 === 0 ? "from-neutral-900 to-transparent" : "from-transparent to-neutral-900")
-                                    : (index % 2 === 0 ? "from-purple-100 to-transparent" : "from-transparent to-purple-100")
+                                    : resolvedTheme === "dark"
+                                        ? (index % 2 === 0 ? "from-neutral-900 to-transparent" : "from-transparent to-neutral-900")
+                                        : (index % 2 === 0 ? "from-purple-100 to-transparent" : "from-transparent to-purple-100")
                             )}
                         >
                             <div className="flex items-center gap-x-4">

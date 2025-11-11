@@ -28,7 +28,7 @@ const Testimonials = () => {
 
                 <AnimationContainer animation="fadeUp" delay={0.3}>
                     <h2 className="text-2xl md:text-4xl lg:text-5xl font-medium !leading-tight">
-                        <GradientText colors={['#9c40ff', '#ffaa40', '#9c40ff']} animationSpeed={6}>
+                        <GradientText colors={['#8a27f3ff', '#db5800ff', '#8a27f3ff']} animationSpeed={6}>
                             Trusted across Africa
                             <br />
                             and beyond
@@ -70,14 +70,6 @@ const Testimonials = () => {
                                     <div className="flex flex-col gap-6">
                                         <AnimationContainer animation="fadeRight" delay={0.7 + (index * 0.1)}>
                                             <div className="flex items-center gap-4">
-                                                <div className="relative w-12 h-12 rounded-full overflow-hidden">
-                                                    <Image
-                                                        src={testimonial.image}
-                                                        alt={testimonial.author}
-                                                        fill
-                                                        className="object-cover"
-                                                    />
-                                                </div>
                                                 <div>
                                                     <h4 className="font-medium">
                                                         {testimonial.author}

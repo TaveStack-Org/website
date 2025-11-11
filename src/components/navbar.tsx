@@ -67,7 +67,7 @@ const Navbar = () => {
                         initial={{ opacity: 0, y: -10 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.2 }}
-                        className="max-w-[180px] w-full"
+                        className="max-w-[150px] w-full"
                     >
                         <Link href={{ pathname: "/" }} className="flex items-center gap-2">
                         <Icons.logo className="w-full" />
@@ -148,7 +148,7 @@ const Navbar = () => {
             >
                 <Wrapper className="flex items-center justify-between lg:px-4">
                     <div className="flex items-center justify-between gap-x-4 w-full">
-                        <AnimationContainer animation="fadeRight" delay={0.1} className="max-w-[40px] w-full">
+                        <AnimationContainer animation="fadeRight" delay={0.1} className="max-w-[32px] w-full">
                             <Link href={{ pathname: "/" }}>
                                 <Icons.iconMark className="w-full" />
                             </Link>

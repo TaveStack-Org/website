@@ -130,11 +130,11 @@ const THEME_CONFIG = {
     opacity: 0.8,
   },
   light: {
-    colorStops: ["#8b5cf6", "#8b5cf6", "#8b5cf6"],
-    amplitude: 1.4,
-    blend: 0.8,
-    intensity: 1.2,
-    opacity: 1.0,
+    colorStops: ["#7f19e6", "#ffffffff", "#ff7f08"],
+    amplitude: 0.8,
+    blend: 3.5,
+    intensity: 1.6,
+    opacity: 0.5,
   },
 };
 

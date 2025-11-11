@@ -68,7 +68,7 @@ const Hero = () => {
                         <AnimationContainer animation="fadeUp" delay={0.4}>
                             <h1 className="text-5xl lg:text-6xl font-medium !leading-tight">
                                 <GradientText
-                                    colors={['#9c40ff', '#ffaa40', '#9c40ff']}
+                                    colors={['#8a27f3ff', '#db5800ff', '#8a27f3ff']}
                                     animationSpeed={6}
                                     className="mx-0"
                                 >
@@ -86,7 +86,7 @@ const Hero = () => {
 
                     <AnimationContainer animation="fadeUp" delay={0.8}>
                         <div className="w-full">
-                            <Link href={{ pathname: "https://tavestack-dash.vercel.app/" }}>
+                            <Link href={{ pathname: "https://app.tavestack.com/" }}>
                                 <Button size="md" className="w-full md:w-auto">
                                     Start free trial
                                 </Button>
@@ -97,9 +97,9 @@ const Hero = () => {
                     <AnimationContainer animation="fadeUp" delay={1}>
                         <div className="flex flex-col items-start gap-4 py-4">
                             <p className="text-sm md:text-base text-muted-foreground">
-                                Trusted by Industry Leaders
+                                Powered By <strong>Bigtech Agency</strong>
                             </p>
-                            <div className="w-full relative max-w-[calc(100vw-2rem)] lg:max-w-lg">
+                            {/* <div className="w-full relative max-w-[calc(100vw-2rem)] lg:max-w-lg">
                                 <Marquee className="[--duration:40s] select-none [--gap:2rem]">
                                     {[...Array(10)].map((_, index) => (
                                         <div key={index} className="flex items-center justify-center text-muted-foreground h-16">
@@ -107,7 +107,7 @@ const Hero = () => {
                                         </div>
                                     ))}
                                 </Marquee>
-                            </div>
+                            </div> */}
                         </div>
                     </AnimationContainer>
                 </div>

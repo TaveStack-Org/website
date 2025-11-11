@@ -30,7 +30,7 @@ const Pricing = () => {
 
                 <AnimationContainer animation="fadeUp" delay={0.3}>
                     <h2 className="text-2xl md:text-4xl lg:text-5xl font-medium !leading-tight">
-                        <GradientText colors={['#9c40ff', '#ffaa40', '#9c40ff']} animationSpeed={6}>
+                        <GradientText colors={['#8a27f3ff', '#db5800ff', '#8a27f3ff']} animationSpeed={6}>
                             Choose your perfect plan
                         </GradientText>
                     </h2>
@@ -38,7 +38,7 @@ const Pricing = () => {
 
                 <AnimationContainer animation="fadeUp" delay={0.4}>
                     <p className="text-sm md:text-base lg:text-lg text-muted-foreground max-w-2xl mx-auto">
-                        Choose a package that fits your transcription and productivity needs in Africa
+                        Pricing Packages coming soon...
                     </p>
                 </AnimationContainer>
             </div>
@@ -77,7 +77,7 @@ const Pricing = () => {
                 </div>
             </AnimationContainer>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pt-10">
+            {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pt-10">
                 {PRICING_PLANS.map((plan, index) => (
                     <AnimationContainer
                         key={index}
@@ -155,7 +155,7 @@ const Pricing = () => {
                         </div>
                     </AnimationContainer>
                 ))}
-            </div>
+            </div> */}
         </Wrapper>
     );
 };

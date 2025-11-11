@@ -29,7 +29,7 @@ const PlatformMetrics = () => {
 
                     <AnimationContainer animation="fadeUp" delay={0.3}>
                         <h2 className="text-2xl md:text-4xl lg:text-5xl font-medium !leading-tight">
-                            <GradientText colors={['#9c40ff', '#ffaa40', '#9c40ff']} animationSpeed={6}>
+                            <GradientText colors={['#8a27f3ff', '#db5800ff', '#8a27f3ff']} animationSpeed={6}>
                                 Driving Africa's digital
                                 <br />
                                 transformation

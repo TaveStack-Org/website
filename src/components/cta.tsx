@@ -111,7 +111,7 @@ const CTA = () => {
                     </AnimationContainer>
 
                     <AnimationContainer animation="fadeUp" delay={1}>
-                        <Link href={{ pathname: "https://tavestack-dash.vercel.app/" }}>
+                        <Link href={{ pathname: "https://app.tavestack.com/" }}>
                             <Button size="lg" className="mt-6">
                                 Start now
                                 <ArrowRightIcon className="size-4 ml-2" />

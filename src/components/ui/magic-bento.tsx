@@ -8,6 +8,8 @@ export interface BentoCardProps {
   title?: string;
   description?: string;
   label?: string;
+  image?: string;
+  size?: 'small' | 'large';
   textAutoHide?: boolean;
   disableAnimations?: boolean;
 }
@@ -507,12 +509,12 @@ const MagicBento: React.FC<BentoProps> = ({
             --glow-intensity: 0;
             --glow-radius: 200px;
             --glow-color: ${glowColor};
-            --border-color: #392e4e;
-            --background-dark: #060010;
-            --white: hsl(0, 0%, 100%);
-            --purple-primary: rgba(132, 0, 255, 1);
-            --purple-glow: rgba(132, 0, 255, 0.2);
-            --purple-border: rgba(132, 0, 255, 0.8);
+            --border-color: hsl(var(--border));
+            --background-dark: hsl(var(--card));
+            --text-color: hsl(var(--card-foreground));
+            --purple-primary: hsl(var(--primary));
+            --purple-glow: hsl(var(--primary) / 0.2);
+            --purple-border: hsl(var(--primary) / 0.8);
           }
 
           .card-responsive {
@@ -646,7 +648,7 @@ const MagicBento: React.FC<BentoProps> = ({
             const cardStyle = {
               backgroundColor: card.color || 'var(--background-dark)',
               borderColor: 'var(--border-color)',
-              color: 'var(--white)',
+              color: 'var(--text-color)',
               '--glow-x': '50%',
               '--glow-y': '50%',
               '--glow-intensity': '0',
@@ -666,18 +668,30 @@ const MagicBento: React.FC<BentoProps> = ({
                   clickEffect={clickEffect}
                   enableMagnetism={enableMagnetism}
                 >
-                  <div className="card__header flex justify-between gap-3 relative text-white">
-                    <span className="card__label text-base">{card.label}</span>
-                  </div>
-                  <div className="card__content flex flex-col relative text-white">
-                    <h3 className={`card__title font-normal text-base m-0 mb-1 ${textAutoHide ? 'text-clamp-1' : ''}`}>
-                      {card.title}
-                    </h3>
-                    <p
-                      className={`card__description text-xs leading-5 opacity-90 ${textAutoHide ? 'text-clamp-2' : ''}`}
-                    >
-                      {card.description}
-                    </p>
+                  <div className="flex flex-col h-full">
+                    {card.image && (
+                      <div className="card__icon flex items-center justify-center mb-4 mt-2">
+                        <img
+                          src={card.image}
+                          alt={card.title}
+                          className={`object-contain pointer-events-auto ${
+                            card.size === 'large'
+                              ? 'w-32 h-32 md:w-48 md:h-48 lg:w-56 lg:h-56'
+                              : 'w-16 h-16 md:w-20 md:h-20'
+                          }`}
+                        />
+                      </div>
+                    )}
+                    <div className="card__content flex flex-col relative mt-auto">
+                      <h3 className={`card__title font-normal text-base m-0 mb-1 ${textAutoHide ? 'text-clamp-1' : ''}`}>
+                        {card.title}
+                      </h3>
+                      <p
+                        className={`card__description text-xs leading-5 opacity-90 text-muted-foreground ${textAutoHide ? 'text-clamp-2' : ''}`}
+                      >
+                        {card.description}
+                      </p>
+                    </div>
                   </div>
                 </ParticleCard>
               );
@@ -685,16 +699,28 @@ const MagicBento: React.FC<BentoProps> = ({
 
             return (
               <div key={index} className={baseClassName} style={cardStyle}>
-                <div className="card__header flex justify-between gap-3 relative text-white">
-                  <span className="card__label text-base">{card.label}</span>
-                </div>
-                <div className="card__content flex flex-col relative text-white">
-                  <h3 className={`card__title font-normal text-base m-0 mb-1 ${textAutoHide ? 'text-clamp-1' : ''}`}>
-                    {card.title}
-                  </h3>
-                  <p className={`card__description text-xs leading-5 opacity-90 ${textAutoHide ? 'text-clamp-2' : ''}`}>
-                    {card.description}
-                  </p>
+                <div className="flex flex-col h-full">
+                  {card.image && (
+                    <div className="card__icon flex items-center justify-center mb-4 mt-2">
+                      <img
+                        src={card.image}
+                        alt={card.title}
+                        className={`object-contain pointer-events-auto ${
+                          card.size === 'large'
+                            ? 'w-32 h-32 md:w-48 md:h-48 lg:w-56 lg:h-56'
+                            : 'w-16 h-16 md:w-20 md:h-20'
+                        }`}
+                      />
+                    </div>
+                  )}
+                  <div className="card__content flex flex-col relative mt-auto">
+                    <h3 className={`card__title font-normal text-base m-0 mb-1 ${textAutoHide ? 'text-clamp-1' : ''}`}>
+                      {card.title}
+                    </h3>
+                    <p className={`card__description text-xs leading-5 opacity-90 text-muted-foreground ${textAutoHide ? 'text-clamp-2' : ''}`}>
+                      {card.description}
+                    </p>
+                  </div>
                 </div>
               </div>
             );

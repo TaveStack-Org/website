@@ -9,11 +9,11 @@ import MagicBento, { BentoCardProps } from './ui/magic-bento';
 
 const Features = () => {
     // Transform FEATURES data to BentoCardProps format
-    const bentoCards: BentoCardProps[] = FEATURES.map((feature, index) => ({
+    const bentoCards: BentoCardProps[] = FEATURES.map((feature) => ({
         title: feature.title,
         description: feature.description,
-        label: `Feature ${index + 1}`,
-        color: '#060010',
+        image: feature.image,
+        size: feature.size,
     }));
     
     return (
@@ -25,7 +25,7 @@ const Features = () => {
 
                 <AnimationContainer animation="fadeUp" delay={0.3}>
                     <h2 className="text-2xl md:text-4xl lg:text-5xl font-medium !leading-tight">
-                        <GradientText colors={['#9c40ff', '#ffaa40', '#9c40ff']} animationSpeed={6}>
+                        <GradientText colors={['#8a27f3ff', '#db5800ff', '#8a27f3ff']} animationSpeed={6}>
                             AI-Powered Productivity
                         </GradientText>
                     </h2>
