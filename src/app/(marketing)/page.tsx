@@ -6,6 +6,7 @@ import HowItWorks from "@/components/how-it-works";
 import Perks from "@/components/perks";
 import PlatformMetrics from "@/components/platform-metrics";
 import Pricing from "@/components/pricing";
+import RealtimeTranscription from "@/components/realtime-transcription";
 import Testimonials from "@/components/testimonials";
 
 const HomePage = () => {
@@ -41,6 +42,10 @@ const HomePage = () => {
 
             <section className="w-full">
                 <FAQ />
+            </section>
+
+            <section className="w-full">
+                <RealtimeTranscription />
             </section>
 
             <section className="w-full">
