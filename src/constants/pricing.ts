@@ -10,58 +10,90 @@ export type Plan = {
         monthly: number;
         yearly: number;
     };
+    priceLabel?: string;
     features: PlanFeature[];
     popular?: boolean;
+    cta?: string;
 };
 
 export const PRICING_PLANS: Plan[] = [
     {
-        name: "Free Teir",
-        description: "Perfect for students and freelancers",
+        name: "Starter",
+        description: "Perfect for small teams getting started",
         price: {
-            monthly: 0,
-            yearly: 0,
+            monthly: 49,
+            yearly: 39,
         },
+        priceLabel: "/user/month",
+        cta: "Start Free Trial",
         features: [
-            { text: "5 hours of transcription per month", included: true },
-            { text: "Basic summarization", included: true },
-            { text: "English language support", included: true },
+            { text: "Up to 25 users", included: true },
+            { text: "10 active workflows", included: true },
+            { text: "5 ERP integrations", included: true },
+            { text: "Basic analytics", included: true },
             { text: "Email support", included: true },
-            { text: "Advanced analytics", included: false },
-            { text: "Contextual intelligence", included: false },
+            { text: "Knowledge base access", included: true },
+            { text: "Unlimited workflows", included: false },
+            { text: "AI features", included: false },
         ],
     },
     {
         name: "Professional",
-        description: "Ideal for small teams and organizations",
+        description: "Ideal for growing businesses",
         price: {
-            monthly: 0,
-            yearly: 0,
+            monthly: 99,
+            yearly: 79,
         },
+        priceLabel: "/user/month",
         popular: true,
+        cta: "Start Free Trial",
         features: [
-            { text: "25 hours of transcription per month", included: true },
-            { text: "Advanced summarization & task extraction", included: true },
-            { text: "Multilingual support (3 languages)", included: true },
-            { text: "Priority support", included: true },
-            { text: "Contextual intelligence", included: true },
-            { text: "Basic workflow integration", included: true },
+            { text: "Up to 100 users", included: true },
+            { text: "Unlimited workflows", included: true },
+            { text: "Unlimited integrations", included: true },
+            { text: "Advanced analytics & AI features", included: true },
+            { text: "Priority support (24-hour response)", included: true },
+            { text: "Custom branding", included: true },
+            { text: "API access", included: true },
+            { text: "Mobile app access", included: true },
         ],
     },
     {
         name: "Enterprise",
-        description: "For large organizations and government agencies",
+        description: "For large organizations with complex needs",
         price: {
             monthly: 0,
             yearly: 0,
         },
+        priceLabel: "Custom",
+        cta: "Contact Sales",
         features: [
-            { text: "Unlimited transcription", included: true },
-            { text: "Custom AI models for your organization", included: true },
-            { text: "Team management & analytics", included: true },
-            { text: "24/7 dedicated support", included: true },
-            { text: "API access & custom integrations", included: true },
-            { text: "On-premises deployment option", included: true },
+            { text: "Unlimited users", included: true },
+            { text: "Dedicated account manager", included: true },
+            { text: "99.9% uptime SLA", included: true },
+            { text: "Custom integrations", included: true },
+            { text: "On-premise deployment option", included: true },
+            { text: "White-label capabilities", included: true },
+            { text: "Advanced security features", included: true },
+            { text: "24/7 phone support", included: true },
         ],
     },
+];
+
+export const ADD_ONS = [
+    {
+        name: "AI Process Intelligence",
+        price: "$1,000/month",
+        description: "Advanced AI-powered process mining and optimization recommendations"
+    },
+    {
+        name: "Advanced Security Pack",
+        price: "$500/month",
+        description: "Enhanced security features including advanced threat detection and compliance tools"
+    },
+    {
+        name: "Premium Support",
+        price: "$2,000/month",
+        description: "24/7 dedicated support with guaranteed 1-hour response time"
+    }
 ];

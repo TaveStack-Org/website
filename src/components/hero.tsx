@@ -3,15 +3,24 @@
 import Image from "next/image";
 import Link from "next/link";
 import AnimationContainer from "./global/animation-container";
-import Images from "./global/images";
 import Wrapper from "./global/wrapper";
 import { Button } from "./ui/button";
-import Marquee from "./ui/marquee";
 import SectionBadge from "./ui/section-badge";
 import GradientText from "./ui/gradient-text";
+import TrustBar from "./ui/trust-bar";
 import { useTheme } from "next-themes";
 import dynamic from "next/dynamic";
-import { FC } from "react";
+import { Play } from "lucide-react";
+
+// Placeholder company logos for trust bar
+const TRUSTED_COMPANIES = [
+    { name: "TechFlow", logo: "" },
+    { name: "EastAfrica Logistics", logo: "" },
+    { name: "FinServe Group", logo: "" },
+    { name: "GoldCoast Industries", logo: "" },
+    { name: "PanAfrica Holdings", logo: "" },
+    { name: "RwandaTech", logo: "" },
+];
 
 // Theme-aware dashboard component
 const ThemeAwareDashboardContent = () => {
@@ -25,7 +34,7 @@ const ThemeAwareDashboardContent = () => {
     return (
         <Image
             src={dashboardSrc}
-            alt="Dashboard Preview"
+            alt="Tavestack Workflow Dashboard"
             sizes="1000px"
             width={1024}
             height={1024}
@@ -44,70 +53,64 @@ const ThemeAwareDashboard = dynamic(
 );
 
 const Hero = () => {
-
-    const companies = [
-        Images.comp1,
-        Images.comp2,
-        Images.comp3,
-        Images.comp4,
-        Images.comp5,
-        Images.comp6,
-    ];
-
     return (
         <Wrapper className="pt-20 lg:pt-32 relative min-h-screen w-full h-full flex-1">
             
             <div className="flex flex-col lg:flex-row w-full h-full lg:gap-16">
                 
-                <div className="flex flex-col items-start gap-10 py-8 w-full">
+                <div className="flex flex-col items-start gap-8 py-8 w-full lg:max-w-xl">
                     <div className="flex flex-col items-start gap-4">
                         <AnimationContainer animation="fadeUp" delay={0.2}>
-                            <SectionBadge title="Smart insights, smarter workflow" />
+                            <SectionBadge title="Built for Africa. Built to Scale." />
                         </AnimationContainer>
 
                         <AnimationContainer animation="fadeUp" delay={0.4}>
-                            <h1 className="text-5xl lg:text-6xl font-medium !leading-tight">
+                            <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold !leading-tight">
+                                One Platform to{" "}
                                 <GradientText
                                     colors={['#8a27f3ff', '#db5800ff', '#8a27f3ff']}
                                     animationSpeed={6}
                                     className="mx-0"
                                 >
-                                    AI-Powered Productivity for Africa
-                                </GradientText>
+                                    Connect, Automate & Optimize
+                                </GradientText>{" "}
+                                Your Entire Business
                             </h1>
                         </AnimationContainer>
 
                         <AnimationContainer animation="fadeUp" delay={0.6}>
-                            <p className="text-sm md:text-base lg:text-lg text-muted-foreground">
-                            Transcribe, summarize, and discover insights from meetings and conversations with an AI assistant tailored for African accents, languages, and contextual intelligence.
+                            <p className="text-base md:text-lg lg:text-xl text-muted-foreground max-w-lg">
+                                Tavestack eliminates workflow chaos with intelligent automation—built specifically for African enterprises scaling across the continent.
                             </p>
                         </AnimationContainer>
                     </div>
 
                     <AnimationContainer animation="fadeUp" delay={0.8}>
-                        <div className="w-full">
-                            <Link href={{ pathname: "https://app.tavestack.com/" }}>
-                                <Button size="md" className="w-full md:w-auto">
-                                    Start free trial
+                        <div className="flex flex-col sm:flex-row gap-4 w-full">
+                            <Link href="https://app.tavestack.com/">
+                                <Button size="lg" className="w-full sm:w-auto px-8">
+                                    Start Free Trial
+                                </Button>
+                            </Link>
+                            <Link href="/demo">
+                                <Button variant="outline" size="lg" className="w-full sm:w-auto px-8 gap-2">
+                                    <Play className="w-4 h-4" />
+                                    Watch Demo
                                 </Button>
                             </Link>
                         </div>
                     </AnimationContainer>
 
                     <AnimationContainer animation="fadeUp" delay={1}>
-                        <div className="flex flex-col items-start gap-4 py-4">
-                            <p className="text-sm md:text-base text-muted-foreground">
-                                Powered By <strong>Bigtech Agency</strong>
-                            </p>
-                            {/* <div className="w-full relative max-w-[calc(100vw-2rem)] lg:max-w-lg">
-                                <Marquee className="[--duration:40s] select-none [--gap:2rem]">
-                                    {[...Array(10)].map((_, index) => (
-                                        <div key={index} className="flex items-center justify-center text-muted-foreground h-16">
-                                            {companies[index % companies.length]({ className: "w-auto h-5" })}
-                                        </div>
-                                    ))}
-                                </Marquee>
-                            </div> */}
+                        <div className="flex flex-col items-start gap-2">
+                            <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                                <span className="flex items-center gap-1">
+                                    <span className="text-green-500">✓</span> No credit card required
+                                </span>
+                                <span className="flex items-center gap-1">
+                                    <span className="text-green-500">✓</span> 14-day free trial
+                                </span>
+                            </div>
                         </div>
                     </AnimationContainer>
                 </div>
@@ -122,8 +125,17 @@ const Hero = () => {
                     </div>
                 </AnimationContainer>
             </div>
+
+            {/* Trust Bar */}
+            <AnimationContainer animation="fadeUp" delay={1.2}>
+                <TrustBar 
+                    title="Trusted by 40+ companies across 8 African countries"
+                    companies={TRUSTED_COMPANIES}
+                    className="mt-8 lg:mt-16"
+                />
+            </AnimationContainer>
         </Wrapper>
     )
 };
 
-export default Hero
+export default Hero;

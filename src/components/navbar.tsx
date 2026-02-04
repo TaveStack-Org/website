@@ -8,6 +8,7 @@ import { useClerk } from "@clerk/nextjs";
 import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "framer-motion";
 import { MenuIcon, XIcon, BookOpen } from "lucide-react";
 import Link from "next/link";
+import type { Route } from "next";
 import { UrlObject } from "url";
 import ScrollLink from "./ui/scroll-link";
 import { RefObject, useRef, useState } from "react";
@@ -82,24 +83,12 @@ const Navbar = () => {
                                     animation="fadeDown"
                                     delay={0.1 * index}
                                 >
-                                    <div className="relative">
-                                        {link.external ? (
-                                            <a
-                                                href={link.link}
-                                                className="hover:text-foreground transition-all duration-500 hover:bg-accent rounded-md px-4 py-2 flex items-center gap-2"
-                                            >
-                                                {link.name === "Docs" && <BookOpen className="w-4 h-4" />}
-                                                {link.name}
-                                            </a>
-                                        ) : (
-                                            <ScrollLink
-                                                href={link.link}
-                                                className="hover:text-foreground transition-all duration-500 hover:bg-accent rounded-md px-4 py-2"
-                                            >
-                                                {link.name}
-                                            </ScrollLink>
-                                        )}
-                                    </div>
+                                    <Link
+                                        href={link.link as Route}
+                                        className="hover:text-foreground transition-all duration-500 hover:bg-accent rounded-md px-4 py-2"
+                                    >
+                                        {link.name}
+                                    </Link>
                                 </AnimationContainer>
                             ))}
                         </AnimatePresence>
@@ -187,31 +176,20 @@ const Navbar = () => {
                             exit={{ opacity: 0 }}
                             className="flex rounded-b-xl absolute top-16 bg-background/95 backdrop-blur-sm inset-x-0 z-50 flex-col items-start justify-start gap-2 w-full px-4 py-8 shadow-xl border-x border-b border-border"
                         >
-                            {NAV_LINKS.map((navItem: any, idx: number) => (
+                            {NAV_LINKS.map((navItem, idx) => (
                                 <AnimationContainer
                                     key={`link=${idx}`}
                                     animation="fadeRight"
                                     delay={0.1 * (idx + 1)}
                                     className="w-full"
                                 >
-                                    {navItem.external ? (
-                                        <Link
-                                            href={navItem.link}
-                                            onClick={() => setOpen(false)}
-                                            className="relative text-muted-foreground hover:text-foreground hover:bg-accent w-full px-4 py-2 rounded-lg transition-colors duration-200 flex items-center gap-2"
-                                        >
-                                            {navItem.name === "Docs" && <BookOpen className="w-4 h-4" />}
-                                            <motion.span>{navItem.name}</motion.span>
-                                        </Link>
-                                    ) : (
-                                        <ScrollLink
-                                            href={navItem.link}
-                                            onClick={() => setOpen(false)}
-                                            className="relative text-muted-foreground hover:text-foreground hover:bg-accent w-full px-4 py-2 rounded-lg transition-colors duration-200"
-                                        >
-                                            <motion.span>{navItem.name}</motion.span>
-                                        </ScrollLink>
-                                    )}
+                                    <Link
+                                        href={navItem.link as Route}
+                                        onClick={() => setOpen(false)}
+                                        className="relative text-muted-foreground hover:text-foreground hover:bg-accent w-full px-4 py-2 rounded-lg transition-colors duration-200 block"
+                                    >
+                                        <motion.span>{navItem.name}</motion.span>
+                                    </Link>
                                 </AnimationContainer>
                             ))}
                             <AnimationContainer animation="fadeUp" delay={0.5} className="w-full">

@@ -1,9 +1,8 @@
 "use client";
 
-import { TESTIMONIALS } from '@/constants';
+import { TESTIMONIALS, METRICS } from '@/constants';
 import { cn } from '@/lib';
-import { Star } from 'lucide-react';
-import Image from 'next/image';
+import { Star, Quote } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { useTheme } from 'next-themes';
 import AnimationContainer from './global/animation-container';
@@ -11,6 +10,7 @@ import Wrapper from "./global/wrapper";
 import Marquee from './ui/marquee';
 import SectionBadge from './ui/section-badge';
 import GradientText from './ui/gradient-text';
+import StatCounter from './ui/stat-counter';
 
 const Testimonials = () => {
     const { resolvedTheme } = useTheme();
@@ -19,87 +19,109 @@ const Testimonials = () => {
     useEffect(() => {
         setMounted(true);
     }, []);
+
     return (
-        <Wrapper className="py-20 lg:py-32">
+        <Wrapper className="py-20 lg:py-32" id="testimonials">
             <div className="flex flex-col items-center text-center gap-4 mb-16">
                 <AnimationContainer animation="fadeUp" delay={0.2}>
-                    <SectionBadge title="Testimonials" />
+                    <SectionBadge title="Customer Success" />
                 </AnimationContainer>
 
                 <AnimationContainer animation="fadeUp" delay={0.3}>
                     <h2 className="text-2xl md:text-4xl lg:text-5xl font-medium !leading-tight">
                         <GradientText colors={['#8a27f3ff', '#db5800ff', '#8a27f3ff']} animationSpeed={6}>
-                            Trusted across Africa
-                            <br />
-                            and beyond
+                            Trusted by Africa's
                         </GradientText>
+                        <br />
+                        <span className="text-foreground">Fastest-Growing Companies</span>
                     </h2>
                 </AnimationContainer>
 
                 <AnimationContainer animation="fadeUp" delay={0.4}>
                     <p className="text-sm md:text-base lg:text-lg text-muted-foreground max-w-2xl mx-auto">
-                        Hear from our beta users across different sectors about how TaveStack is transforming their workflow
+                        See how enterprises across Africa are transforming their operations with Tavestack
                     </p>
                 </AnimationContainer>
             </div>
 
+            {/* Metrics Bar */}
             <AnimationContainer animation="fadeUp" delay={0.5}>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 p-8 rounded-2xl bg-card/50 border border-border/50">
+                    {METRICS.map((metric, index) => (
+                        <div key={index} className="text-center">
+                            <StatCounter
+                                value={metric.value}
+                                prefix={metric.prefix}
+                                suffix={metric.suffix}
+                                label={metric.label}
+                                duration={2000}
+                            />
+                        </div>
+                    ))}
+                </div>
+            </AnimationContainer>
+
+            {/* Testimonials Carousel */}
+            <AnimationContainer animation="fadeUp" delay={0.6}>
                 <div className="relative">
                     <div className={cn(
                         "absolute -left-1 top-0 w-20 h-full bg-gradient-to-r to-transparent z-10",
-                        !mounted ? "from-[#101010]" : resolvedTheme === "dark" ? "from-[#101010]" : "from-purple-50"
+                        !mounted ? "from-background" : resolvedTheme === "dark" ? "from-background" : "from-background"
                     )} />
                     <div className={cn(
                         "absolute -right-1 top-0 w-20 h-full bg-gradient-to-l to-transparent z-10",
-                        !mounted ? "from-[#101010]" : resolvedTheme === "dark" ? "from-[#101010]" : "from-purple-50"
+                        !mounted ? "from-background" : resolvedTheme === "dark" ? "from-background" : "from-background"
                     )} />
 
                     <Marquee className="[--gap:1.5rem]" pauseOnHover>
                         {TESTIMONIALS.map((testimonial, index) => (
-                            <AnimationContainer
+                            <div
                                 key={index}
-                                animation="fadeUp"
-                                delay={0.6 + (index * 0.1)}
+                                className={cn(
+                                    "flex-shrink-0 w-[400px] rounded-2xl p-6 border border-border/50",
+                                    "bg-card/50 backdrop-blur-sm hover:bg-card/80 transition-colors"
+                                )}
                             >
-                                <div
-                                    className={cn(
-                                        "flex-shrink-0 w-[400px] rounded-3xl backdrop-blur-3xl p-8",
-                                        !mounted ? "bg-[#191919]" : resolvedTheme === "dark" ? "bg-[#191919]" : "bg-purple-100"
-                                    )}
-                                >
-                                    <div className="flex flex-col gap-6">
-                                        <AnimationContainer animation="fadeRight" delay={0.7 + (index * 0.1)}>
-                                            <div className="flex items-center gap-4">
-                                                <div>
-                                                    <h4 className="font-medium">
-                                                        {testimonial.author}
-                                                    </h4>
-                                                    <p className="text-sm text-muted-foreground">
-                                                        {testimonial.role}
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </AnimationContainer>
+                                <div className="flex flex-col gap-4">
+                                    {/* Quote icon */}
+                                    <Quote className="w-8 h-8 text-primary/30" />
+                                    
+                                    {/* Content */}
+                                    <p className="text-base text-foreground leading-relaxed">
+                                        "{testimonial.content}"
+                                    </p>
 
-                                        <AnimationContainer animation="fadeUp" delay={0.8 + (index * 0.1)}>
-                                            <p className="text-lg">
-                                                "{testimonial.content}"
+                                    {/* Rating */}
+                                    <div className="flex gap-1">
+                                        {[...Array(testimonial.rating)].map((_, i) => (
+                                            <Star
+                                                key={i}
+                                                className="w-4 h-4 fill-primary text-primary"
+                                            />
+                                        ))}
+                                    </div>
+
+                                    {/* Author info */}
+                                    <div className="flex items-center gap-3 pt-4 border-t border-border/50">
+                                        <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                                            <span className="text-sm font-semibold text-primary">
+                                                {testimonial.author.split(' ').map(n => n[0]).join('')}
+                                            </span>
+                                        </div>
+                                        <div>
+                                            <h4 className="font-medium text-foreground">
+                                                {testimonial.author}
+                                            </h4>
+                                            <p className="text-xs text-muted-foreground">
+                                                {testimonial.role}, {testimonial.company}
                                             </p>
-                                        </AnimationContainer>
-
-                                        <AnimationContainer animation="fadeUp" delay={0.9 + (index * 0.1)}>
-                                            <div className="flex gap-1">
-                                                {[...Array(testimonial.rating)].map((_, i) => (
-                                                    <Star
-                                                        key={i}
-                                                        className="w-5 h-5 fill-primary text-primary"
-                                                    />
-                                                ))}
-                                            </div>
-                                        </AnimationContainer>
+                                            <p className="text-xs text-primary">
+                                                {testimonial.location}
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
-                            </AnimationContainer>
+                            </div>
                         ))}
                     </Marquee>
                 </div>

@@ -1,7 +1,6 @@
 "use client";
 
-import { ArrowRightIcon } from "lucide-react";
-import Image from "next/image";
+import { ArrowRightIcon, Calendar, CheckCircle2 } from "lucide-react";
 import Link from "next/link";
 import AnimationContainer from "./global/animation-container";
 import Wrapper from "./global/wrapper";
@@ -12,19 +11,10 @@ import { useTheme } from "next-themes";
 import { cn } from "@/lib";
 import { useEffect, useState } from "react";
 
-const HIGHLIGHTS = [
-    {
-        icon: "/icons/shield.svg",
-        label: "African Accent Recognition"
-    },
-    {
-        icon: "/icons/clock.svg",
-        label: "Contextual Intelligence"
-    },
-    {
-        icon: "/icons/magicpen.svg",
-        label: "Multilingual Support"
-    }
+const TRUST_ELEMENTS = [
+    "No credit card required",
+    "Setup in 4-8 weeks",
+    "Cancel anytime"
 ];
 
 const CTA = () => {
@@ -36,19 +26,19 @@ const CTA = () => {
     }, []);
 
     return (
-        <Wrapper className="py-20 lg:py-32" id="contact">
+        <Wrapper className="py-20 lg:py-32" id="cta">
             <div className="flex flex-col items-center text-center relative gap-4 py-20 lg:py-32 overflow-hidden z-0">
                 <div className={cn(
                     "absolute inset-x-0 bottom-0 bg-gradient-to-t w-full h-1/2 z-10",
-                    mounted && resolvedTheme === "dark" ? "from-[#101010]" : mounted ? "from-purple-100" : "from-purple-100"
+                    mounted && resolvedTheme === "dark" ? "from-background" : mounted ? "from-background" : "from-background"
                 )}></div>
 
                 <AnimationContainer animation="scaleUp" delay={0.2} className="w-full mx-auto">
-                    <div className="absolute -top-1/2 inset-x-0 mx-auto bg-foreground/50 rounded-full size-1/2 blur-[4rem] lg:blur-[10rem]"></div>
+                    <div className="absolute -top-1/2 inset-x-0 mx-auto bg-primary/30 rounded-full size-1/2 blur-[4rem] lg:blur-[10rem]"></div>
                 </AnimationContainer>
 
                 <AnimationContainer animation="scaleUp" delay={0.3}>
-                    <div className="absolute top-0 w-4/5 mx-auto inset-x-0 h-px bg-gradient-to-r from-foreground/0 via-foreground/50 to-foreground/0"></div>
+                    <div className="absolute top-0 w-4/5 mx-auto inset-x-0 h-px bg-gradient-to-r from-primary/0 via-primary/50 to-primary/0"></div>
                 </AnimationContainer>
 
                 <AnimationContainer animation="scaleUp" delay={0.2}>
@@ -56,8 +46,8 @@ const CTA = () => {
                         className="absolute inset-0 -z-10 h-full w-[120%]"
                         squareSize={4}
                         gridGap={6}
-                        color="#525252"
-                        maxOpacity={0.2}
+                        color="#9c40ff"
+                        maxOpacity={0.15}
                         flickerChance={0.1}
                         height={800}
                     />
@@ -65,58 +55,58 @@ const CTA = () => {
 
                 <div className="flex flex-col items-center justify-center w-full z-30">
                     <AnimationContainer animation="fadeUp" delay={0.3}>
-                        <SectionBadge title="Beta Testing Now" />
+                        <SectionBadge title="Get Started" />
                     </AnimationContainer>
 
                     <AnimationContainer animation="fadeUp" delay={0.4}>
-                        <h2 className="text-3xl md:text-5xl lg:text-6xl font-medium !leading-tight text-transparent bg-clip-text bg-gradient-to-b from-foreground to-neutral-400">
-                            Join Africa's Digital Transformation
+                        <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold !leading-tight mt-4">
+                            <span className="text-transparent bg-clip-text bg-gradient-to-b from-foreground to-foreground/70">
+                                Ready to Transform
+                            </span>
+                            <br />
+                            <span className="text-transparent bg-clip-text bg-gradient-to-b from-foreground to-foreground/70">
+                                Your Operations?
+                            </span>
                         </h2>
                     </AnimationContainer>
 
                     <AnimationContainer animation="fadeUp" delay={0.5}>
                         <p className="text-sm md:text-base lg:text-lg text-muted-foreground max-w-lg mx-auto mt-4">
-                            Be among the first to experience TaveStack's AI-powered productivity tools designed specifically for African markets and workflows.
+                            Join 40+ companies already scaling with Tavestack. Start your free trial today and see the difference.
                         </p>
                     </AnimationContainer>
 
+                    {/* CTA Buttons */}
                     <AnimationContainer animation="fadeUp" delay={0.6}>
-                        <div className="flex items-center mt-4">
-                            <div className={cn(
-                                "rounded-full px-4 py-2.5 flex flex-wrap md:flex-row items-center justify-center gap-4",
-                                mounted && resolvedTheme === "dark" ? "bg-neutral-900" : mounted ? "bg-purple-100" : "bg-purple-100"
-                            )}>
-                                {HIGHLIGHTS.map((item, index) => (
-                                    <AnimationContainer
-                                        key={index}
-                                        animation="fadeRight"
-                                        delay={0.7 + (index * 0.1)}
-                                    >
-                                        <div className="flex items-center gap-2 last:hidden md:last:flex">
-                                            <Image
-                                                src={item.icon}
-                                                alt={item.label}
-                                                width={1024}
-                                                height={1024}
-                                                className="size-5 text-primary"
-                                            />
-                                            <span className="text-sm text-foreground">
-                                                {item.label}
-                                            </span>
-                                        </div>
-                                    </AnimationContainer>
-                                ))}
-                            </div>
+                        <div className="flex flex-col sm:flex-row gap-4 mt-8">
+                            <Link href="https://app.tavestack.com/">
+                                <Button size="lg" className="px-8 gap-2">
+                                    Start Free 14-Day Trial
+                                    <ArrowRightIcon className="size-4" />
+                                </Button>
+                            </Link>
+                            <Link href="/demo">
+                                <Button variant="outline" size="lg" className="px-8 gap-2">
+                                    <Calendar className="size-4" />
+                                    Schedule a Demo
+                                </Button>
+                            </Link>
                         </div>
                     </AnimationContainer>
 
-                    <AnimationContainer animation="fadeUp" delay={1}>
-                        <Link href={{ pathname: "https://app.tavestack.com/" }}>
-                            <Button size="lg" className="mt-6">
-                                Start now
-                                <ArrowRightIcon className="size-4 ml-2" />
-                            </Button>
-                        </Link>
+                    {/* Trust Elements */}
+                    <AnimationContainer animation="fadeUp" delay={0.7}>
+                        <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6 mt-6">
+                            {TRUST_ELEMENTS.map((element, index) => (
+                                <div 
+                                    key={index}
+                                    className="flex items-center gap-2 text-sm text-muted-foreground"
+                                >
+                                    <CheckCircle2 className="w-4 h-4 text-green-500" />
+                                    {element}
+                                </div>
+                            ))}
+                        </div>
                     </AnimationContainer>
                 </div>
             </div>
