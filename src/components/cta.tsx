@@ -63,7 +63,6 @@ const CTA = () => {
                             <span className="text-transparent bg-clip-text bg-gradient-to-b from-foreground to-foreground/70">
                                 Ready to Transform
                             </span>
-                            <br />
                             <span className="text-transparent bg-clip-text bg-gradient-to-b from-foreground to-foreground/70">
                                 Your Operations?
                             </span>

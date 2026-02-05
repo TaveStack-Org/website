@@ -104,7 +104,6 @@ const SolutionsPage = () => {
                             <GradientText colors={['#8a27f3ff', '#db5800ff', '#8a27f3ff']} animationSpeed={6}>
                                 Solutions Built for
                             </GradientText>
-                            <br />
                             <span className="text-foreground">Your Industry</span>
                         </h1>
                     </AnimationContainer>
@@ -156,17 +155,30 @@ const SolutionsPage = () => {
                 </div>
 
                 {/* CTA Section */}
-                <AnimationContainer animation="fadeUp" delay={0.8}>
-                    <div className="mt-16 text-center">
-                        <h2 className="text-2xl font-bold mb-4">Don't See Your Industry?</h2>
-                        <p className="text-muted-foreground mb-8 max-w-lg mx-auto">
-                            Our flexible platform can be customized for any industry. Let's discuss your unique requirements.
-                        </p>
-                        <Link href="/contact">
-                            <Button size="lg">Contact Us</Button>
-                        </Link>
+                <div className="mt-16">
+                    <div className="flex flex-col items-center text-center gap-4 mb-8">
+                        <AnimationContainer animation="fadeUp" delay={0.8}>
+                            <SectionBadge title="Custom Solutions" />
+                        </AnimationContainer>
+                        <AnimationContainer animation="fadeUp" delay={0.9}>
+                            <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium !leading-tight">
+                                <GradientText colors={['#8a27f3ff', '#db5800ff', '#8a27f3ff']} animationSpeed={6}>
+                                    Don't See Your Industry?
+                                </GradientText>
+                            </h2>
+                        </AnimationContainer>
                     </div>
-                </AnimationContainer>
+                    <AnimationContainer animation="fadeUp" delay={1.0}>
+                        <div className="text-center">
+                            <p className="text-muted-foreground mb-8 max-w-lg mx-auto">
+                                Our flexible platform can be customized for any industry. Let's discuss your unique requirements.
+                            </p>
+                            <Link href="/contact">
+                                <Button size="lg">Contact Us</Button>
+                            </Link>
+                        </div>
+                    </AnimationContainer>
+                </div>
             </Wrapper>
         </div>
     );

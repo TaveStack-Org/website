@@ -99,7 +99,6 @@ const ResourcesPage = () => {
                             <GradientText colors={['#8a27f3ff', '#db5800ff', '#8a27f3ff']} animationSpeed={6}>
                                 Learn & Grow
                             </GradientText>
-                            <br />
                             <span className="text-foreground">With Tavestack</span>
                         </h1>
                     </AnimationContainer>

@@ -180,26 +180,35 @@ const DemoPage = () => {
                 </div>
 
                 {/* What Happens Next */}
-                <AnimationContainer animation="fadeUp" delay={0.7}>
-                    <div className="mt-16 lg:mt-24">
-                        <h2 className="text-2xl font-bold text-center mb-8">What Happens Next?</h2>
-                        <div className="grid md:grid-cols-4 gap-6">
-                            {[
-                                { step: 1, text: "We'll confirm your demo time within 24 hours" },
-                                { step: 2, text: "You'll receive a calendar invitation" },
-                                { step: 3, text: "Our team will customize the demo to your needs" },
-                                { step: 4, text: "You'll see Tavestack in action!" },
-                            ].map((item, index) => (
-                                <div key={index} className="flex flex-col items-center text-center">
-                                    <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-primary-foreground font-bold mb-3">
-                                        {item.step}
-                                    </div>
-                                    <p className="text-sm text-muted-foreground">{item.text}</p>
-                                </div>
-                            ))}
-                        </div>
+                <div className="mt-16 lg:mt-24">
+                    <div className="flex flex-col items-center text-center gap-4 mb-8">
+                        <AnimationContainer animation="fadeUp" delay={0.7}>
+                            <SectionBadge title="Next Steps" />
+                        </AnimationContainer>
+                        <AnimationContainer animation="fadeUp" delay={0.8}>
+                            <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium !leading-tight">
+                                <GradientText colors={['#8a27f3ff', '#db5800ff', '#8a27f3ff']} animationSpeed={6}>
+                                    What Happens Next?
+                                </GradientText>
+                            </h2>
+                        </AnimationContainer>
                     </div>
-                </AnimationContainer>
+                    <div className="grid md:grid-cols-4 gap-6">
+                        {[
+                            { step: 1, text: "We'll confirm your demo time within 24 hours" },
+                            { step: 2, text: "You'll receive a calendar invitation" },
+                            { step: 3, text: "Our team will customize the demo to your needs" },
+                            { step: 4, text: "You'll see Tavestack in action!" },
+                        ].map((item, index) => (
+                            <div key={index} className="flex flex-col items-center text-center">
+                                <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-primary-foreground font-bold mb-3">
+                                    {item.step}
+                                </div>
+                                <p className="text-sm text-muted-foreground">{item.text}</p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
             </Wrapper>
         </div>
     );

@@ -1,3 +1,5 @@
+"use client";
+
 import { LucideProps } from "lucide-react";
 import Image from "next/image";
 import { useTheme } from "next-themes";
@@ -24,7 +26,7 @@ const ThemeAwareLogo: FC<LucideProps> = (props) => {
                 alt="TaveStack Logo"
                 width={150}
                 height={28}
-                className="w-full h-auto max-h-7"
+                className="w-full h-auto max-h-9"
                 priority
                 style={{
                     transition: "opacity 0.2s ease-in-out",

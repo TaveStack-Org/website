@@ -20,7 +20,6 @@ const Features = () => {
                         <GradientText colors={['#8a27f3ff', '#db5800ff', '#8a27f3ff']} animationSpeed={6}>
                             Everything You Need
                         </GradientText>
-                        <br />
                         <span className="text-foreground">To Run Your Business Efficiently</span>
                     </h2>
                 </AnimationContainer>

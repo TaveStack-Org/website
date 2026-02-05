@@ -6,7 +6,7 @@ interface Props {
 
 const SectionBadge = ({ title }: Props) => {
     return (
-        <div className="px-2.5 py-1 rounded-full bg-neutral-800 flex items-center justify-center gap-2">
+        <div className="px-2.5 py-1 rounded-full bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center gap-2">
             <div className="w-1.5 h-1.5 rounded-full bg-primary/40 flex items-center justify-center relative">
                 <div className="w-2 h-2 rounded-full bg-primary/60 flex items-center justify-center animate-ping">
                     <div className="w-2 h-2 rounded-full bg-primary/60 flex items-center justify-center animate-ping"></div>
@@ -14,7 +14,7 @@ const SectionBadge = ({ title }: Props) => {
                 <div className="w-1.5 h-1.5 rounded-full bg-primary flex items-center justify-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
                 </div>
             </div>
-            <span className="text-xs font-medium text-primary">
+            <span className="text-sm font-medium text-primary">
                 {title}
             </span>
         </div>

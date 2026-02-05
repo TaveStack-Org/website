@@ -53,7 +53,7 @@ const AfricanAdvantage = () => {
 
             <div className="relative z-10 flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
                 {/* Left Column - Text Content */}
-                <div className="flex-1 flex flex-col gap-6">
+                <div className="flex-1 flex flex-col items-center text-center gap-4 mb-16">
                     <AnimationContainer animation="fadeUp" delay={0.2}>
                         <SectionBadge title="African Advantage" />
                     </AnimationContainer>
@@ -63,7 +63,6 @@ const AfricanAdvantage = () => {
                             <GradientText colors={['#8a27f3ff', '#db5800ff', '#8a27f3ff']} animationSpeed={6}>
                                 Built for Africa.
                             </GradientText>
-                            <br />
                             <span className="text-foreground">Ready for Global Scale.</span>
                         </h2>
                     </AnimationContainer>

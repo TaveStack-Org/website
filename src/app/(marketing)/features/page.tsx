@@ -25,7 +25,6 @@ const FeaturesPage = () => {
                             <GradientText colors={['#8a27f3ff', '#db5800ff', '#8a27f3ff']} animationSpeed={6}>
                                 Everything You Need to
                             </GradientText>
-                            <br />
                             <span className="text-foreground">Automate Your Business</span>
                         </h1>
                     </AnimationContainer>
@@ -81,22 +80,35 @@ const FeaturesPage = () => {
                 </div>
 
                 {/* CTA */}
-                <AnimationContainer animation="fadeUp" delay={0.5}>
-                    <div className="mt-24 text-center">
-                        <h2 className="text-2xl md:text-3xl font-bold mb-4">Ready to Get Started?</h2>
-                        <p className="text-muted-foreground mb-8 max-w-lg mx-auto">
-                            Start your free 14-day trial and experience the power of unified workflow automation.
-                        </p>
-                        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                            <Link href="https://app.tavestack.com/">
-                                <Button size="lg">Start Free Trial</Button>
-                            </Link>
-                            <Link href="/demo">
-                                <Button variant="outline" size="lg">Schedule a Demo</Button>
-                            </Link>
-                        </div>
+                <div className="mt-24">
+                    <div className="flex flex-col items-center text-center gap-4 mb-8">
+                        <AnimationContainer animation="fadeUp" delay={0.5}>
+                            <SectionBadge title="Get Started" />
+                        </AnimationContainer>
+                        <AnimationContainer animation="fadeUp" delay={0.6}>
+                            <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium !leading-tight">
+                                <GradientText colors={['#8a27f3ff', '#db5800ff', '#8a27f3ff']} animationSpeed={6}>
+                                    Ready to Get Started?
+                                </GradientText>
+                            </h2>
+                        </AnimationContainer>
                     </div>
-                </AnimationContainer>
+                    <AnimationContainer animation="fadeUp" delay={0.7}>
+                        <div className="text-center">
+                            <p className="text-muted-foreground mb-8 max-w-lg mx-auto">
+                                Start your free 14-day trial and experience the power of unified workflow automation.
+                            </p>
+                            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                                <Link href="https://app.tavestack.com/">
+                                    <Button size="lg">Start Free Trial</Button>
+                                </Link>
+                                <Link href="/demo">
+                                    <Button variant="outline" size="lg">Schedule a Demo</Button>
+                                </Link>
+                            </div>
+                        </div>
+                    </AnimationContainer>
+                </div>
             </Wrapper>
         </div>
     );

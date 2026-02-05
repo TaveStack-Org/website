@@ -39,7 +39,6 @@ const PricingPage = () => {
                             <GradientText colors={['#8a27f3ff', '#db5800ff', '#8a27f3ff']} animationSpeed={6}>
                                 Simple, Transparent Pricing
                             </GradientText>
-                            <br />
                             <span className="text-foreground">That Scales With You</span>
                         </h1>
                     </AnimationContainer>
@@ -57,12 +56,19 @@ const PricingPage = () => {
 
             {/* Add-ons Section */}
             <Wrapper className="py-16">
-                <AnimationContainer animation="fadeUp" delay={0.2}>
-                    <div className="text-center mb-12">
-                        <h2 className="text-2xl md:text-3xl font-bold mb-4">Add-Ons</h2>
-                        <p className="text-muted-foreground">Available for Professional & Enterprise plans</p>
-                    </div>
-                </AnimationContainer>
+                <div className="flex flex-col items-center text-center gap-4 mb-12">
+                    <AnimationContainer animation="fadeUp" delay={0.2}>
+                        <SectionBadge title="Enhance Your Plan" />
+                    </AnimationContainer>
+                    <AnimationContainer animation="fadeUp" delay={0.3}>
+                        <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium !leading-tight">
+                            <GradientText colors={['#8a27f3ff', '#db5800ff', '#8a27f3ff']} animationSpeed={6}>
+                                Add-Ons
+                            </GradientText>
+                        </h2>
+                        <p className="text-muted-foreground mt-2">Available for Professional & Enterprise plans</p>
+                    </AnimationContainer>
+                </div>
 
                 <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
                     {ADD_ONS.map((addon, index) => (
@@ -79,15 +85,20 @@ const PricingPage = () => {
 
             {/* ROI Calculator */}
             <Wrapper className="py-16">
-                <AnimationContainer animation="fadeUp" delay={0.2}>
-                    <div className="max-w-2xl mx-auto">
-                        <div className="text-center mb-8">
-                            <h2 className="text-2xl md:text-3xl font-bold mb-4 flex items-center justify-center gap-3">
-                                <Calculator className="w-8 h-8 text-primary" />
-                                Calculate Your Savings
+                <div className="max-w-2xl mx-auto">
+                    <div className="flex flex-col items-center text-center gap-4 mb-8">
+                        <AnimationContainer animation="fadeUp" delay={0.2}>
+                            <SectionBadge title="ROI Calculator" />
+                        </AnimationContainer>
+                        <AnimationContainer animation="fadeUp" delay={0.3}>
+                            <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium !leading-tight">
+                                <GradientText colors={['#8a27f3ff', '#db5800ff', '#8a27f3ff']} animationSpeed={6}>
+                                    Calculate Your Savings
+                                </GradientText>
                             </h2>
-                            <p className="text-muted-foreground">See how much you could save with Tavestack</p>
-                        </div>
+                            <p className="text-muted-foreground mt-2">See how much you could save with Tavestack</p>
+                        </AnimationContainer>
+                    </div>
 
                         <div className="p-8 rounded-2xl bg-card/50 border border-border/50">
                             <div className="grid md:grid-cols-3 gap-6 mb-8">
@@ -137,8 +148,7 @@ const PricingPage = () => {
                                 </div>
                             )}
                         </div>
-                    </div>
-                </AnimationContainer>
+                </div>
             </Wrapper>
 
             {/* FAQ */}

@@ -21,9 +21,8 @@ const Perks = () => {
                     <h2 className="text-2xl md:text-4xl lg:text-5xl font-medium !leading-tight">
                         <GradientText colors={['#8a27f3ff', '#db5800ff', '#8a27f3ff']} animationSpeed={6}>
                             Everything You Need
-                            <br />
-                            To Run Efficiently
                         </GradientText>
+                        <span className="text-foreground">To Run Efficiently.</span>
                     </h2>
                 </AnimationContainer>
 

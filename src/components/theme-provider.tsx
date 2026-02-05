@@ -3,7 +3,7 @@
 import * as React from "react"
 import { ThemeProvider as NextThemesProvider } from "next-themes"
 
-// This component prevents theme flash on page load
+// This component prevents theme flash on page load and handles SSR localStorage issues
 export function ThemeProvider({
   children,
   ...props
@@ -15,14 +15,9 @@ export function ThemeProvider({
     setMounted(true)
   }, [])
 
-  // If not mounted yet, render with a minimal UI that won't cause hydration mismatch
+  // During SSR, render without theme provider to avoid localStorage access
   if (!mounted) {
-    // You can optionally render a minimal skeleton here, but empty div works fine too
-    return (
-      <NextThemesProvider {...props}>
-        <div style={{ visibility: "hidden" }}>{children}</div>
-      </NextThemesProvider>
-    )
+    return <>{children}</>
   }
 
   return <NextThemesProvider {...props}>{children}</NextThemesProvider>

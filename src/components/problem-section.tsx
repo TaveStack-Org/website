@@ -3,6 +3,8 @@
 import { PERKS, PROBLEM_STAT } from "@/constants";
 import AnimationContainer from "./global/animation-container";
 import Wrapper from "./global/wrapper";
+import SectionBadge from "./ui/section-badge";
+import GradientText from "./ui/gradient-text";
 import { XCircle } from "lucide-react";
 
 const ProblemSection = () => {
@@ -10,14 +12,20 @@ const ProblemSection = () => {
         <Wrapper className="py-20 lg:py-32">
             <div className="flex flex-col items-center gap-12">
                 {/* Heading */}
-                <AnimationContainer animation="fadeUp" delay={0.2}>
-                    <div className="text-center max-w-3xl mx-auto">
-                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+                <div className="flex flex-col items-center text-center gap-4">
+                    <AnimationContainer animation="fadeUp" delay={0.2}>
+                        <SectionBadge title="The Problem" />
+                    </AnimationContainer>
+
+                    <AnimationContainer animation="fadeUp" delay={0.3}>
+                        <h2 className="text-2xl md:text-4xl lg:text-5xl font-medium !leading-tight">
                             Your Teams Are Drowning in{" "}
-                            <span className="text-destructive">Disconnected Tools</span>
+                            <GradientText colors={['#8a27f3ff', '#db5800ff', '#8a27f3ff']} animationSpeed={6}>
+                                Disconnected Tools
+                            </GradientText>
                         </h2>
-                    </div>
-                </AnimationContainer>
+                    </AnimationContainer>
+                </div>
 
                 {/* 3-Column Problem Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 w-full max-w-5xl">

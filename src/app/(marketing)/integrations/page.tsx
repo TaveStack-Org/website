@@ -35,7 +35,6 @@ const IntegrationsPage = () => {
                             <GradientText colors={['#8a27f3ff', '#db5800ff', '#8a27f3ff']} animationSpeed={6}>
                                 Connect Everything.
                             </GradientText>
-                            <br />
                             <span className="text-foreground">Automate Anything.</span>
                         </h1>
                     </AnimationContainer>
@@ -113,40 +112,62 @@ const IntegrationsPage = () => {
                 </AnimationContainer>
 
                 {/* Custom Integration CTA */}
-                <AnimationContainer animation="fadeUp" delay={0.8}>
-                    <div className="mt-16 p-8 rounded-2xl bg-card/50 border border-border/50 text-center">
-                        <h2 className="text-2xl font-bold mb-4">Don't See Your System?</h2>
-                        <p className="text-muted-foreground mb-6 max-w-lg mx-auto">
-                            Our flexible API integration builder lets you connect any system with a REST API. 
-                            Need help? Our team can build custom connectors for you.
-                        </p>
-                        <Link href="/contact">
-                            <Button size="lg">Request a Custom Integration</Button>
-                        </Link>
+                <div className="mt-16">
+                    <div className="flex flex-col items-center text-center gap-4 mb-8">
+                        <AnimationContainer animation="fadeUp" delay={0.8}>
+                            <SectionBadge title="Custom Integrations" />
+                        </AnimationContainer>
+                        <AnimationContainer animation="fadeUp" delay={0.9}>
+                            <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium !leading-tight">
+                                <GradientText colors={['#8a27f3ff', '#db5800ff', '#8a27f3ff']} animationSpeed={6}>
+                                    Don't See Your System?
+                                </GradientText>
+                            </h2>
+                        </AnimationContainer>
                     </div>
-                </AnimationContainer>
+                    <AnimationContainer animation="fadeUp" delay={1.0}>
+                        <div className="p-8 rounded-2xl bg-card/50 border border-border/50 text-center">
+                            <p className="text-muted-foreground mb-6 max-w-lg mx-auto">
+                                Our flexible API integration builder lets you connect any system with a REST API. 
+                                Need help? Our team can build custom connectors for you.
+                            </p>
+                            <Link href="/contact">
+                                <Button size="lg">Request a Custom Integration</Button>
+                            </Link>
+                        </div>
+                    </AnimationContainer>
+                </div>
 
                 {/* How It Works */}
-                <AnimationContainer animation="fadeUp" delay={0.9}>
-                    <div className="mt-16">
-                        <h2 className="text-2xl font-bold text-center mb-8">How Integrations Work</h2>
-                        <div className="grid md:grid-cols-3 gap-8">
-                            {[
-                                { step: 1, title: "Select", description: "Choose your system from our catalog" },
-                                { step: 2, title: "Authenticate", description: "Connect with your credentials" },
-                                { step: 3, title: "Sync", description: "Start syncing data in real-time" },
-                            ].map((item) => (
-                                <div key={item.step} className="text-center">
-                                    <div className="w-12 h-12 rounded-full bg-primary mx-auto mb-4 flex items-center justify-center text-primary-foreground font-bold text-lg">
-                                        {item.step}
-                                    </div>
-                                    <h3 className="font-semibold mb-2">{item.title}</h3>
-                                    <p className="text-sm text-muted-foreground">{item.description}</p>
-                                </div>
-                            ))}
-                        </div>
+                <div className="mt-16">
+                    <div className="flex flex-col items-center text-center gap-4 mb-8">
+                        <AnimationContainer animation="fadeUp" delay={0.9}>
+                            <SectionBadge title="How It Works" />
+                        </AnimationContainer>
+                        <AnimationContainer animation="fadeUp" delay={1.0}>
+                            <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium !leading-tight">
+                                <GradientText colors={['#8a27f3ff', '#db5800ff', '#8a27f3ff']} animationSpeed={6}>
+                                    Integrations Made Easy
+                                </GradientText>
+                            </h2>
+                        </AnimationContainer>
                     </div>
-                </AnimationContainer>
+                    <div className="grid md:grid-cols-3 gap-8">
+                        {[
+                            { step: 1, title: "Select", description: "Choose your system from our catalog" },
+                            { step: 2, title: "Authenticate", description: "Connect with your credentials" },
+                            { step: 3, title: "Sync", description: "Start syncing data in real-time" },
+                        ].map((item) => (
+                            <div key={item.step} className="text-center">
+                                <div className="w-12 h-12 rounded-full bg-primary mx-auto mb-4 flex items-center justify-center text-primary-foreground font-bold text-lg">
+                                    {item.step}
+                                </div>
+                                <h3 className="font-semibold mb-2">{item.title}</h3>
+                                <p className="text-sm text-muted-foreground">{item.description}</p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
             </Wrapper>
         </div>
     );

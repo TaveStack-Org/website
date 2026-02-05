@@ -50,7 +50,6 @@ const AboutPage = () => {
                             <GradientText colors={['#8a27f3ff', '#db5800ff', '#8a27f3ff']} animationSpeed={6}>
                                 Built for Africa.
                             </GradientText>
-                            <br />
                             <span className="text-foreground">Built to Scale.</span>
                         </h1>
                     </AnimationContainer>
@@ -79,72 +78,112 @@ const AboutPage = () => {
                 </div>
 
                 {/* Values */}
-                <AnimationContainer animation="fadeUp" delay={0.7}>
-                    <div className="mb-24">
-                        <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">Our Values</h2>
-                        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                            {VALUES.map((value, index) => (
-                                <div key={index} className="text-center p-6 rounded-2xl bg-card/50 border border-border/50">
-                                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                                        <value.icon className="w-6 h-6 text-primary" />
-                                    </div>
-                                    <h3 className="font-semibold mb-2">{value.title}</h3>
-                                    <p className="text-sm text-muted-foreground">{value.description}</p>
-                                </div>
-                            ))}
-                        </div>
+                <div className="mb-24">
+                    <div className="flex flex-col items-center text-center gap-4 mb-12">
+                        <AnimationContainer animation="fadeUp" delay={0.7}>
+                            <SectionBadge title="Core Values" />
+                        </AnimationContainer>
+                        <AnimationContainer animation="fadeUp" delay={0.8}>
+                            <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium !leading-tight">
+                                <GradientText colors={['#8a27f3ff', '#db5800ff', '#8a27f3ff']} animationSpeed={6}>
+                                    Our Values
+                                </GradientText>
+                            </h2>
+                        </AnimationContainer>
                     </div>
-                </AnimationContainer>
+                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        {VALUES.map((value, index) => (
+                            <div key={index} className="text-center p-6 rounded-2xl bg-card/50 border border-border/50">
+                                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                                    <value.icon className="w-6 h-6 text-primary" />
+                                </div>
+                                <h3 className="font-semibold mb-2">{value.title}</h3>
+                                <p className="text-sm text-muted-foreground">{value.description}</p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
 
                 {/* Timeline */}
-                <AnimationContainer animation="fadeUp" delay={0.8}>
-                    <div className="mb-24">
-                        <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">Our Journey</h2>
-                        <div className="flex flex-wrap justify-center gap-8">
-                            {TIMELINE.map((item, index) => (
-                                <div key={index} className="text-center">
-                                    <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                                        <span className="font-bold text-primary">{item.year}</span>
-                                    </div>
-                                    <p className="text-sm text-muted-foreground max-w-[150px]">{item.event}</p>
-                                </div>
-                            ))}
-                        </div>
+                <div className="mb-24">
+                    <div className="flex flex-col items-center text-center gap-4 mb-12">
+                        <AnimationContainer animation="fadeUp" delay={0.8}>
+                            <SectionBadge title="Timeline" />
+                        </AnimationContainer>
+                        <AnimationContainer animation="fadeUp" delay={0.9}>
+                            <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium !leading-tight">
+                                <GradientText colors={['#8a27f3ff', '#db5800ff', '#8a27f3ff']} animationSpeed={6}>
+                                    Our Journey
+                                </GradientText>
+                            </h2>
+                        </AnimationContainer>
                     </div>
-                </AnimationContainer>
+                    <div className="flex flex-wrap justify-center gap-8">
+                        {TIMELINE.map((item, index) => (
+                            <div key={index} className="text-center">
+                                <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                                    <span className="font-bold text-primary">{item.year}</span>
+                                </div>
+                                <p className="text-sm text-muted-foreground max-w-[150px]">{item.event}</p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
 
                 {/* Team */}
-                <AnimationContainer animation="fadeUp" delay={0.9}>
-                    <div className="mb-24" id="team">
-                        <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">Leadership Team</h2>
-                        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                            {TEAM.map((member, index) => (
-                                <div key={index} className="p-6 rounded-2xl bg-card/50 border border-border/50 text-center">
-                                    <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                                        <Users className="w-8 h-8 text-primary/50" />
-                                    </div>
-                                    <h3 className="font-semibold mb-1">{member.name}</h3>
-                                    <p className="text-sm text-muted-foreground mb-4">{member.bio}</p>
-                                    <div className="flex justify-center gap-3">
-                                        <Linkedin className="w-4 h-4 text-muted-foreground hover:text-primary cursor-pointer" />
-                                        <Twitter className="w-4 h-4 text-muted-foreground hover:text-primary cursor-pointer" />
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
+                <div className="mb-24" id="team">
+                    <div className="flex flex-col items-center text-center gap-4 mb-12">
+                        <AnimationContainer animation="fadeUp" delay={0.9}>
+                            <SectionBadge title="Our Team" />
+                        </AnimationContainer>
+                        <AnimationContainer animation="fadeUp" delay={1.0}>
+                            <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium !leading-tight">
+                                <GradientText colors={['#8a27f3ff', '#db5800ff', '#8a27f3ff']} animationSpeed={6}>
+                                    Leadership Team
+                                </GradientText>
+                            </h2>
+                        </AnimationContainer>
                     </div>
-                </AnimationContainer>
+                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        {TEAM.map((member, index) => (
+                            <div key={index} className="p-6 rounded-2xl bg-card/50 border border-border/50 text-center">
+                                <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                                    <Users className="w-8 h-8 text-primary/50" />
+                                </div>
+                                <h3 className="font-semibold mb-1">{member.name}</h3>
+                                <p className="text-sm text-muted-foreground mb-4">{member.bio}</p>
+                                <div className="flex justify-center gap-3">
+                                    <Linkedin className="w-4 h-4 text-muted-foreground hover:text-primary cursor-pointer" />
+                                    <Twitter className="w-4 h-4 text-muted-foreground hover:text-primary cursor-pointer" />
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
 
                 {/* Careers CTA */}
-                <AnimationContainer animation="fadeUp" delay={1.0}>
-                    <div className="p-8 rounded-2xl bg-gradient-to-r from-primary/10 via-card to-primary/5 border border-primary/20 text-center" id="careers">
-                        <h2 className="text-2xl font-bold mb-4">Join Our Team</h2>
-                        <p className="text-muted-foreground mb-6 max-w-lg mx-auto">
-                            We're always looking for talented people who share our mission. Check out our open positions.
-                        </p>
-                        <Button size="lg">View Open Positions</Button>
+                <div className="mb-24" id="careers">
+                    <div className="flex flex-col items-center text-center gap-4 mb-8">
+                        <AnimationContainer animation="fadeUp" delay={1.0}>
+                            <SectionBadge title="Careers" />
+                        </AnimationContainer>
+                        <AnimationContainer animation="fadeUp" delay={1.1}>
+                            <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium !leading-tight">
+                                <GradientText colors={['#8a27f3ff', '#db5800ff', '#8a27f3ff']} animationSpeed={6}>
+                                    Join Our Team
+                                </GradientText>
+                            </h2>
+                        </AnimationContainer>
                     </div>
-                </AnimationContainer>
+                    <AnimationContainer animation="fadeUp" delay={1.2}>
+                        <div className="p-8 rounded-2xl bg-gradient-to-r from-primary/10 via-card to-primary/5 border border-primary/20 text-center">
+                            <p className="text-muted-foreground mb-6 max-w-lg mx-auto">
+                                We're always looking for talented people who share our mission. Check out our open positions.
+                            </p>
+                            <Button size="lg">View Open Positions</Button>
+                        </div>
+                    </AnimationContainer>
+                </div>
             </Wrapper>
         </div>
     );

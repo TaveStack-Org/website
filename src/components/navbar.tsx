@@ -47,7 +47,7 @@ const Navbar = () => {
             {/* Desktop */}
             <motion.div
                 animate={{
-                    width: visible ? "40%" : "100%",
+                    width: visible ? "70%" : "100%",
                     y: visible ? 20 : 0,
                 }}
                 transition={{
@@ -56,7 +56,7 @@ const Navbar = () => {
                     damping: 40,
                 }}
                 style={{
-                    minWidth: "800px",
+                    minWidth: "1000px",
                 }}
                 className={cn(
                     "hidden lg:flex bg-transparent self-start items-center justify-between py-4 rounded-full relative z-[50] mx-auto w-full backdrop-blur",
@@ -68,14 +68,14 @@ const Navbar = () => {
                         initial={{ opacity: 0, y: -10 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.2 }}
-                        className="max-w-[150px] w-full"
+                        className="max-w-[180px] w-full"
                     >
                         <Link href={{ pathname: "/" }} className="flex items-center gap-2">
                         <Icons.logo className="w-full" />
                         </Link>
                     </motion.div>
 
-                    <div className="hidden lg:flex flex-row flex-1 absolute inset-0 items-center justify-center w-max mx-auto gap-x-2 text-sm text-muted-foreground font-medium">
+                    <div className="hidden lg:flex flex-row flex-1 absolute inset-0 items-center justify-center w-max mx-auto gap-x-3 text-base text-muted-foreground font-medium">
                         <AnimatePresence>
                             {NAV_LINKS.map((link, index) => (
                                 <AnimationContainer
