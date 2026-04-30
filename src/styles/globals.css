@@ -6,10 +6,11 @@
  *   Light primary (purple)  ≈ HSL 263 60% 64%
  *   Light accent  (orange)  ≈ HSL 22  78% 62%
  *
- * Dark mode: punchier + more vivid — higher saturation, stronger pop on
- * dark surfaces so brand presence reads on near-black.
- *   Dark primary (purple)   ≈ HSL 263 92% 66%
- *   Dark accent  (orange)   ≈ HSL 22  98% 58%
+ * Dark mode: deeper + saturated — high saturation but lower lightness so
+ * brand colours feel rich and grounded against near-black surfaces rather
+ * than washed-out / glowy.
+ *   Dark primary (purple)   ≈ HSL 263 90% 42%
+ *   Dark accent  (orange)   ≈ HSL 22  95% 40%
  *
  * Hero/CTA gradient = linear-gradient(135deg, var(--brand-purple), var(--brand-orange))
  */
@@ -68,10 +69,10 @@
     --popover: 240 10% 7%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 263 92% 66%;
+    --primary: 263 90% 42%;
     --primary-foreground: 0 0% 100%;
 
-    --accent: 22 98% 58%;
+    --accent: 22 95% 40%;
     --accent-foreground: 0 0% 100%;
 
     --secondary: 263 25% 15%;
@@ -84,18 +85,18 @@
 
     --border: 240 8% 18%;
     --input: 240 8% 18%;
-    --ring: 263 92% 66%;
+    --ring: 263 90% 42%;
 
-    --chart-1: 263 92% 66%;
-    --chart-2: 22 98% 58%;
-    --chart-3: 280 90% 70%;
-    --chart-4: 32 100% 62%;
-    --chart-5: 250 85% 68%;
+    --chart-1: 263 90% 42%;
+    --chart-2: 22 95% 40%;
+    --chart-3: 280 80% 48%;
+    --chart-4: 32 95% 44%;
+    --chart-5: 250 80% 46%;
 
-    --brand-purple: 263 92% 66%;
-    --brand-orange: 22 98% 58%;
-    --brand-purple-deep: 263 80% 50%;
-    --brand-orange-soft: 28 100% 65%;
+    --brand-purple: 263 90% 42%;
+    --brand-orange: 22 95% 40%;
+    --brand-purple-deep: 263 85% 28%;
+    --brand-orange-soft: 28 95% 46%;
   }
 }
 

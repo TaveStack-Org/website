@@ -14,8 +14,8 @@ export default function MarketingLayout({
             <div className="fixed inset-0 z-0 pointer-events-none">
                 <DotGrid />
             </div>
-            {/* Theme-aware fade overlay so the dot grid recedes near content */}
-            <div className="fixed inset-0 z-[5] bg-background/55 dark:bg-background/35 pointer-events-none" />
+            {/* Light readability veil — kept thin so the dot grid stays visible behind content */}
+            <div className="fixed inset-0 z-[5] bg-background/25 dark:bg-background/15 pointer-events-none" />
             <div className="relative z-10">
                 <Navbar />
                 {children}

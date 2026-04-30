@@ -59,12 +59,12 @@ const hexToRgb = (hex: string) => {
 };
 
 const DotGrid = ({
-    dotSize = 2,
-    gap = 28,
-    proximity = 140,
+    dotSize = 3,
+    gap = 26,
+    proximity = 160,
     speedTrigger = 100,
-    shockRadius = 220,
-    shockStrength = 4,
+    shockRadius = 240,
+    shockStrength = 5,
     maxSpeed = 5000,
     resistance = 750,
     returnDuration = 1.4,
@@ -75,8 +75,9 @@ const DotGrid = ({
     useEffect(() => setMounted(true), []);
 
     const isDark = mounted && resolvedTheme === "dark";
-    const baseColor = isDark ? "#27272a" : "#e4e4e7";
-    const activeColor = isDark ? "#a78bfa" : "#7c3aed";
+    // Stronger base contrast in both modes so the grid reads as a deliberate texture, not a guess.
+    const baseColor = isDark ? "#3f3f46" : "#c7cad1";
+    const activeColor = isDark ? "#c084fc" : "#7c3aed";
 
     const wrapperRef = useRef<HTMLDivElement | null>(null);
     const canvasRef = useRef<HTMLCanvasElement | null>(null);
