@@ -50,9 +50,9 @@ const OsMockup = () => {
     }, []);
 
     return (
-        <div className="relative mx-auto w-full max-w-6xl">
-            {/* Glow */}
-            <div className="absolute -inset-20 -z-10 bg-brand-gradient opacity-20 blur-[120px] rounded-full pointer-events-none" />
+        <div className="relative mx-auto w-full max-w-6xl overflow-visible">
+            {/* Glow — bounded so the wide blur cannot trigger horizontal overflow on mobile */}
+            <div className="absolute inset-0 -z-10 bg-brand-gradient opacity-20 blur-[80px] sm:blur-[120px] rounded-full pointer-events-none" />
 
             <div className="relative rounded-2xl border border-border/60 bg-background/80 backdrop-blur-xl shadow-2xl overflow-hidden">
                 {/* Window chrome */}
@@ -71,7 +71,7 @@ const OsMockup = () => {
 
                 <div className="grid grid-cols-12 min-h-[440px]">
                     {/* Sidebar — App dock */}
-                    <aside className="col-span-2 sm:col-span-1 border-r border-border/50 bg-foreground/[0.02] p-2 flex flex-col gap-2">
+                    <aside className="col-span-2 sm:col-span-1 border-r border-border/50 bg-foreground/[0.02] p-2 flex flex-col gap-2 min-w-0">
                         {apps.map((a, i) => {
                             const Icon = a.icon;
                             return (
@@ -97,7 +97,7 @@ const OsMockup = () => {
                     </aside>
 
                     {/* Main workspace */}
-                    <main className="col-span-7 sm:col-span-8 p-5 flex flex-col gap-4 overflow-hidden">
+                    <main className="col-span-10 sm:col-span-8 p-3 sm:p-5 flex flex-col gap-3 sm:gap-4 min-w-0 overflow-hidden">
                         <div className="flex items-center justify-between">
                             <div>
                                 <p className="text-xs text-muted-foreground">Tuesday, April 30</p>
@@ -158,8 +158,8 @@ const OsMockup = () => {
                         </div>
                     </main>
 
-                    {/* TAVE sidebar */}
-                    <aside className="col-span-3 border-l border-border/50 bg-foreground/[0.02] p-3 flex flex-col">
+                    {/* TAVE sidebar — hidden on mobile (cramped at <80px), shown sm+ */}
+                    <aside className="hidden sm:flex col-span-3 border-l border-border/50 bg-foreground/[0.02] p-3 flex-col min-w-0">
                         <div className="flex items-center gap-2 mb-3">
                             <div className="size-7 rounded-md bg-brand-gradient flex items-center justify-center">
                                 <Sparkles className="size-3.5 text-white" />

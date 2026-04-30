@@ -54,9 +54,8 @@ const Navbar = () => {
             <motion.div
                 animate={{ width: visible ? "78%" : "100%", y: visible ? 16 : 0 }}
                 transition={{ type: "spring", stiffness: 200, damping: 40 }}
-                style={{ minWidth: "1100px" }}
                 className={cn(
-                    "hidden lg:flex bg-transparent self-start items-center justify-between py-4 rounded-full relative z-[50] mx-auto w-full",
+                    "hidden lg:flex bg-transparent self-start items-center justify-between py-4 rounded-full relative z-[50] mx-auto w-full max-w-[1400px]",
                     visible &&
                         "bg-background/70 backdrop-blur-xl py-2 border border-border/60 shadow-[0_4px_30px_-10px_rgba(124,58,237,0.25)]"
                 )}

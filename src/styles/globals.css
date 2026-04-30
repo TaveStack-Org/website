@@ -1,10 +1,17 @@
 /*
  * TaveStack Brand Tokens
  * --------------------------------------------------------------------------
- * Primary (purple) — #7C3AED  (HSL ≈ 263 80% 58%)  used for primary CTA, links, focus
- * Accent  (orange) — #F97316  (HSL ≈ 21  90% 53%)  used for highlights, secondary CTA, gradients
- * Hero/CTA gradient = linear-gradient(135deg, #7C3AED 0%, #F97316 100%)
- * Tokens below are tuned to read well on both light and dark surfaces.
+ * Light mode: softer + brighter — lower saturation, higher lightness so
+ * gradient surfaces stay readable and not blinding on white backgrounds.
+ *   Light primary (purple)  ≈ HSL 263 60% 64%
+ *   Light accent  (orange)  ≈ HSL 22  78% 62%
+ *
+ * Dark mode: punchier + more vivid — higher saturation, stronger pop on
+ * dark surfaces so brand presence reads on near-black.
+ *   Dark primary (purple)   ≈ HSL 263 92% 66%
+ *   Dark accent  (orange)   ≈ HSL 22  98% 58%
+ *
+ * Hero/CTA gradient = linear-gradient(135deg, var(--brand-purple), var(--brand-orange))
  */
 
 @tailwind base;
@@ -20,12 +27,12 @@
     --popover: 0 0% 100%;
     --popover-foreground: 240 10% 8%;
 
-    /* Brand: purple primary */
-    --primary: 263 80% 58%;
+    /* Brand: purple primary — softer + brighter on light */
+    --primary: 263 60% 64%;
     --primary-foreground: 0 0% 100%;
 
-    /* Brand: orange accent */
-    --accent: 21 90% 53%;
+    /* Brand: orange accent — softer + brighter on light */
+    --accent: 22 78% 62%;
     --accent-foreground: 0 0% 100%;
 
     --secondary: 263 30% 96%;
@@ -38,19 +45,19 @@
 
     --border: 240 8% 90%;
     --input: 240 8% 90%;
-    --ring: 263 80% 58%;
+    --ring: 263 60% 64%;
     --radius: 0.6rem;
 
-    --chart-1: 263 80% 58%;
-    --chart-2: 21 90% 53%;
-    --chart-3: 280 70% 65%;
-    --chart-4: 32 95% 60%;
-    --chart-5: 250 60% 50%;
+    --chart-1: 263 60% 64%;
+    --chart-2: 22 78% 62%;
+    --chart-3: 280 60% 70%;
+    --chart-4: 32 80% 65%;
+    --chart-5: 250 55% 60%;
 
-    --brand-purple: 263 80% 58%;
-    --brand-orange: 21 90% 53%;
-    --brand-purple-deep: 270 75% 35%;
-    --brand-orange-soft: 28 95% 65%;
+    --brand-purple: 263 60% 64%;
+    --brand-orange: 22 78% 62%;
+    --brand-purple-deep: 263 55% 50%;
+    --brand-orange-soft: 28 80% 72%;
   }
 
   .dark {
@@ -61,10 +68,10 @@
     --popover: 240 10% 7%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 263 85% 68%;
+    --primary: 263 92% 66%;
     --primary-foreground: 0 0% 100%;
 
-    --accent: 24 95% 60%;
+    --accent: 22 98% 58%;
     --accent-foreground: 0 0% 100%;
 
     --secondary: 263 25% 15%;
@@ -77,18 +84,18 @@
 
     --border: 240 8% 18%;
     --input: 240 8% 18%;
-    --ring: 263 85% 68%;
+    --ring: 263 92% 66%;
 
-    --chart-1: 263 85% 68%;
-    --chart-2: 24 95% 60%;
-    --chart-3: 280 75% 70%;
-    --chart-4: 32 95% 65%;
-    --chart-5: 250 70% 65%;
+    --chart-1: 263 92% 66%;
+    --chart-2: 22 98% 58%;
+    --chart-3: 280 90% 70%;
+    --chart-4: 32 100% 62%;
+    --chart-5: 250 85% 68%;
 
-    --brand-purple: 263 85% 68%;
-    --brand-orange: 24 95% 60%;
-    --brand-purple-deep: 263 65% 45%;
-    --brand-orange-soft: 28 95% 70%;
+    --brand-purple: 263 92% 66%;
+    --brand-orange: 22 98% 58%;
+    --brand-purple-deep: 263 80% 50%;
+    --brand-orange-soft: 28 100% 65%;
   }
 }
 
