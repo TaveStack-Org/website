@@ -59,6 +59,12 @@ const config = {
 					'4': 'hsl(var(--chart-4))',
 					'5': 'hsl(var(--chart-5))'
 				},
+				brand: {
+					purple: 'hsl(var(--brand-purple))',
+					'purple-deep': 'hsl(var(--brand-purple-deep))',
+					orange: 'hsl(var(--brand-orange))',
+					'orange-soft': 'hsl(var(--brand-orange-soft))'
+				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
@@ -113,6 +119,18 @@ const config = {
 					'0%': { transform: 'translate(0%, 0%)', opacity: '1' },
 					'100%': { transform: 'translate(100%, 0%)', opacity: '0' },
 				},
+				'shimmer': {
+					'0%': { transform: 'translateX(-100%)' },
+					'100%': { transform: 'translateX(100%)' },
+				},
+				'glow-pulse': {
+					'0%, 100%': { opacity: '0.55', transform: 'scale(1)' },
+					'50%': { opacity: '0.8', transform: 'scale(1.05)' },
+				},
+				'caret-blink': {
+					'0%, 70%, 100%': { opacity: '1' },
+					'20%, 50%': { opacity: '0' },
+				},
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
@@ -122,6 +140,9 @@ const config = {
 				gradient: 'gradient 8s linear infinite',
 				'star-movement-bottom': 'star-movement-bottom linear infinite alternate',
 				'star-movement-top': 'star-movement-top linear infinite alternate',
+				shimmer: 'shimmer 2.4s linear infinite',
+				'glow-pulse': 'glow-pulse 6s ease-in-out infinite',
+				'caret-blink': 'caret-blink 1.2s ease-in-out infinite',
 			},
 			spacing: {
 				"1/8": "12.5%",

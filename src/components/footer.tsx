@@ -1,170 +1,108 @@
-"use client";
-
-import { Facebook, Instagram, Linkedin, Twitter, Youtube } from 'lucide-react';
-import Image from 'next/image';
-import Link from 'next/link';
-import { UrlObject } from 'url';
-import ScrollLink from './ui/scroll-link';
-import AnimationContainer from './global/animation-container';
+import { Github, Linkedin, Twitter, Youtube, Mail, MapPin, PhoneCall } from "lucide-react";
+import Link from "next/link";
+import AnimationContainer from "./global/animation-container";
 import Wrapper from "./global/wrapper";
-import Icons from './global/icons';
+import Icons from "./global/icons";
+import { FOOTER_NAV, SITE } from "@/constants";
 
-const PRODUCT_LINKS = [
-    { label: "AI Transcription", href: "#features" },
-    { label: "Contextual Intelligence", href: "#features" },
-    { label: "Collaborative Workspace", href: "#features" },
-    { label: "Analytics", href: "#features" },
+const SOCIAL = [
+    { icon: Linkedin, href: "https://linkedin.com/company/tavestack", label: "LinkedIn" },
+    { icon: Twitter, href: "https://twitter.com/tavestack", label: "X (Twitter)" },
+    { icon: Youtube, href: "https://youtube.com/@tavestack", label: "YouTube" },
+    { icon: Github, href: "https://github.com/tavestack", label: "GitHub" },
 ];
 
-const RESOURCES_LINKS = [
-    { label: "Knowledge Base", href: "#" },
-    { label: "Pricing Plans", href: "#pricing" },
-    { label: "FAQ", href: "#faq" },
-    { label: "Contact Us", href: "#contact" },
+const COLUMNS: { title: string; links: readonly { label: string; href: string }[] }[] = [
+    { title: "Platform", links: FOOTER_NAV.platform },
+    { title: "Apps", links: FOOTER_NAV.apps },
+    { title: "Solutions", links: FOOTER_NAV.solutions },
+    { title: "Company", links: FOOTER_NAV.company },
+    { title: "Legal", links: FOOTER_NAV.legal },
 ];
-
-const COMPANY_LINKS = [
-    { label: "About Us", href: "#" },
-    { label: "Contact", href: "#" },
-    { label: "Privacy Policy", href: "#" },
-    { label: "Terms of Service", href: "#" },
-];
-
-const SOCIAL_LINKS = [
-    { icon: Facebook, href: { pathname: "#" } },
-    { icon: Twitter, href: { pathname: "#" } },
-    { icon: Instagram, href: { pathname: "#" } },
-    { icon: Linkedin, href: { pathname: "#" } },
-    { icon: Youtube, href: { pathname: "#" } },
-];
-
-// We now use the ScrollLink component instead of this function
 
 const Footer = () => {
     return (
-        <footer className="relative border-t border-border pt-16 pb-8 md:pb-0 w-full overflow-hidden">
-            <Wrapper className="">
+        <footer className="relative border-t border-border/50 pt-20 pb-8 w-full overflow-hidden mt-24">
+            <Wrapper>
                 <AnimationContainer animation="scaleUp" delay={0.2}>
-                    <div className="absolute -top-1/8 lg:-top-1/2 inset-x-0 mx-auto bg-primary/50 lg:bg-primary/70 rounded-full w-1/2 h-1/4 blur-[6rem] lg:blur-[12rem]"></div>
+                    <div className="absolute -top-1/4 inset-x-0 mx-auto bg-brand-gradient rounded-full w-1/2 h-1/4 blur-[10rem] opacity-30 pointer-events-none" />
                 </AnimationContainer>
-
                 <AnimationContainer animation="scaleUp" delay={0.3}>
-                    <div className="absolute top-0 w-4/5 mx-auto inset-x-0 h-px bg-gradient-to-r from-primary/0 via-primary/80 to-primary/0"></div>
+                    <div className="absolute top-0 w-4/5 mx-auto inset-x-0 h-px bg-gradient-to-r from-transparent via-primary/60 to-transparent" />
                 </AnimationContainer>
 
-                <div className="grid gap-8 xl:grid-cols-3 xl:gap-8">
-                    <AnimationContainer animation="fadeRight" delay={0.4}>
-                        <div className="flex flex-col items-start justify-start md:max-w-[300px]">
-                            <div className="flex items-center gap-2">
-                                <Icons.logo className="w-max h-6" />
-                            </div>
-                            <p className="text-muted-foreground mt-4 text-sm">
-                                A15, Aso Grove Estate, Abuja, Nigeria.
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-8">
+                    <AnimationContainer animation="fadeRight" delay={0.4} className="col-span-2 sm:col-span-3 lg:col-span-1">
+                        <div className="flex flex-col items-start">
+                            <Icons.logo className="w-32 h-auto" />
+                            <p className="text-sm text-muted-foreground mt-3 italic">
+                                The Business Operating System
                             </p>
-                            <div className="mt-4 text-sm text-muted-foreground">
-                                <p>info@tavestack.com</p>
-                                <p>+234 707 366 6668</p>
+                            <div className="mt-5 space-y-2 text-sm text-muted-foreground">
+                                <p className="flex items-start gap-2">
+                                    <MapPin className="size-4 shrink-0 mt-0.5" />
+                                    <span>{SITE.address}</span>
+                                </p>
+                                <p className="flex items-center gap-2">
+                                    <Mail className="size-4 shrink-0" />
+                                    <a href={`mailto:${SITE.email}`} className="hover:text-foreground transition-colors">
+                                        {SITE.email}
+                                    </a>
+                                </p>
+                                <p className="flex items-center gap-2">
+                                    <PhoneCall className="size-4 shrink-0" />
+                                    <a href={`tel:${SITE.phone.replace(/\s/g, "")}`} className="hover:text-foreground transition-colors">
+                                        {SITE.phone}
+                                    </a>
+                                </p>
                             </div>
-                            <div className="flex items-center gap-4 mt-6">
-                                {SOCIAL_LINKS.map((social, index) => (
-                                    <AnimationContainer
-                                        key={index}
-                                        animation="fadeUp"
-                                        delay={0.6 + (index * 0.1)}
+                            <div className="flex items-center gap-3 mt-6">
+                                {SOCIAL.map((s, i) => (
+                                    <Link
+                                        key={i}
+                                        href={s.href}
+                                        aria-label={s.label}
+                                        className="size-9 rounded-full bg-foreground/5 hover:bg-brand-gradient hover:text-white text-muted-foreground transition-colors flex items-center justify-center"
                                     >
-                                        <Link
-                                            href={social.href}
-                                            className="text-muted-foreground hover:text-primary transition-colors"
-                                        >
-                                            <social.icon className="size-5" />
-                                        </Link>
-                                    </AnimationContainer>
+                                        <s.icon className="size-4" />
+                                    </Link>
                                 ))}
                             </div>
                         </div>
                     </AnimationContainer>
 
-                    <div className="grid grid-cols-2 gap-8 xl:col-span-2">
-                        <div className="md:grid md:grid-cols-2 md:gap-8">
-                            <AnimationContainer animation="fadeUp" delay={0.5}>
-                                <div>
-                                    <h3 className="text-base font-medium">Product</h3>
-                                    <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-                                        {PRODUCT_LINKS.map((link, index) => (
-                                            <AnimationContainer
-                                                key={index}
-                                                animation="fadeLeft"
-                                                delay={0.6 + (index * 0.1)}
-                                            >
-                                                <li>
-                                                    <ScrollLink
-                                                        href={link.href}
-                                                        className="hover:text-foreground transition-colors"
-                                                    >
-                                                        {link.label}
-                                                    </ScrollLink>
-                                                </li>
-                                            </AnimationContainer>
-                                        ))}
-                                    </ul>
-                                </div>
-                            </AnimationContainer>
-
-                            <AnimationContainer animation="fadeUp" delay={0.5}>
-                                <div className="mt-10 md:mt-0">
-                                    <h3 className="text-base font-medium">Resources</h3>
-                                    <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-                                        {RESOURCES_LINKS.map((link, index) => (
-                                            <AnimationContainer
-                                                key={index}
-                                                animation="fadeLeft"
-                                                delay={0.7 + (index * 0.1)}
-                                            >
-                                                <li>
-                                                    <ScrollLink
-                                                        href={link.href}
-                                                        className="hover:text-foreground transition-colors"
-                                                    >
-                                                        {link.label}
-                                                    </ScrollLink>
-                                                </li>
-                                            </AnimationContainer>
-                                        ))}
-                                    </ul>
-                                </div>
-                            </AnimationContainer>
-                        </div>
-
-                        <AnimationContainer animation="fadeUp" delay={0.5}>
-                            <div>
-                                <h3 className="text-base font-medium">Company</h3>
-                                <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-                                    {COMPANY_LINKS.map((link, index) => (
-                                        <AnimationContainer
-                                            key={index}
-                                            animation="fadeLeft"
-                                            delay={0.8 + (index * 0.1)}
+                    {COLUMNS.map((col, idx) => (
+                        <AnimationContainer
+                            key={col.title}
+                            animation="fadeUp"
+                            delay={0.5 + idx * 0.05}
+                        >
+                            <h3 className="text-sm font-semibold text-foreground tracking-wide uppercase">
+                                {col.title}
+                            </h3>
+                            <ul className="mt-4 space-y-2">
+                                {col.links.map((l) => (
+                                    <li key={l.href}>
+                                        <Link
+                                            href={l.href}
+                                            className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                                         >
-                                            <li>
-                                                <ScrollLink
-                                                    href={link.href}
-                                                    className="hover:text-foreground transition-colors"
-                                                >
-                                                    {link.label}
-                                                </ScrollLink>
-                                            </li>
-                                        </AnimationContainer>
-                                    ))}
-                                </ul>
-                            </div>
+                                            {l.label}
+                                        </Link>
+                                    </li>
+                                ))}
+                            </ul>
                         </AnimationContainer>
-                    </div>
+                    ))}
                 </div>
 
                 <AnimationContainer animation="fadeUp" delay={1}>
-                    <div className="mt-16 border-t border-border/40 py-8 flex flex-col md:flex-row items-center justify-center">
-                        <p className="text-sm text-muted-foreground">
-                            © {new Date().getFullYear()} TaveStack. All rights reserved.
+                    <div className="mt-16 pt-8 border-t border-border/40 flex flex-col md:flex-row items-center justify-between gap-3">
+                        <p className="text-xs text-muted-foreground">
+                            © {new Date().getFullYear()} TaveStack Inc. All rights reserved.
+                        </p>
+                        <p className="text-xs text-muted-foreground">
+                            Made with purpose for Africa and the world.
                         </p>
                     </div>
                 </AnimationContainer>
