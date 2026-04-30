@@ -93,7 +93,7 @@ const DemoPage = () => {
                                 Guarantee
                             </h3>
                             <p className="text-sm text-muted-foreground mt-2 leading-relaxed">
-                                No sales pressure. No commitment. If TaveStack isn't a fit, we will tell you ourselves and recommend an alternative.
+                                No sales pressure. No commitment. If TaveStack isn&rsquo;t a fit, we will tell you ourselves and recommend an alternative.
                             </p>
                         </div>
                     </div>

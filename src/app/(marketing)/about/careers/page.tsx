@@ -66,7 +66,7 @@ const CareersPage = () => (
             eyebrow="Careers"
             title={
                 <>
-                    Help Us Build the World's Most{" "}
+                    Help Us Build the World&rsquo;s Most{" "}
                     <span className="text-brand-gradient">Important Business Software.</span>
                 </>
             }
@@ -111,10 +111,10 @@ const CareersPage = () => (
 
             <div className="mt-16 rounded-2xl border border-primary/30 bg-card/50 backdrop-blur-sm p-8 lg:p-10 text-center">
                 <h3 className="text-xl font-semibold">
-                    Don't see your role?
+                    Don&rsquo;t see your role?
                 </h3>
                 <p className="text-sm text-muted-foreground mt-2 max-w-xl mx-auto">
-                    We're always interested in talking to exceptional engineers, designers, AI researchers, and operators. Send a short note describing what you'd build at TaveStack.
+                    We&rsquo;re always interested in talking to exceptional engineers, designers, AI researchers, and operators. Send a short note describing what you&rsquo;d build at TaveStack.
                 </p>
                 <a
                     href="mailto:careers@tavestack.com"

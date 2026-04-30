@@ -45,7 +45,7 @@ const ContactPage = () => {
                 eyebrow="Contact"
                 title={
                     <>
-                        Let's Talk <span className="text-brand-gradient">Business.</span>
+                        Let&rsquo;s Talk <span className="text-brand-gradient">Business.</span>
                     </>
                 }
                 subtitle="Sales, support, partnerships, or press — pick the channel that fits or use the form. We respond within one business day."

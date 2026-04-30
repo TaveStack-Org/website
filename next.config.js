@@ -31,11 +31,7 @@ const nextConfig = {
   },
   reactStrictMode: true,
   // Important: Ensure these packages are transpiled correctly
-  transpilePackages: ['cmdk'],
-  // Using correct experimental options for Next.js 15.x
-  experimental: {
-    typedRoutes: true
-  }
+  transpilePackages: ['cmdk']
 };
 
 module.exports = nextConfig;

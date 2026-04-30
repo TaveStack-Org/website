@@ -23,7 +23,7 @@ const FinalCta = () => (
                         <span className="text-brand-gradient">Not a Stack of Apps.</span>
                     </h2>
                     <p className="mt-6 text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
-                        Join thousands of professionals who've stopped duct-taping tools together
+                        Join thousands of professionals who&rsquo;ve stopped duct-taping tools together
                         and started running their entire business from one intelligent operating
                         system.
                     </p>

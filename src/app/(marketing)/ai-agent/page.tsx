@@ -115,7 +115,7 @@ const AiAgentPage = () => (
                 <>
                     Meet TAVE.{" "}
                     <span className="block text-brand-gradient mt-2">
-                        The First AI Agent That Doesn't Just Suggest — It Acts.
+                        The First AI Agent That Doesn&rsquo;t Just Suggest — It Acts.
                     </span>
                 </>
             }

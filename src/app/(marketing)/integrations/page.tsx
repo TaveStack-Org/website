@@ -129,10 +129,10 @@ const IntegrationsPage = () => (
         <Wrapper className="pb-24">
             <div className="rounded-2xl border border-border/60 bg-card/40 backdrop-blur-sm p-8 lg:p-12 text-center">
                 <h3 className="text-2xl md:text-3xl font-semibold">
-                    Need a connector we don't list?
+                    Need a connector we don&rsquo;t list?
                 </h3>
                 <p className="text-sm text-muted-foreground mt-3 max-w-xl mx-auto">
-                    We ship new integrations every month. If you don't see yours, our team will scope and prioritize it for the roadmap.
+                    We ship new integrations every month. If you don&rsquo;t see yours, our team will scope and prioritize it for the roadmap.
                 </p>
                 <div className="mt-6">
                     <Link href="/contact">

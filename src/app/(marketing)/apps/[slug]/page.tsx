@@ -87,7 +87,7 @@ const AppDetailPage = async ({ params }: { params: Promise<{ slug: string }> }) 
             <Wrapper className="py-12 lg:py-16">
                 <div className="grid lg:grid-cols-[1.4fr_1fr] gap-8">
                     <div>
-                        <h2 className="text-2xl font-semibold mb-6">What's included</h2>
+                        <h2 className="text-2xl font-semibold mb-6">What&rsquo;s included</h2>
                         <ul className="grid sm:grid-cols-2 gap-3">
                             {m.features.map((f) => (
                                 <li

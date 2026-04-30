@@ -20,7 +20,7 @@ const StoryPage = () => (
             title={
                 <>
                     We Built the Software{" "}
-                    <span className="text-brand-gradient">We Couldn't Find.</span>
+                    <span className="text-brand-gradient">We Couldn&rsquo;t Find.</span>
                 </>
             }
         />
@@ -40,7 +40,7 @@ const StoryPage = () => (
                         operating system
                     </em>{" "}
                     — one place where every function lived, every piece of data connected,
-                    and an AI didn't just observe but actually operated the business?
+                    and an AI didn&rsquo;t just observe but actually operated the business?
                 </p>
                 <p>
                     TaveStack OS is the answer to that question. Built by a team with deep
@@ -48,14 +48,14 @@ const StoryPage = () => (
                     transformation, and global AI engineering.
                 </p>
                 <p>
-                    We're not an African company trying to copy what Silicon Valley built.
-                    We're a global company that started in Africa because Africa is where the
+                    We&rsquo;re not an African company trying to copy what Silicon Valley built.
+                    We&rsquo;re a global company that started in Africa because Africa is where the
                     most creative, resilient, and ambitious operators in the world are
                     building businesses today.
                 </p>
                 <div className="rounded-2xl border border-primary/30 bg-card/50 backdrop-blur-sm p-6 lg:p-8 not-italic">
                     <p className="text-base font-semibold text-foreground">
-                        Why "Tave"?
+                        Why &ldquo;Tave&rdquo;?
                     </p>
                     <p className="text-sm text-muted-foreground mt-2 leading-relaxed">
                         TAVE stands for{" "}

@@ -68,7 +68,7 @@ const AboutPage = () => (
             title={
                 <>
                     We Built the Software{" "}
-                    <span className="text-brand-gradient">We Couldn't Find.</span>
+                    <span className="text-brand-gradient">We Couldn&rsquo;t Find.</span>
                 </>
             }
             subtitle="TaveStack was born in Abuja, Nigeria, from a simple observation: African businesses — and increasingly, businesses everywhere — were spending more time managing software than running their companies. Eleven tools. Eleven logins. Zero intelligence connecting them. So we built the operating system."

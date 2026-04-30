@@ -102,7 +102,7 @@ const TeamPage = () => (
             </div>
 
             <div className="mt-12 text-center text-sm text-muted-foreground">
-                We're hiring across the org.{" "}
+                We&rsquo;re hiring across the org.{" "}
                 <Link
                     href="/about/careers"
                     className="text-primary hover:underline"

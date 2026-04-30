@@ -137,7 +137,7 @@ const PlatformPage = () => {
                 eyebrow="The TaveStack OS"
                 title={
                     <>
-                        This Is Not Software. This Is Your Business's{" "}
+                        This Is Not Software. This Is Your Business&rsquo;s{" "}
                         <span className="text-brand-gradient">Operating System.</span>
                     </>
                 }
