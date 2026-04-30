@@ -1,176 +1,149 @@
-"use client";
-
+import Link from "next/link";
+import { ArrowRight, BookOpen, Code2, Github, Webhook } from "lucide-react";
 import AnimationContainer from "@/components/global/animation-container";
 import Wrapper from "@/components/global/wrapper";
-import SectionBadge from "@/components/ui/section-badge";
-import GradientText from "@/components/ui/gradient-text";
-import { INTEGRATIONS, INTEGRATION_CATEGORIES } from "@/constants";
-import { useState } from "react";
-import { Input } from "@/components/ui/input";
+import PageHero from "@/components/marketing/page-hero";
+import SectionHeading from "@/components/marketing/section-heading";
 import { Button } from "@/components/ui/button";
-import { Search, CheckCircle2 } from "lucide-react";
-import Link from "next/link";
+import { INTEGRATION_GROUPS } from "@/constants";
 
-const IntegrationsPage = () => {
-    const [activeCategory, setActiveCategory] = useState("erp");
-    const [searchQuery, setSearchQuery] = useState("");
+const DEV_LINKS = [
+    {
+        icon: BookOpen,
+        title: "API Documentation",
+        body: "REST and GraphQL reference for every TaveStack module.",
+        href: "/resources/api",
+    },
+    {
+        icon: Code2,
+        title: "Developer Sandbox",
+        body: "Free dev environment to test against TaveStack OS.",
+        href: "/resources/api",
+    },
+    {
+        icon: Github,
+        title: "GitHub SDK",
+        body: "Open-source SDKs and starter templates.",
+        href: "/resources/api",
+    },
+    {
+        icon: Webhook,
+        title: "Webhook Reference",
+        body: "Real-time events for every action across the OS.",
+        href: "/resources/api",
+    },
+];
 
-    const filteredIntegrations = INTEGRATIONS.filter(integration => {
-        const matchesCategory = activeCategory === "all" || integration.category === activeCategory;
-        const matchesSearch = integration.name.toLowerCase().includes(searchQuery.toLowerCase());
-        return matchesCategory && matchesSearch;
-    });
+const IntegrationsPage = () => (
+    <div className="w-full relative flex flex-col">
+        <PageHero
+            eyebrow="Integrations"
+            title={
+                <>
+                    TaveStack Plays Well With{" "}
+                    <span className="text-brand-gradient">Your Existing World.</span>
+                </>
+            }
+            subtitle="Already invested in tools your team loves? TaveStack OS integrates with 100+ external systems via native connectors, REST APIs, and webhooks. Migrate at your pace — or never migrate at all."
+        />
 
-    return (
-        <div className="w-full relative flex flex-col pt-20">
-            {/* Hero Section */}
-            <Wrapper className="py-20 lg:py-32">
-                <div className="flex flex-col items-center text-center gap-4 mb-12">
-                    <AnimationContainer animation="fadeUp" delay={0.2}>
-                        <SectionBadge title="Integrations" />
-                    </AnimationContainer>
-
-                    <AnimationContainer animation="fadeUp" delay={0.3}>
-                        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold !leading-tight">
-                            <GradientText colors={['#8a27f3ff', '#db5800ff', '#8a27f3ff']} animationSpeed={6}>
-                                Connect Everything.
-                            </GradientText>
-                            <span className="text-foreground">Automate Anything.</span>
-                        </h1>
-                    </AnimationContainer>
-
-                    <AnimationContainer animation="fadeUp" delay={0.4}>
-                        <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
-                            Native integrations with 25+ ERP systems and growing. Connect your entire tech stack in minutes.
-                        </p>
-                    </AnimationContainer>
-                </div>
-
-                {/* Search Bar */}
-                <AnimationContainer animation="fadeUp" delay={0.5}>
-                    <div className="max-w-md mx-auto mb-12">
-                        <div className="relative">
-                            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
-                            <Input 
-                                placeholder="Search integrations..."
-                                className="pl-10"
-                                value={searchQuery}
-                                onChange={(e) => setSearchQuery(e.target.value)}
-                            />
-                        </div>
-                    </div>
-                </AnimationContainer>
-
-                {/* Category Tabs */}
-                <AnimationContainer animation="fadeUp" delay={0.6}>
-                    <div className="flex flex-wrap justify-center gap-2 mb-12">
-                        <Button
-                            variant={activeCategory === "all" ? "default" : "outline"}
-                            size="sm"
-                            onClick={() => setActiveCategory("all")}
+        <Wrapper className="py-12 lg:py-16">
+            <SectionHeading
+                eyebrow="Categories"
+                title="100+ Integrations Across the Stack"
+            />
+            <div className="mt-12 grid md:grid-cols-2 gap-5">
+                {INTEGRATION_GROUPS.map((g, i) => {
+                    const Icon = g.icon;
+                    return (
+                        <AnimationContainer
+                            key={g.category}
+                            animation="fadeUp"
+                            delay={0.04 * i}
                         >
-                            All
-                        </Button>
-                        {INTEGRATION_CATEGORIES.map((category) => (
-                            <Button
-                                key={category.id}
-                                variant={activeCategory === category.id ? "default" : "outline"}
-                                size="sm"
-                                onClick={() => setActiveCategory(category.id)}
-                            >
-                                {category.icon} {category.name}
-                            </Button>
-                        ))}
-                    </div>
-                </AnimationContainer>
-
-                {/* Integrations Grid */}
-                <AnimationContainer animation="fadeUp" delay={0.7}>
-                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                        {filteredIntegrations.map((integration, index) => (
-                            <div
-                                key={integration.id}
-                                className="p-4 rounded-xl bg-card/50 border border-border/50 hover:border-primary/50 hover:bg-card/80 transition-all cursor-pointer"
-                            >
-                                <div className="flex items-start justify-between mb-3">
-                                    <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-2xl">
-                                        🔗
+                            <div className="h-full rounded-2xl border border-border/60 bg-card/40 backdrop-blur-sm p-6">
+                                <div className="flex items-center gap-3 mb-5">
+                                    <div className="size-10 rounded-lg bg-brand-gradient text-white flex items-center justify-center shadow-md shadow-primary/20">
+                                        <Icon className="size-5" />
                                     </div>
-                                    {integration.available && (
-                                        <span className="text-xs text-green-500 flex items-center gap-1">
-                                            <CheckCircle2 className="w-3 h-3" /> Available
+                                    <h3 className="text-base font-semibold">{g.category}</h3>
+                                </div>
+                                <div className="flex flex-wrap gap-2">
+                                    {g.items.map((item) => (
+                                        <span
+                                            key={item}
+                                            className="text-xs px-3 py-1.5 rounded-full border border-border/60 bg-foreground/5 text-foreground/80 hover:border-primary/40 hover:text-primary transition-colors"
+                                        >
+                                            {item}
                                         </span>
-                                    )}
+                                    ))}
                                 </div>
-                                <h3 className="font-semibold text-sm mb-1">{integration.name}</h3>
-                                <p className="text-xs text-muted-foreground line-clamp-2">
-                                    {integration.description}
+                            </div>
+                        </AnimationContainer>
+                    );
+                })}
+            </div>
+        </Wrapper>
+
+        <Wrapper className="py-16 lg:py-24">
+            <SectionHeading
+                eyebrow="Developer API"
+                title={
+                    <>
+                        Build on TaveStack.{" "}
+                        <span className="text-brand-gradient">Extend Anything.</span>
+                    </>
+                }
+                description="Every feature in TaveStack OS is accessible via our well-documented REST and GraphQL APIs. Build custom apps that run inside the OS, trigger TAVE from external systems, or pull TaveStack data into your BI tools."
+            />
+            <div className="mt-12 grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+                {DEV_LINKS.map((d, i) => {
+                    const Icon = d.icon;
+                    return (
+                        <AnimationContainer
+                            key={d.title}
+                            animation="fadeUp"
+                            delay={0.05 * i}
+                        >
+                            <Link
+                                href={d.href}
+                                className="group h-full block rounded-xl border border-border/60 bg-card/40 backdrop-blur-sm p-5 hover:border-primary/40 transition-colors"
+                            >
+                                <div className="size-10 rounded-lg bg-secondary text-primary flex items-center justify-center mb-4">
+                                    <Icon className="size-5" />
+                                </div>
+                                <h3 className="text-sm font-semibold group-hover:text-primary transition-colors">
+                                    {d.title}
+                                </h3>
+                                <p className="text-xs text-muted-foreground mt-1.5 leading-relaxed">
+                                    {d.body}
                                 </p>
-                            </div>
-                        ))}
-                    </div>
-                </AnimationContainer>
-
-                {/* Custom Integration CTA */}
-                <div className="mt-16">
-                    <div className="flex flex-col items-center text-center gap-4 mb-8">
-                        <AnimationContainer animation="fadeUp" delay={0.8}>
-                            <SectionBadge title="Custom Integrations" />
-                        </AnimationContainer>
-                        <AnimationContainer animation="fadeUp" delay={0.9}>
-                            <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium !leading-tight">
-                                <GradientText colors={['#8a27f3ff', '#db5800ff', '#8a27f3ff']} animationSpeed={6}>
-                                    Don't See Your System?
-                                </GradientText>
-                            </h2>
-                        </AnimationContainer>
-                    </div>
-                    <AnimationContainer animation="fadeUp" delay={1.0}>
-                        <div className="p-8 rounded-2xl bg-card/50 border border-border/50 text-center">
-                            <p className="text-muted-foreground mb-6 max-w-lg mx-auto">
-                                Our flexible API integration builder lets you connect any system with a REST API. 
-                                Need help? Our team can build custom connectors for you.
-                            </p>
-                            <Link href="/contact">
-                                <Button size="lg">Request a Custom Integration</Button>
+                                <ArrowRight className="size-4 text-muted-foreground mt-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
                             </Link>
-                        </div>
-                    </AnimationContainer>
-                </div>
+                        </AnimationContainer>
+                    );
+                })}
+            </div>
+        </Wrapper>
 
-                {/* How It Works */}
-                <div className="mt-16">
-                    <div className="flex flex-col items-center text-center gap-4 mb-8">
-                        <AnimationContainer animation="fadeUp" delay={0.9}>
-                            <SectionBadge title="How It Works" />
-                        </AnimationContainer>
-                        <AnimationContainer animation="fadeUp" delay={1.0}>
-                            <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium !leading-tight">
-                                <GradientText colors={['#8a27f3ff', '#db5800ff', '#8a27f3ff']} animationSpeed={6}>
-                                    Integrations Made Easy
-                                </GradientText>
-                            </h2>
-                        </AnimationContainer>
-                    </div>
-                    <div className="grid md:grid-cols-3 gap-8">
-                        {[
-                            { step: 1, title: "Select", description: "Choose your system from our catalog" },
-                            { step: 2, title: "Authenticate", description: "Connect with your credentials" },
-                            { step: 3, title: "Sync", description: "Start syncing data in real-time" },
-                        ].map((item) => (
-                            <div key={item.step} className="text-center">
-                                <div className="w-12 h-12 rounded-full bg-primary mx-auto mb-4 flex items-center justify-center text-primary-foreground font-bold text-lg">
-                                    {item.step}
-                                </div>
-                                <h3 className="font-semibold mb-2">{item.title}</h3>
-                                <p className="text-sm text-muted-foreground">{item.description}</p>
-                            </div>
-                        ))}
-                    </div>
+        <Wrapper className="pb-24">
+            <div className="rounded-2xl border border-border/60 bg-card/40 backdrop-blur-sm p-8 lg:p-12 text-center">
+                <h3 className="text-2xl md:text-3xl font-semibold">
+                    Need a connector we don't list?
+                </h3>
+                <p className="text-sm text-muted-foreground mt-3 max-w-xl mx-auto">
+                    We ship new integrations every month. If you don't see yours, our team will scope and prioritize it for the roadmap.
+                </p>
+                <div className="mt-6">
+                    <Link href="/contact">
+                        <Button className="bg-brand-gradient text-white border-0 px-7">
+                            Request an integration
+                        </Button>
+                    </Link>
                 </div>
-            </Wrapper>
-        </div>
-    );
-};
+            </div>
+        </Wrapper>
+    </div>
+);
 
 export default IntegrationsPage;
