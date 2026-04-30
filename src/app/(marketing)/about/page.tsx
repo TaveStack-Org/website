@@ -1,192 +1,140 @@
-"use client";
-
+import Link from "next/link";
+import {
+    ArrowRight,
+    Compass,
+    HeartHandshake,
+    Newspaper,
+    Users2,
+} from "lucide-react";
 import AnimationContainer from "@/components/global/animation-container";
 import Wrapper from "@/components/global/wrapper";
-import SectionBadge from "@/components/ui/section-badge";
-import GradientText from "@/components/ui/gradient-text";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
-import { Target, Users, Globe, Award, Linkedin, Twitter } from "lucide-react";
-import Image from "next/image";
-
-const MISSION_VISION = {
-    mission: "To democratize enterprise-grade workflow automation for African businesses, enabling them to compete globally while staying rooted locally.",
-    vision: "A world where every African business, regardless of size, has access to world-class productivity tools that understand their unique context."
-};
-
-const TEAM = [
-    { name: "CEO & Co-Founder", bio: "Former enterprise architect with 15 years experience" },
-    { name: "CTO & Co-Founder", bio: "Built scalable systems at leading African tech companies" },
-    { name: "VP Engineering", bio: "Led engineering teams at Fortune 500 companies" },
-    { name: "VP Product", bio: "Product leader with deep ERP domain expertise" },
-];
-
-const TIMELINE = [
-    { year: "2022", event: "Tavestack founded in Lagos" },
-    { year: "2023", event: "Seed funding secured, 10 beta customers" },
-    { year: "2024", event: "Expanded to 8 African countries, 40+ customers" },
-    { year: "2025", event: "Launching next-gen AI features" },
-];
+import PageHero from "@/components/marketing/page-hero";
+import SectionHeading from "@/components/marketing/section-heading";
 
 const VALUES = [
-    { icon: Target, title: "Customer-First", description: "Every decision starts with our customers' needs" },
-    { icon: Users, title: "African Excellence", description: "World-class products built in Africa, for Africa" },
-    { icon: Globe, title: "Global Standards", description: "We meet international quality and security benchmarks" },
-    { icon: Award, title: "Continuous Innovation", description: "Always improving, always learning" },
+    {
+        title: "Radical integration",
+        body: "We believe in connected systems over isolated excellence.",
+    },
+    {
+        title: "AI as infrastructure",
+        body: "Intelligence shouldn't be a premium feature. It should be in the foundation.",
+    },
+    {
+        title: "African by origin, global by design",
+        body: "Our roots make us more practical, more resilient, and more capable of building for the real world.",
+    },
+    {
+        title: "Transparency in billing",
+        body: "No per-seat gouging. No hidden fees. No lock-in.",
+    },
+    {
+        title: "Execution over advice",
+        body: "We build tools that do, not just tools that suggest.",
+    },
 ];
 
-const AboutPage = () => {
-    return (
-        <div className="w-full relative flex flex-col pt-20">
-            {/* Hero Section */}
-            <Wrapper className="py-20 lg:py-32">
-                <div className="flex flex-col items-center text-center gap-4 mb-16">
-                    <AnimationContainer animation="fadeUp" delay={0.2}>
-                        <SectionBadge title="About Us" />
-                    </AnimationContainer>
+const SECTIONS = [
+    {
+        href: "/about/story",
+        icon: Compass,
+        title: "Our Story",
+        body: "How TaveStack started in Abuja and why we are building a global Business OS.",
+    },
+    {
+        href: "/about/team",
+        icon: Users2,
+        title: "Team",
+        body: "The people building TaveStack OS and TAVE.",
+    },
+    {
+        href: "/about/careers",
+        icon: HeartHandshake,
+        title: "Careers",
+        body: "Open roles across engineering, AI, and customer success.",
+    },
+    {
+        href: "/about/press",
+        icon: Newspaper,
+        title: "Press",
+        body: "Press kit, latest coverage, and contact for media inquiries.",
+    },
+];
 
-                    <AnimationContainer animation="fadeUp" delay={0.3}>
-                        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold !leading-tight">
-                            <GradientText colors={['#8a27f3ff', '#db5800ff', '#8a27f3ff']} animationSpeed={6}>
-                                Built for Africa.
-                            </GradientText>
-                            <span className="text-foreground">Built to Scale.</span>
-                        </h1>
-                    </AnimationContainer>
+const AboutPage = () => (
+    <div className="w-full relative flex flex-col">
+        <PageHero
+            eyebrow="About"
+            title={
+                <>
+                    We Built the Software{" "}
+                    <span className="text-brand-gradient">We Couldn't Find.</span>
+                </>
+            }
+            subtitle="TaveStack was born in Abuja, Nigeria, from a simple observation: African businesses — and increasingly, businesses everywhere — were spending more time managing software than running their companies. Eleven tools. Eleven logins. Zero intelligence connecting them. So we built the operating system."
+        />
 
-                    <AnimationContainer animation="fadeUp" delay={0.4}>
-                        <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
-                            We're on a mission to transform how African businesses operate with intelligent workflow automation.
-                        </p>
-                    </AnimationContainer>
-                </div>
+        <Wrapper className="py-12 lg:py-16">
+            <SectionHeading
+                eyebrow="Mission"
+                title={
+                    <>
+                        Give every organization in the world{" "}
+                        <span className="text-brand-gradient">access to an intelligent OS</span>
+                    </>
+                }
+                description="To give every organization in the world — regardless of size, location, or legacy infrastructure — access to an intelligent, unified operating system that makes them as efficient as the best-run companies on earth."
+            />
 
-                {/* Mission & Vision */}
-                <div className="grid md:grid-cols-2 gap-8 mb-24">
-                    <AnimationContainer animation="fadeUp" delay={0.5}>
-                        <div className="p-8 rounded-2xl bg-card/50 border border-border/50 h-full">
-                            <h2 className="text-xl font-bold mb-4 text-primary">Our Mission</h2>
-                            <p className="text-lg text-muted-foreground">{MISSION_VISION.mission}</p>
-                        </div>
-                    </AnimationContainer>
-                    <AnimationContainer animation="fadeUp" delay={0.6}>
-                        <div className="p-8 rounded-2xl bg-card/50 border border-border/50 h-full">
-                            <h2 className="text-xl font-bold mb-4 text-primary">Our Vision</h2>
-                            <p className="text-lg text-muted-foreground">{MISSION_VISION.vision}</p>
-                        </div>
-                    </AnimationContainer>
-                </div>
-
-                {/* Values */}
-                <div className="mb-24">
-                    <div className="flex flex-col items-center text-center gap-4 mb-12">
-                        <AnimationContainer animation="fadeUp" delay={0.7}>
-                            <SectionBadge title="Core Values" />
-                        </AnimationContainer>
-                        <AnimationContainer animation="fadeUp" delay={0.8}>
-                            <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium !leading-tight">
-                                <GradientText colors={['#8a27f3ff', '#db5800ff', '#8a27f3ff']} animationSpeed={6}>
-                                    Our Values
-                                </GradientText>
-                            </h2>
-                        </AnimationContainer>
-                    </div>
-                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                        {VALUES.map((value, index) => (
-                            <div key={index} className="text-center p-6 rounded-2xl bg-card/50 border border-border/50">
-                                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                                    <value.icon className="w-6 h-6 text-primary" />
-                                </div>
-                                <h3 className="font-semibold mb-2">{value.title}</h3>
-                                <p className="text-sm text-muted-foreground">{value.description}</p>
+            <div className="mt-14">
+                <h3 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-6 text-center">
+                    Our Values
+                </h3>
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    {VALUES.map((v, i) => (
+                        <AnimationContainer
+                            key={v.title}
+                            animation="fadeUp"
+                            delay={0.04 * i}
+                        >
+                            <div className="h-full rounded-xl border border-border/60 bg-card/40 backdrop-blur-sm p-5">
+                                <h4 className="text-base font-semibold text-brand-gradient">
+                                    {v.title}
+                                </h4>
+                                <p className="text-sm text-muted-foreground mt-2 leading-relaxed">
+                                    {v.body}
+                                </p>
                             </div>
-                        ))}
-                    </div>
+                        </AnimationContainer>
+                    ))}
                 </div>
+            </div>
+        </Wrapper>
 
-                {/* Timeline */}
-                <div className="mb-24">
-                    <div className="flex flex-col items-center text-center gap-4 mb-12">
-                        <AnimationContainer animation="fadeUp" delay={0.8}>
-                            <SectionBadge title="Timeline" />
-                        </AnimationContainer>
-                        <AnimationContainer animation="fadeUp" delay={0.9}>
-                            <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium !leading-tight">
-                                <GradientText colors={['#8a27f3ff', '#db5800ff', '#8a27f3ff']} animationSpeed={6}>
-                                    Our Journey
-                                </GradientText>
-                            </h2>
-                        </AnimationContainer>
-                    </div>
-                    <div className="flex flex-wrap justify-center gap-8">
-                        {TIMELINE.map((item, index) => (
-                            <div key={index} className="text-center">
-                                <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                                    <span className="font-bold text-primary">{item.year}</span>
-                                </div>
-                                <p className="text-sm text-muted-foreground max-w-[150px]">{item.event}</p>
+        <Wrapper className="pb-24">
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+                {SECTIONS.map((s) => {
+                    const Icon = s.icon;
+                    return (
+                        <Link
+                            key={s.href}
+                            href={s.href}
+                            className="group h-full block rounded-2xl border border-border/60 bg-card/40 backdrop-blur-sm p-6 hover:border-primary/40 transition-colors"
+                        >
+                            <div className="size-10 rounded-lg bg-brand-gradient text-white flex items-center justify-center shadow-md shadow-primary/20 mb-4">
+                                <Icon className="size-5" />
                             </div>
-                        ))}
-                    </div>
-                </div>
-
-                {/* Team */}
-                <div className="mb-24" id="team">
-                    <div className="flex flex-col items-center text-center gap-4 mb-12">
-                        <AnimationContainer animation="fadeUp" delay={0.9}>
-                            <SectionBadge title="Our Team" />
-                        </AnimationContainer>
-                        <AnimationContainer animation="fadeUp" delay={1.0}>
-                            <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium !leading-tight">
-                                <GradientText colors={['#8a27f3ff', '#db5800ff', '#8a27f3ff']} animationSpeed={6}>
-                                    Leadership Team
-                                </GradientText>
-                            </h2>
-                        </AnimationContainer>
-                    </div>
-                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                        {TEAM.map((member, index) => (
-                            <div key={index} className="p-6 rounded-2xl bg-card/50 border border-border/50 text-center">
-                                <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                                    <Users className="w-8 h-8 text-primary/50" />
-                                </div>
-                                <h3 className="font-semibold mb-1">{member.name}</h3>
-                                <p className="text-sm text-muted-foreground mb-4">{member.bio}</p>
-                                <div className="flex justify-center gap-3">
-                                    <Linkedin className="w-4 h-4 text-muted-foreground hover:text-primary cursor-pointer" />
-                                    <Twitter className="w-4 h-4 text-muted-foreground hover:text-primary cursor-pointer" />
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-
-                {/* Careers CTA */}
-                <div className="mb-24" id="careers">
-                    <div className="flex flex-col items-center text-center gap-4 mb-8">
-                        <AnimationContainer animation="fadeUp" delay={1.0}>
-                            <SectionBadge title="Careers" />
-                        </AnimationContainer>
-                        <AnimationContainer animation="fadeUp" delay={1.1}>
-                            <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium !leading-tight">
-                                <GradientText colors={['#8a27f3ff', '#db5800ff', '#8a27f3ff']} animationSpeed={6}>
-                                    Join Our Team
-                                </GradientText>
-                            </h2>
-                        </AnimationContainer>
-                    </div>
-                    <AnimationContainer animation="fadeUp" delay={1.2}>
-                        <div className="p-8 rounded-2xl bg-gradient-to-r from-primary/10 via-card to-primary/5 border border-primary/20 text-center">
-                            <p className="text-muted-foreground mb-6 max-w-lg mx-auto">
-                                We're always looking for talented people who share our mission. Check out our open positions.
-                            </p>
-                            <Button size="lg">View Open Positions</Button>
-                        </div>
-                    </AnimationContainer>
-                </div>
-            </Wrapper>
-        </div>
-    );
-};
+                            <h3 className="text-base font-semibold group-hover:text-primary transition-colors">
+                                {s.title}
+                            </h3>
+                            <p className="text-xs text-muted-foreground mt-2">{s.body}</p>
+                            <ArrowRight className="size-4 text-muted-foreground mt-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
+                        </Link>
+                    );
+                })}
+            </div>
+        </Wrapper>
+    </div>
+);
 
 export default AboutPage;

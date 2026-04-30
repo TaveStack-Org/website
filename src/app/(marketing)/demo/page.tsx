@@ -1,217 +1,236 @@
 "use client";
 
-import AnimationContainer from "@/components/global/animation-container";
+import { useState } from "react";
+import { CheckCircle2, Clock, ShieldCheck, Sparkles } from "lucide-react";
 import Wrapper from "@/components/global/wrapper";
+import PageHero from "@/components/marketing/page-hero";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import SectionBadge from "@/components/ui/section-badge";
-import GradientText from "@/components/ui/gradient-text";
-import { CheckCircle2, Calendar, Users, PlayCircle, BarChart3 } from "lucide-react";
+import { APP_MODULES } from "@/constants";
 
-const WHAT_TO_EXPECT = [
-    { icon: Calendar, text: "30-minute personalized demonstration" },
-    { icon: PlayCircle, text: "See workflows relevant to your industry" },
-    { icon: Users, text: "Ask questions in real-time" },
-    { icon: BarChart3, text: "Get a custom ROI calculation" },
+const COVERS = [
+    "A live walkthrough of the TaveStack OS workspace",
+    "A real-time TAVE demonstration — watch the AI Agent complete a multi-module task",
+    "A tour of 3 app modules relevant to your industry",
+    "Q&A with a TaveStack solutions expert",
 ];
 
 const INDUSTRIES = [
     "Manufacturing",
-    "Professional Services",
-    "Healthcare",
-    "Retail & E-commerce",
     "Financial Services",
-    "Logistics & Supply Chain",
-    "Technology",
+    "Government",
+    "Retail",
+    "Healthcare",
+    "Logistics",
+    "Professional Services",
     "Other",
 ];
 
-const COMPANY_SIZES = [
-    "1-50 employees",
-    "51-100 employees",
-    "101-500 employees",
-    "501-2500 employees",
-    "2500+ employees",
-];
+const TEAM_SIZES = ["1–10", "11–50", "51–200", "201–1,000", "1,000+"];
 
 const DemoPage = () => {
+    const [modules, setModules] = useState<string[]>([]);
+    const [submitted, setSubmitted] = useState(false);
+
+    const toggleModule = (slug: string) => {
+        setModules((prev) =>
+            prev.includes(slug) ? prev.filter((x) => x !== slug) : [...prev, slug],
+        );
+    };
+
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        setSubmitted(true);
+    };
+
     return (
-        <div className="w-full relative flex flex-col pt-20">
-            <Wrapper className="py-20 lg:py-32">
-                <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-                    {/* Left Column - Info */}
-                    <div className="flex flex-col gap-6">
-                        <AnimationContainer animation="fadeUp" delay={0.2}>
-                            <SectionBadge title="Book a Demo" />
-                        </AnimationContainer>
+        <div className="w-full relative flex flex-col">
+            <PageHero
+                eyebrow="Demo"
+                title={
+                    <>
+                        See TaveStack OS in 30 Minutes.{" "}
+                        <span className="text-brand-gradient">
+                            Change How You Think About Business Software.
+                        </span>
+                    </>
+                }
+                subtitle="No sales pressure. Just a real demonstration of TAVE executing across modules in a workspace tailored to your industry."
+            />
 
-                        <AnimationContainer animation="fadeUp" delay={0.3}>
-                            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold !leading-tight">
-                                <GradientText colors={['#8a27f3ff', '#db5800ff', '#8a27f3ff']} animationSpeed={6}>
-                                    See Tavestack in Action
-                                </GradientText>
-                            </h1>
-                        </AnimationContainer>
+            <Wrapper className="pb-24">
+                <div className="grid lg:grid-cols-[1fr_1.2fr] gap-8">
+                    <div className="space-y-3">
+                        <div className="rounded-2xl border border-border/60 bg-card/40 backdrop-blur-sm p-6">
+                            <h3 className="text-base font-semibold mb-4 inline-flex items-center gap-2">
+                                <Clock className="size-4 text-primary" /> What the demo covers
+                            </h3>
+                            <ul className="space-y-2.5">
+                                {COVERS.map((c) => (
+                                    <li
+                                        key={c}
+                                        className="flex items-start gap-2 text-sm text-foreground/85"
+                                    >
+                                        <CheckCircle2 className="size-4 shrink-0 mt-0.5 text-accent" />
+                                        <span>{c}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
 
-                        <AnimationContainer animation="fadeUp" delay={0.4}>
-                            <p className="text-base md:text-lg text-muted-foreground">
-                                Book a personalized demo with our team and discover how Tavestack can transform your business operations.
+                        <div className="rounded-2xl border border-primary/30 bg-card/50 backdrop-blur-sm p-6">
+                            <Sparkles className="size-7 text-primary mb-3" />
+                            <h3 className="text-base font-semibold">
+                                The TAVE moment
+                            </h3>
+                            <p className="text-sm text-muted-foreground mt-2 leading-relaxed">
+                                Most demos show software. Ours shows the AI Agent running it. Bring a real workflow you wish was automated — we will run it live in your demo.
                             </p>
-                        </AnimationContainer>
+                        </div>
 
-                        <AnimationContainer animation="fadeUp" delay={0.5}>
-                            <div className="mt-4">
-                                <h3 className="text-lg font-semibold mb-4">What to Expect</h3>
-                                <ul className="space-y-3">
-                                    {WHAT_TO_EXPECT.map((item, index) => (
-                                        <li key={index} className="flex items-center gap-3">
-                                            <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
-                                                <item.icon className="w-4 h-4 text-primary" />
-                                            </div>
-                                            <span className="text-sm text-foreground">{item.text}</span>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                        </AnimationContainer>
-
-                        <AnimationContainer animation="fadeUp" delay={0.6}>
-                            <div className="mt-6 p-4 rounded-xl bg-card/50 border border-border/50">
-                                <p className="text-sm text-muted-foreground text-center">
-                                    <span className="text-primary font-semibold">4.8/5</span> average rating from 40+ customers
-                                </p>
-                            </div>
-                        </AnimationContainer>
+                        <div className="rounded-2xl border border-border/60 bg-card/40 backdrop-blur-sm p-6">
+                            <ShieldCheck className="size-7 text-primary mb-3" />
+                            <h3 className="text-base font-semibold">
+                                Guarantee
+                            </h3>
+                            <p className="text-sm text-muted-foreground mt-2 leading-relaxed">
+                                No sales pressure. No commitment. If TaveStack isn't a fit, we will tell you ourselves and recommend an alternative.
+                            </p>
+                        </div>
                     </div>
 
-                    {/* Right Column - Form */}
-                    <AnimationContainer animation="fadeLeft" delay={0.4}>
-                        <div className="p-6 lg:p-8 rounded-2xl bg-card/50 border border-border/50 backdrop-blur-sm">
-                            <form className="space-y-6">
-                                <div className="grid md:grid-cols-2 gap-4">
-                                    <div className="space-y-2">
-                                        <Label htmlFor="fullName">Full Name *</Label>
-                                        <Input id="fullName" placeholder="John Doe" required />
-                                    </div>
-                                    <div className="space-y-2">
-                                        <Label htmlFor="email">Work Email *</Label>
-                                        <Input id="email" type="email" placeholder="john@company.com" required />
-                                    </div>
-                                </div>
-
-                                <div className="grid md:grid-cols-2 gap-4">
-                                    <div className="space-y-2">
-                                        <Label htmlFor="company">Company Name *</Label>
-                                        <Input id="company" placeholder="Your Company" required />
-                                    </div>
-                                    <div className="space-y-2">
-                                        <Label htmlFor="jobTitle">Job Title *</Label>
-                                        <Input id="jobTitle" placeholder="Operations Manager" required />
-                                    </div>
-                                </div>
-
-                                <div className="grid md:grid-cols-2 gap-4">
-                                    <div className="space-y-2">
-                                        <Label htmlFor="phone">Phone Number *</Label>
-                                        <Input id="phone" type="tel" placeholder="+234 XXX XXX XXXX" required />
-                                    </div>
-                                    <div className="space-y-2">
-                                        <Label htmlFor="country">Country *</Label>
-                                        <Input id="country" placeholder="Nigeria" required />
-                                    </div>
-                                </div>
-
-                                <div className="grid md:grid-cols-2 gap-4">
-                                    <div className="space-y-2">
-                                        <Label htmlFor="industry">Industry *</Label>
-                                        <Select>
-                                            <SelectTrigger>
-                                                <SelectValue placeholder="Select industry" />
-                                            </SelectTrigger>
-                                            <SelectContent>
-                                                {INDUSTRIES.map((industry) => (
-                                                    <SelectItem key={industry} value={industry.toLowerCase()}>
-                                                        {industry}
-                                                    </SelectItem>
-                                                ))}
-                                            </SelectContent>
-                                        </Select>
-                                    </div>
-                                    <div className="space-y-2">
-                                        <Label htmlFor="companySize">Company Size *</Label>
-                                        <Select>
-                                            <SelectTrigger>
-                                                <SelectValue placeholder="Select size" />
-                                            </SelectTrigger>
-                                            <SelectContent>
-                                                {COMPANY_SIZES.map((size) => (
-                                                    <SelectItem key={size} value={size}>
-                                                        {size}
-                                                    </SelectItem>
-                                                ))}
-                                            </SelectContent>
-                                        </Select>
-                                    </div>
-                                </div>
-
-                                <div className="space-y-2">
-                                    <Label htmlFor="challenges">What challenges are you trying to solve? *</Label>
-                                    <Textarea 
-                                        id="challenges" 
-                                        placeholder="Tell us about your current workflow challenges..."
-                                        rows={4}
+                    <div className="rounded-2xl border border-border/60 bg-card/40 backdrop-blur-sm p-7 lg:p-8">
+                        {submitted ? (
+                            <div className="flex flex-col items-center text-center py-12">
+                                <CheckCircle2 className="size-10 text-accent mb-4" />
+                                <h3 className="text-2xl font-semibold">
+                                    Demo request received.
+                                </h3>
+                                <p className="text-sm text-muted-foreground mt-2 max-w-sm">
+                                    A solutions expert will email you within one business day to confirm a 30-minute slot tailored to your industry.
+                                </p>
+                            </div>
+                        ) : (
+                            <form onSubmit={handleSubmit} className="space-y-5">
+                                <h3 className="text-xl font-semibold">Book your demo</h3>
+                                <div className="grid sm:grid-cols-2 gap-4">
+                                    <Field label="Name" name="name" required />
+                                    <Field
+                                        label="Work Email"
+                                        name="email"
+                                        type="email"
                                         required
                                     />
                                 </div>
-
-                                <Button type="submit" size="lg" className="w-full">
-                                    Schedule My Demo
-                                </Button>
-
-                                <p className="text-xs text-muted-foreground text-center">
-                                    By submitting, you agree to our Privacy Policy and Terms of Service.
-                                </p>
-                            </form>
-                        </div>
-                    </AnimationContainer>
-                </div>
-
-                {/* What Happens Next */}
-                <div className="mt-16 lg:mt-24">
-                    <div className="flex flex-col items-center text-center gap-4 mb-8">
-                        <AnimationContainer animation="fadeUp" delay={0.7}>
-                            <SectionBadge title="Next Steps" />
-                        </AnimationContainer>
-                        <AnimationContainer animation="fadeUp" delay={0.8}>
-                            <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium !leading-tight">
-                                <GradientText colors={['#8a27f3ff', '#db5800ff', '#8a27f3ff']} animationSpeed={6}>
-                                    What Happens Next?
-                                </GradientText>
-                            </h2>
-                        </AnimationContainer>
-                    </div>
-                    <div className="grid md:grid-cols-4 gap-6">
-                        {[
-                            { step: 1, text: "We'll confirm your demo time within 24 hours" },
-                            { step: 2, text: "You'll receive a calendar invitation" },
-                            { step: 3, text: "Our team will customize the demo to your needs" },
-                            { step: 4, text: "You'll see Tavestack in action!" },
-                        ].map((item, index) => (
-                            <div key={index} className="flex flex-col items-center text-center">
-                                <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-primary-foreground font-bold mb-3">
-                                    {item.step}
+                                <div className="grid sm:grid-cols-2 gap-4">
+                                    <Field label="Phone" name="phone" type="tel" />
+                                    <Field label="Company Name" name="company" required />
                                 </div>
-                                <p className="text-sm text-muted-foreground">{item.text}</p>
-                            </div>
-                        ))}
+                                <div className="grid sm:grid-cols-2 gap-4">
+                                    <div>
+                                        <label className="block text-xs font-medium text-foreground mb-1.5">
+                                            Industry <span className="text-accent ml-0.5">*</span>
+                                        </label>
+                                        <select
+                                            required
+                                            name="industry"
+                                            className="w-full h-10 rounded-md border border-border/60 bg-background/80 backdrop-blur-sm px-3 text-sm focus:outline-none focus:ring-2 focus:ring-ring"
+                                        >
+                                            <option value="">Select…</option>
+                                            {INDUSTRIES.map((i) => (
+                                                <option key={i} value={i}>
+                                                    {i}
+                                                </option>
+                                            ))}
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label className="block text-xs font-medium text-foreground mb-1.5">
+                                            Team Size <span className="text-accent ml-0.5">*</span>
+                                        </label>
+                                        <select
+                                            required
+                                            name="size"
+                                            className="w-full h-10 rounded-md border border-border/60 bg-background/80 backdrop-blur-sm px-3 text-sm focus:outline-none focus:ring-2 focus:ring-ring"
+                                        >
+                                            <option value="">Select…</option>
+                                            {TEAM_SIZES.map((s) => (
+                                                <option key={s} value={s}>
+                                                    {s}
+                                                </option>
+                                            ))}
+                                        </select>
+                                    </div>
+                                </div>
+                                <Field
+                                    label="Preferred date / time"
+                                    name="when"
+                                    placeholder="e.g. Tuesday morning, 10–11am WAT"
+                                />
+                                <div>
+                                    <label className="block text-xs font-medium text-foreground mb-2">
+                                        Which modules are you most interested in?
+                                    </label>
+                                    <div className="flex flex-wrap gap-2">
+                                        {APP_MODULES.filter((m) => m.slug !== "erp").map((m) => {
+                                            const active = modules.includes(m.slug);
+                                            return (
+                                                <button
+                                                    type="button"
+                                                    key={m.slug}
+                                                    onClick={() => toggleModule(m.slug)}
+                                                    className={`px-3.5 py-1.5 text-sm rounded-full border transition-colors ${
+                                                        active
+                                                            ? "border-primary/50 bg-primary/10 text-primary"
+                                                            : "border-border/60 text-muted-foreground hover:text-foreground hover:bg-foreground/5"
+                                                    }`}
+                                                >
+                                                    {m.name}
+                                                </button>
+                                            );
+                                        })}
+                                    </div>
+                                </div>
+                                <Button
+                                    type="submit"
+                                    className="w-full bg-brand-gradient text-white border-0 hover:opacity-95 shadow-lg shadow-primary/20"
+                                >
+                                    Book Demo
+                                </Button>
+                            </form>
+                        )}
                     </div>
                 </div>
             </Wrapper>
         </div>
     );
 };
+
+const Field = ({
+    label,
+    name,
+    type = "text",
+    required,
+    placeholder,
+}: {
+    label: string;
+    name: string;
+    type?: string;
+    required?: boolean;
+    placeholder?: string;
+}) => (
+    <div>
+        <label className="block text-xs font-medium text-foreground mb-1.5">
+            {label}
+            {required && <span className="text-accent ml-0.5">*</span>}
+        </label>
+        <input
+            type={type}
+            name={name}
+            required={required}
+            placeholder={placeholder}
+            className="w-full h-10 rounded-md border border-border/60 bg-background/80 backdrop-blur-sm px-3 text-sm focus:outline-none focus:ring-2 focus:ring-ring"
+        />
+    </div>
+);
 
 export default DemoPage;
