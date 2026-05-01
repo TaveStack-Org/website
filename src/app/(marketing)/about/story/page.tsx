@@ -2,6 +2,14 @@ import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import Wrapper from "@/components/global/wrapper";
 import PageHero from "@/components/marketing/page-hero";
+import { generateMetadata as buildMeta } from "@/utils/metadata";
+
+export const metadata = buildMeta({
+    title: "Our Story — We Built the Software We Couldn't Find",
+    description:
+        "TaveStack was born in Abuja from a frustrated observation: African businesses were spending more time managing software than running their companies. Read the story of why we built a Business OS.",
+    path: "/about/story",
+});
 
 const StoryPage = () => (
     <div className="w-full relative flex flex-col">

@@ -1,4 +1,12 @@
 import LegalShell from "@/components/marketing/legal-shell";
+import { generateMetadata as buildMeta } from "@/utils/metadata";
+
+export const metadata = buildMeta({
+    title: "Privacy Policy",
+    description:
+        "How TaveStack collects, uses, and protects your data. We never sell your data. Encrypted at rest and in transit, deletable on request, NDPR and GDPR compliant.",
+    path: "/legal/privacy",
+});
 
 const PrivacyPage = () => (
     <LegalShell

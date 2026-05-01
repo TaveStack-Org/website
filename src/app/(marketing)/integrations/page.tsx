@@ -6,6 +6,23 @@ import PageHero from "@/components/marketing/page-hero";
 import SectionHeading from "@/components/marketing/section-heading";
 import { Button } from "@/components/ui/button";
 import { INTEGRATION_GROUPS } from "@/constants";
+import { generateMetadata as buildMeta } from "@/utils/metadata";
+
+export const metadata = buildMeta({
+    title: "Integrations — Connect Your Existing Tools",
+    description:
+        "TaveStack OS connects with 100+ external tools and platforms — SAP, Oracle, QuickBooks, Xero, Salesforce, Slack, Paystack, Flutterwave and more — via native connectors, REST APIs, and webhooks.",
+    path: "/integrations",
+    keywords: [
+        "ERP integrations",
+        "QuickBooks integration",
+        "Salesforce integration",
+        "Slack integration",
+        "Paystack integration",
+        "Flutterwave integration",
+        "Tavestack API",
+    ],
+});
 
 const DEV_LINKS = [
     {

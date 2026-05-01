@@ -3,6 +3,14 @@ import { ArrowLeft, Linkedin } from "lucide-react";
 import AnimationContainer from "@/components/global/animation-container";
 import Wrapper from "@/components/global/wrapper";
 import PageHero from "@/components/marketing/page-hero";
+import { generateMetadata as buildMeta } from "@/utils/metadata";
+
+export const metadata = buildMeta({
+    title: "The Team Behind the OS",
+    description:
+        "Meet the founders, engineers, and operators building TaveStack OS — a team with deep roots in Nigerian enterprise tech, government digital transformation, and global AI engineering.",
+    path: "/about/team",
+});
 
 const TEAM = [
     {

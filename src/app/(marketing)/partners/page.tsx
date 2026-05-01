@@ -8,6 +8,15 @@ import {
     Sparkles,
 } from "lucide-react";
 import AnimationContainer from "@/components/global/animation-container";
+import { generateMetadata as buildMeta } from "@/utils/metadata";
+
+export const metadata = buildMeta({
+    title: "Partners — Build the Future of Business Operations",
+    description:
+        "Become a TaveStack implementation partner, technology partner, reseller, or training partner. Grow on the fastest-growing Business OS in Africa and beyond.",
+    path: "/partners",
+    keywords: ["TaveStack partners", "ERP implementation partners", "ERP resellers Africa", "Tavestack reseller"],
+});
 import Wrapper from "@/components/global/wrapper";
 import PageHero from "@/components/marketing/page-hero";
 import SectionHeading from "@/components/marketing/section-heading";

@@ -4,6 +4,14 @@ import AnimationContainer from "@/components/global/animation-container";
 import Wrapper from "@/components/global/wrapper";
 import PageHero from "@/components/marketing/page-hero";
 import { Button } from "@/components/ui/button";
+import { generateMetadata as buildMeta } from "@/utils/metadata";
+
+export const metadata = buildMeta({
+    title: "Press & Media",
+    description:
+        "TaveStack press kit, media coverage, and press contact. For media inquiries: press@tavestack.com.",
+    path: "/about/press",
+});
 
 const COVERAGE = [
     {

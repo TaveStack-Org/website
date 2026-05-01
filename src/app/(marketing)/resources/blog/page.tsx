@@ -3,6 +3,15 @@ import { ArrowRight, BookOpen } from "lucide-react";
 import AnimationContainer from "@/components/global/animation-container";
 import Wrapper from "@/components/global/wrapper";
 import PageHero from "@/components/marketing/page-hero";
+import { generateMetadata as buildMeta } from "@/utils/metadata";
+
+export const metadata = buildMeta({
+    title: "Blog — Insights on Business Intelligence, AI, and Operations",
+    description:
+        "Thought leadership and case studies on AI agents, modular ERP, African business technology, and the future of operations — from the team behind TaveStack OS.",
+    path: "/resources/blog",
+    keywords: ["AI ERP blog", "African business tech blog", "Tavestack blog", "AI automation insights"],
+});
 
 const CATEGORIES = [
     "AI & Automation",

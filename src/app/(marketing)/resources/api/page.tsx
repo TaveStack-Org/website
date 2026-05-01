@@ -1,3 +1,13 @@
+import { generateMetadata as buildMeta } from "@/utils/metadata";
+
+export const metadata = buildMeta({
+    title: "API & Developers",
+    description:
+        "Build on TaveStack — REST and GraphQL APIs, webhooks, SDKs, and a free developer sandbox. Extend the OS, integrate external systems, or trigger TAVE from your own apps.",
+    path: "/resources/api",
+    keywords: ["TaveStack API", "ERP API", "GraphQL API", "Tavestack SDK", "ERP webhooks"],
+});
+
 import Link from "next/link";
 import {
     BookOpen,

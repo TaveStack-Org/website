@@ -4,6 +4,14 @@ import AnimationContainer from "@/components/global/animation-container";
 import Wrapper from "@/components/global/wrapper";
 import PageHero from "@/components/marketing/page-hero";
 import { Button } from "@/components/ui/button";
+import { generateMetadata as buildMeta } from "@/utils/metadata";
+
+export const metadata = buildMeta({
+    title: "Webinars — Live Learning. On-Demand Intelligence.",
+    description:
+        "TAVE in 20 Minutes weekly demos, monthly OS Masterclass deep-dives, quarterly African Business Tech panels, and the Build on TaveStack developer series.",
+    path: "/resources/webinars",
+});
 
 const SERIES = [
     {

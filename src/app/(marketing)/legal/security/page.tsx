@@ -1,4 +1,12 @@
 import LegalShell from "@/components/marketing/legal-shell";
+import { generateMetadata as buildMeta } from "@/utils/metadata";
+
+export const metadata = buildMeta({
+    title: "Security Policy",
+    description:
+        "TaveStack security architecture — infrastructure security, application security, AES-256 encryption at rest, TLS 1.3 in transit, TAVE isolation, incident response, pen testing, and SOC 2.",
+    path: "/legal/security",
+});
 
 const SecurityPage = () => (
     <LegalShell

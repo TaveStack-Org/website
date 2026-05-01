@@ -4,6 +4,23 @@ import AnimationContainer from "@/components/global/animation-container";
 import Wrapper from "@/components/global/wrapper";
 import PageHero from "@/components/marketing/page-hero";
 import { SOLUTIONS } from "@/constants";
+import { generateMetadata as buildMeta } from "@/utils/metadata";
+
+export const metadata = buildMeta({
+    title: "Solutions — Built for Every Industry and Team",
+    description:
+        "See how TaveStack OS and TAVE solve operational challenges for enterprises, governments, SMEs, and industries from manufacturing to financial services, retail, and healthcare.",
+    path: "/solutions",
+    keywords: [
+        "Government ERP Nigeria",
+        "Enterprise ERP",
+        "SME ERP software",
+        "Manufacturing ERP",
+        "Financial services ERP",
+        "Retail ERP",
+        "Healthcare ERP",
+    ],
+});
 
 const SolutionsPage = () => (
     <div className="w-full relative flex flex-col">

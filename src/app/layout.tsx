@@ -4,8 +4,8 @@ import "@/styles/globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import { ThemeProvider } from "@/components/theme-provider";
 
-// Metadata is now directly imported from the metadata.ts file in the app directory
-export { metadata } from './metadata';
+// Metadata + viewport re-exported from app/metadata.ts
+export { metadata, viewport } from './metadata';
 
 export default function RootLayout({
     children,

@@ -4,6 +4,15 @@ import AnimationContainer from "@/components/global/animation-container";
 import Wrapper from "@/components/global/wrapper";
 import PageHero from "@/components/marketing/page-hero";
 import { RESOURCES_LINKS } from "@/constants";
+import { generateMetadata as buildMeta } from "@/utils/metadata";
+
+export const metadata = buildMeta({
+    title: "Resources — Insights, Docs, and Case Studies",
+    description:
+        "Insights on AI, ERP, and African business operations — plus product documentation, case studies, webinars, API references, and the TaveStack community.",
+    path: "/resources",
+    keywords: ["TaveStack resources", "ERP blog", "ERP case studies", "TaveStack documentation"],
+});
 
 const ResourcesPage = () => (
     <div className="w-full relative flex flex-col">

@@ -1,4 +1,12 @@
 import LegalShell from "@/components/marketing/legal-shell";
+import { generateMetadata as buildMeta } from "@/utils/metadata";
+
+export const metadata = buildMeta({
+    title: "Compliance",
+    description:
+        "TaveStack compliance frameworks: NDPR, GDPR, SOC 2 Type II, ISO 27001 (in progress), PCI DSS for payment integrations, and CBN data governance guidelines.",
+    path: "/legal/compliance",
+});
 
 const CompliancePage = () => (
     <LegalShell

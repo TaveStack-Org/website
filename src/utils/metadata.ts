@@ -1,37 +1,55 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
+import { SITE } from "@/constants/site";
 
-export const generateMetadata = ({
-    title = `TaveStack | Smart insights, smarter workflow`,
-    description = `AI-powered productivity assistant for transcribing, summarizing, and extracting tasks, tailored for African markets.`,
-    image = "/thumbnail.png",
-    icons = [
-        {
-            rel: "apple-touch-icon",
-            sizes: "180x180",
-            url: "/icons/TaveStack-Icon-Mark-_White-no-BG_.svg"
-        },
-        {
-            rel: "icon",
-            type: "image/svg+xml",
-            url: "/icons/TaveStack-Icon-Mark-_White-no-BG_.svg"
-        },
-        {
-            rel: "icon",
-            type: "image/png",
-            sizes: "32x32",
-            url: "/images/temp/TaveStack Icon Mark (Black no BG).png"
-        },
-    ],
-    noIndex = false
-}: {
-    title?: string;
-    description?: string;
-    image?: string | null;
-    icons?: Metadata["icons"];
+export const SITE_URL =
+    process.env.NEXT_PUBLIC_SITE_URL ?? "https://tavestack.com";
+
+export interface PageMetaInput {
+    title: string;
+    description: string;
+    /** Path relative to site root, e.g. "/pricing". Used for canonical + OG URL. */
+    path?: string;
+    /** Optional override OG image path (relative to siteUrl). Defaults to root /opengraph-image. */
+    image?: string;
+    keywords?: string[];
     noIndex?: boolean;
-} = {}): Metadata => ({
+}
+
+/**
+ * Builds a Metadata object for a single page. Pass title/description from the
+ * manuscript or a tight per-page fallback. The root layout already provides
+ * site-wide defaults — this helper just extends + overrides cleanly.
+ */
+export const generateMetadata = ({
     title,
     description,
-    icons,
-    ...(noIndex && { robots: { index: false, follow: false } }),
-});
+    path = "/",
+    image,
+    keywords,
+    noIndex = false,
+}: PageMetaInput): Metadata => {
+    const url = new URL(path, SITE_URL).toString();
+    const ogImage = image ? new URL(image, SITE_URL).toString() : undefined;
+
+    return {
+        title,
+        description,
+        keywords,
+        alternates: { canonical: url },
+        openGraph: {
+            title,
+            description,
+            url,
+            siteName: SITE.name,
+            type: "website",
+            ...(ogImage ? { images: [{ url: ogImage, width: 1200, height: 630, alt: title }] } : {}),
+        },
+        twitter: {
+            card: "summary_large_image",
+            title,
+            description,
+            ...(ogImage ? { images: [ogImage] } : {}),
+        },
+        ...(noIndex ? { robots: { index: false, follow: false } } : {}),
+    };
+};

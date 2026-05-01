@@ -4,6 +4,14 @@ import AnimationContainer from "@/components/global/animation-container";
 import Wrapper from "@/components/global/wrapper";
 import PageHero from "@/components/marketing/page-hero";
 import { Button } from "@/components/ui/button";
+import { generateMetadata as buildMeta } from "@/utils/metadata";
+
+export const metadata = buildMeta({
+    title: "Community — Connect With Other TaveStack Builders",
+    description:
+        "Join the TaveStack Slack, GitHub, and regional meetups. Connect with operators, developers, and partners running the OS in production.",
+    path: "/resources/community",
+});
 
 const CHANNELS = [
     {

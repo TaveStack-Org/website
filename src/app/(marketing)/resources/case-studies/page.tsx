@@ -4,6 +4,14 @@ import AnimationContainer from "@/components/global/animation-container";
 import Wrapper from "@/components/global/wrapper";
 import PageHero from "@/components/marketing/page-hero";
 import { Button } from "@/components/ui/button";
+import { generateMetadata as buildMeta } from "@/utils/metadata";
+
+export const metadata = buildMeta({
+    title: "Case Studies — Real Organizations Running on TaveStack",
+    description:
+        "How real organizations across manufacturing, logistics, and financial services use TaveStack OS to consolidate their stack, deploy TAVE, and free their teams from operational overhead.",
+    path: "/resources/case-studies",
+});
 
 const STUDIES = [
     {

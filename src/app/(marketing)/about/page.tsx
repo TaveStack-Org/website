@@ -8,6 +8,15 @@ import {
 } from "lucide-react";
 import AnimationContainer from "@/components/global/animation-container";
 import Wrapper from "@/components/global/wrapper";
+import { generateMetadata as buildMeta } from "@/utils/metadata";
+
+export const metadata = buildMeta({
+    title: "About TaveStack — African by Origin, Global by Design",
+    description:
+        "TaveStack was born in Abuja to give every organization in the world an intelligent, unified Business OS — built by a team with deep roots in Nigerian enterprise tech, government digital transformation, and global AI engineering.",
+    path: "/about",
+    keywords: ["About TaveStack", "African tech company", "ERP startup Africa", "TaveStack Nigeria", "AI startup Abuja"],
+});
 import PageHero from "@/components/marketing/page-hero";
 import SectionHeading from "@/components/marketing/section-heading";
 

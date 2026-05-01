@@ -1,3 +1,13 @@
+import { generateMetadata as buildMeta } from "@/utils/metadata";
+
+export const metadata = buildMeta({
+    title: "Documentation",
+    description:
+        "Get started with TaveStack OS — set up your workspace, deploy your first app module, learn TAVE commands, configure user permissions, and integrate with the rest of your stack.",
+    path: "/resources/docs",
+    keywords: ["TaveStack documentation", "TAVE commands", "ERP setup guide"],
+});
+
 import Link from "next/link";
 import {
     BookOpen,

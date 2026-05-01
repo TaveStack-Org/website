@@ -4,6 +4,15 @@ import AnimationContainer from "@/components/global/animation-container";
 import Wrapper from "@/components/global/wrapper";
 import PageHero from "@/components/marketing/page-hero";
 import { Button } from "@/components/ui/button";
+import { generateMetadata as buildMeta } from "@/utils/metadata";
+
+export const metadata = buildMeta({
+    title: "Careers — Help Us Build the World's Most Important Business Software",
+    description:
+        "Open roles at TaveStack — engineering, product, customer success, partnerships. Join a team building AI that does, not just AI that suggests.",
+    path: "/about/careers",
+    keywords: ["TaveStack careers", "African tech jobs", "AI engineer Africa", "Nigeria tech jobs"],
+});
 
 const ROLES = [
     {

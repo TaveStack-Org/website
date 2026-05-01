@@ -1,4 +1,12 @@
 import LegalShell from "@/components/marketing/legal-shell";
+import { generateMetadata as buildMeta } from "@/utils/metadata";
+
+export const metadata = buildMeta({
+    title: "Terms of Service",
+    description:
+        "TaveStack Terms of Service — covering OS Free tier, app module subscriptions, acceptable use, TAVE responsibilities, IP, data ownership, SLAs, liability, and governing law.",
+    path: "/legal/terms",
+});
 
 const TermsPage = () => (
     <LegalShell

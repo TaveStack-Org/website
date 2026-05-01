@@ -6,6 +6,7 @@ import Wrapper from "@/components/global/wrapper";
 import PageHero from "@/components/marketing/page-hero";
 import { SOLUTIONS, APP_MODULES, APP_TILE_ICONS } from "@/constants";
 import { Button } from "@/components/ui/button";
+import { generateMetadata as buildMeta } from "@/utils/metadata";
 
 export function generateStaticParams() {
     return SOLUTIONS.map((s) => ({ slug: s.slug }));
@@ -19,10 +20,12 @@ export async function generateMetadata({
     const { slug } = await params;
     const s = SOLUTIONS.find((x) => x.slug === slug);
     if (!s) return {};
-    return {
-        title: `${s.name} — TaveStack Solutions`,
+    return buildMeta({
+        title: `${s.headline} — TaveStack for ${s.name}`,
         description: s.summary,
-    };
+        path: `/solutions/${s.slug}`,
+        keywords: [`${s.name} ERP`, `${s.name} software`, "TaveStack Solutions", "AI Business OS"],
+    });
 }
 
 const recommendedApps: Record<string, string[]> = {

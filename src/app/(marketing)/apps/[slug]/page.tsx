@@ -6,6 +6,7 @@ import Wrapper from "@/components/global/wrapper";
 import PageHero from "@/components/marketing/page-hero";
 import { APP_MODULES, APP_TILE_ICONS, type AppSlug } from "@/constants";
 import { Button } from "@/components/ui/button";
+import { generateMetadata as buildMeta } from "@/utils/metadata";
 
 export function generateStaticParams() {
     return APP_MODULES.map((m) => ({ slug: m.slug }));
@@ -15,10 +16,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     const { slug } = await params;
     const m = APP_MODULES.find((x) => x.slug === slug);
     if (!m) return {};
-    return {
+    return buildMeta({
         title: `${m.name} — TaveStack Apps`,
-        description: m.description,
-    };
+        description: `${m.tagline} ${m.description}`,
+        path: `/apps/${m.slug}`,
+        keywords: [m.name, `${m.name} software`, `${m.name} ERP`, "TaveStack Apps", "AI-native business module"],
+    });
 }
 
 const AppDetailPage = async ({ params }: { params: Promise<{ slug: string }> }) => {
