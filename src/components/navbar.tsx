@@ -207,7 +207,7 @@ const Navbar = () => {
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             exit={{ opacity: 0 }}
-                            className="flex rounded-b-xl absolute top-14 bg-background/97 backdrop-blur-xl inset-x-0 z-50 flex-col items-start justify-start gap-1 w-full px-4 py-6 shadow-xl border-x border-b border-border max-h-[80vh] overflow-y-auto"
+                            className="flex rounded-b-xl absolute top-14 bg-background/95 backdrop-blur-xl inset-x-0 z-[60] flex-col items-start justify-start gap-1 w-full px-4 py-6 shadow-xl border-x border-b border-border max-h-[80vh] overflow-y-auto supports-[backdrop-filter]:bg-background/85"
                         >
                             {NAV_PRIMARY.map((link) =>
                                 link.mega ? (
