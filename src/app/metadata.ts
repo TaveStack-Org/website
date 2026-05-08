@@ -70,12 +70,9 @@ export const metadata: Metadata = {
         },
     },
     icons: {
-        icon: [
-            { url: "/icons/favicon.ico", sizes: "any" },
-            { url: "/icons/icon.svg", type: "image/svg+xml" },
-        ],
+        icon: "/icons/favicon.ico",
         shortcut: "/icons/favicon.ico",
-        apple: "/icons/TaveStack-Icon-Mark-_White-no-BG_.svg",
+        apple: "/icons/favicon.ico",
     },
     manifest: "/manifest.webmanifest",
 };
