@@ -1,7 +1,6 @@
 import { base, heading } from "@/constants/fonts";
 import { cn } from "@/lib";
 import "@/styles/globals.css";
-import { ClerkProvider } from "@clerk/nextjs";
 import { ThemeProvider } from "@/components/theme-provider";
 
 // Metadata + viewport re-exported from app/metadata.ts
@@ -21,15 +20,13 @@ export default function RootLayout({
                     heading.variable,
                 )}
             >
-                <ClerkProvider>
-                    <ThemeProvider
-                        attribute="class"
-                        defaultTheme="system"
-                        enableSystem
-                        disableTransitionOnChange>
-                        {children}
-                    </ThemeProvider>
-                </ClerkProvider>
+                <ThemeProvider
+                    attribute="class"
+                    defaultTheme="system"
+                    enableSystem
+                    disableTransitionOnChange>
+                    {children}
+                </ThemeProvider>
             </body>
         </html>
     );

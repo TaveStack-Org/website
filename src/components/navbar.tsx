@@ -10,7 +10,6 @@ import {
 } from "@/constants";
 import { useClickOutside } from "@/hooks";
 import { cn } from "@/lib";
-import { useClerk } from "@clerk/nextjs";
 import {
     AnimatePresence,
     motion,
@@ -28,7 +27,6 @@ import { ModeToggle } from "./ui/theme-toggle";
 type MegaKey = "apps" | "solutions" | "resources";
 
 const Navbar = () => {
-    const { user } = useClerk();
     const ref = useRef<HTMLDivElement | null>(null);
     const [open, setOpen] = useState(false);
     const [mega, setMega] = useState<MegaKey | null>(null);
@@ -115,7 +113,7 @@ const Navbar = () => {
                     <AnimationContainer animation="fadeLeft" delay={0.1}>
                         <div className="flex items-center gap-x-3">
                             <Link
-                                href={user ? "/platform" : "/contact"}
+                                href="/contact"
                                 className="text-sm text-muted-foreground hover:text-foreground transition-colors px-2 py-1"
                             >
                                 Sign In
